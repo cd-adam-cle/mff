@@ -1,0 +1,2 @@
+# mff
+financni matika survival
