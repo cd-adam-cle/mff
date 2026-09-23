@@ -14,6 +14,8 @@ VISION_MAX_W=1400        # wider than this just burns tokens when Claude reads i
 SCENE_DEFAULT=0.22       # scene-change sensitivity; lower => more frames
 MAX_FRAMES_DEFAULT=60
 WHISPER_MODEL_DEFAULT="mlx-community/whisper-large-v3-turbo"
+PHOTO_Q=4                # ffmpeg jpeg quality (1 best .. 31); 4 is visually lossless here
+PHOTO_MAX=3200           # long edge in px; plenty to read handwriting on a board
 
 die(){ echo "media: $*" >&2; exit 1; }
 have(){ command -v "$1" >/dev/null 2>&1; }
@@ -393,6 +395,63 @@ cmd_sheet(){  # contact sheet straight from a folder of photos (e.g. blackboard 
   echo "  tile order = $(ls "$dir"/*.[jJpP][pPnN]*[gG] 2>/dev/null | head -1 | xargs basename), … (alphabetical)"
 }
 
+
+# ---------------------------------------------------------------------------
+# photos — make phone snaps of a blackboard git-friendly.
+# An iPhone shot saved as PNG is ~29 MB lossless; the same board as JPEG at
+# 3200 px on the long edge is ~0.5 MB and reads identically (verified by
+# comparing 1:1 crops). Originals are moved aside, not deleted.
+# ---------------------------------------------------------------------------
+cmd_photos(){
+  local dir="" q="$PHOTO_Q" maxpx="$PHOTO_MAX" keep=1 sheet=1
+  while [ $# -gt 0 ]; do
+    case "$1" in
+      --quality) q="$2"; shift 2;;
+      --max)     maxpx="$2"; shift 2;;
+      --discard-raw) keep=0; shift;;
+      --no-sheet)    sheet=0; shift;;
+      *) dir="$1"; shift;;
+    esac
+  done
+  [ -n "$dir" ] && [ -d "$dir" ] || die "usage: media photos <dir> [--quality 4] [--max 3200] [--discard-raw]"
+  dir="$(cd "$dir" && pwd)"
+  local raw="$dir/_raw"; mkdir -p "$raw"
+
+  local n=0 saved_before=0 saved_after=0 img base out
+  for img in "$dir"/*.[pPjJhH][nNpPeE][gGiI]* ; do
+    [ -f "$img" ] || continue
+    base="$(basename "$img")"
+    case "$base" in *.jpg|*.jpeg) # already optimised? only redo if oversized
+        [ "$(find "$img" -size +3M | head -1)" ] || continue;;
+    esac
+    out="$dir/${base%.*}.jpg"
+    saved_before=$((saved_before + $(stat -f%z "$img")))
+
+    # HEIC needs macOS sips; ffmpeg handles png/jpg
+    case "$base" in
+      *.heic|*.HEIC|*.heif|*.HEIF)
+        sips -s format jpeg -Z "$maxpx" "$img" --out "$out.tmp.jpg" >/dev/null 2>&1 \
+          && mv "$out.tmp.jpg" "$out" || { echo "media: sips failed on $base" >&2; continue; };;
+      *)
+        ffmpeg -hide_banner -loglevel error -nostdin -i "$img" \
+          -vf "scale=$maxpx:$maxpx:force_original_aspect_ratio=decrease" \
+          -q:v "$q" -y "$out.tmp.jpg" \
+          && mv "$out.tmp.jpg" "$out" || { echo "media: convert failed on $base" >&2; continue; };;
+    esac
+    saved_after=$((saved_after + $(stat -f%z "$out")))
+    n=$((n+1))
+    # only move the original once the replacement exists
+    [ "$img" != "$out" ] && { [ "$keep" -eq 1 ] && mv "$img" "$raw/" || rm -f "$img"; }
+  done
+
+  [ "$n" -gt 0 ] || { echo "media: no images converted in $dir"; return 0; }
+  echo "media: converted $n photo(s)"
+  "$(pybin)" -c "b=$saved_before;a=$saved_after;print('  %.0f MB -> %.1f MB  (%.0fx smaller)'%(b/1e6,a/1e6,b/max(a,1)))"
+  [ "$keep" -eq 1 ] && echo "  originals moved to $raw (git-ignored — delete when you trust the JPEGs)"
+  [ "$sheet" -eq 1 ] && cmd_sheet "$dir" 3 3 | tail -4
+  return 0
+}
+
 cmd_ls(){ # what's already ingested
   [ -d "$MEDIA_DIR" ] || { echo "(nothing ingested yet)"; return; }
   local d
@@ -425,6 +484,10 @@ media — video/audio/image ingest for the MFF study HQ
         Filenames encode the timestamp: 007_00-14-32.jpg
   media at    <url|file> <HH:MM:SS> …             exact-moment full-res frames
   media grid  <url|file|framedir> [cols] [rows]   numbered contact sheet
+  media photos <image-dir> [--quality 4] [--max 3200] [--discard-raw]
+        Shrink phone photos of a blackboard for git: ~29 MB PNG -> ~0.5 MB JPEG
+        with no loss of legibility. Originals move to <dir>/_raw/ (git-ignored).
+        Handles HEIC. Run this on every new batch of board photos.
   media sheet <image-dir> [cols] [rows]           contact sheet from photos
   media audio <url|file>                          16 kHz mono wav
   media shrink <img…>                             downscale for cheap reading
@@ -441,6 +504,7 @@ case "${1:-help}" in
   at)         shift; cmd_at "$@";;
   grid)       shift; cmd_grid "$@";;
   sheet)      shift; cmd_sheet "$@";;
+  photos)     shift; cmd_photos "$@";;
   audio)      shift; cmd_audio "$@";;
   transcript) shift; cmd_transcript "$@";;
   shrink)     shift; cmd_shrink "$@";;
