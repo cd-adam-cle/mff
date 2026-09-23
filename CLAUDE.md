@@ -99,11 +99,20 @@ projde, si zapamatuje do `tools/.yt-client`. Když selžou všechny:
 
 ## Fotky tabulí
 
+**Po každém focení pusť tohle, ještě než se něco commituje:**
+
 ```bash
-tools/bin/media sheet opakovani_stredoskolske_matiky/tabule 3 3
+tools/bin/media photos opakovani_stredoskolske_matiky/tabule
 ```
-Udělá očíslovaný kontaktní list — rychlý přehled, co na kterých fotkách je.
-Pro čtení konkrétní tabule pak otevři originální PNG (`Read`), ne list.
+
+iPhone fotí 4284x5712; uložené jako PNG má každá fotka ~29 MB a v gitu by
+zůstala navždy. `media photos` je převede na JPEG (3200 px na delší hraně,
+q=4) — vyjde ~0,5 MB a čte se **stejně**, ověřeno porovnáním výřezů 1:1.
+Zvládne i HEIC z telefonu. Originály odsune do `_raw/`, který je mimo git;
+smaž je, až JPEGům uvěříš.
+
+Kontaktní list vyrobí rovnou. Pro čtení konkrétní tabule otevři JPEG
+(`Read`), ne list — ten je jen na přehled.
 
 ## Znalostní graf
 
