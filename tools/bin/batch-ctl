@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+# Pause / resume the prep-course batch.
+#
+#   batch-ctl pause    freeze it exactly where it is (SIGSTOP) — nothing is lost,
+#                      but it must stay in RAM, so don't reboot while paused
+#   batch-ctl resume   thaw it (SIGCONT); if it is no longer running, relaunch —
+#                      the script itself skips lectures that are already finished
+#   batch-ctl stop     end it for good; resume later with `batch-ctl resume`,
+#                      which restarts from the first unfinished lecture
+#   batch-ctl status   what it is doing right now
+set -uo pipefail
+ROOT="/Users/adamzikmund/Claude/Projects/Mff"
+SCRIPT="$ROOT/tools/bin/batch-prepkurz.sh"
+LOG="${BATCH_LOG:-/private/tmp/claude-501/-Users-adamzikmund-Claude-Projects-Mff/08aa333b-faef-4d06-90d9-13c394be48f6/scratchpad/batch2.log}"
+VIDEOS="$ROOT/opakovani_stredoskolske_matiky/videa"
+
+# the batch shell plus everything it spawned (yt-dlp, whisper, ffmpeg)
+tree_pids(){
+  local root; root="$(pgrep -f 'batch-prepkurz.sh' | head -1)"
+  [ -n "$root" ] || return 1
+  local all="$root" frontier="$root" next
+  while [ -n "$frontier" ]; do
+    next="$(pgrep -P "$(echo $frontier | tr ' ' ',')" 2>/dev/null | tr '\n' ' ')"
+    [ -z "${next// /}" ] && break
+    all="$all $next"; frontier="$next"
+  done
+  echo $all
+}
+
+case "${1:-status}" in
+  pause)
+    P="$(tree_pids)" || { echo "batch is not running"; exit 1; }
+    # children first, so the parent cannot spawn more while we work
+    for p in $(echo $P | tr ' ' '\n' | tail -r); do kill -STOP "$p" 2>/dev/null; done
+    echo "PAUSED (frozen in place, nothing lost)"
+    echo "  resume with: tools/bin/batch-ctl resume"
+    ;;
+  resume)
+    if P="$(tree_pids)"; then
+      for p in $P; do kill -CONT "$p" 2>/dev/null; done
+      echo "RESUMED (continued from the exact point it was frozen)"
+    else
+      echo "not running — relaunching; finished lectures are skipped"
+      nohup "$SCRIPT" >> "$LOG" 2>&1 &
+      echo "started, PID $!"
+    fi
+    ;;
+  stop)
+    P="$(tree_pids)" || { echo "batch is not running"; exit 0; }
+    for p in $P; do kill -CONT "$p" 2>/dev/null; done   # a stopped process ignores TERM
+    for p in $(echo $P | tr ' ' '\n' | tail -r); do kill -TERM "$p" 2>/dev/null; done
+    sleep 2
+    for p in $P; do kill -KILL "$p" 2>/dev/null; done
+    echo "STOPPED. Resume later with: tools/bin/batch-ctl resume"
+    ;;
+  status)
+    if P="$(tree_pids)"; then
+      state="$(ps -o stat= -p "$(echo $P | cut -d' ' -f1)" 2>/dev/null | tr -d ' ')"
+      case "$state" in T*) echo "PAUSED";; *) echo "RUNNING";; esac
+    else echo "NOT RUNNING"; fi
+    echo "--- lectures ---"
+    for d in "$VIDEOS"/*/; do
+      [ -d "$d" ] || continue
+      n=$(find "$d/frames" -maxdepth 1 -name '*.jpg' 2>/dev/null | wc -l | tr -d ' ')
+      if [ -s "$d/transcript.txt" ] && [ "$n" -gt 0 ]; then st="done"
+      elif [ -s "$d/transcript.txt" ]; then st="transcript only"
+      elif [ -f "$d/audio.wav" ]; then st="audio ready, transcribing"
+      else st="not started"; fi
+      printf "  %-24s %s\n" "$(basename "$d")" "$st"
+    done
+    echo "--- last log lines ---"
+    grep -E "^################|^[0-9]{2}:|  OK |  FAILED |^!!" "$LOG" 2>/dev/null | tail -3
+    ;;
+  *) echo "usage: batch-ctl {pause|resume|stop|status}"; exit 1;;
+esac

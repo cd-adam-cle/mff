@@ -1,0 +1,450 @@
+#!/usr/bin/env bash
+# media — turn any video/audio into things Claude can actually read:
+#         sampled frames (images) + a timestamped transcript (text).
+# Part of the MFF study HQ.  `media help` for usage.
+set -euo pipefail
+
+TOOLS="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+ROOT="$(cd "$TOOLS/.." && pwd)"
+MEDIA_DIR="${MEDIA_DIR:-$ROOT/media}"
+VENV_PY="$TOOLS/.venv/bin/python"
+export PATH="$TOOLS/bin:$PATH"          # our pinned ffmpeg/ffprobe win
+
+VISION_MAX_W=1400        # wider than this just burns tokens when Claude reads it
+SCENE_DEFAULT=0.22       # scene-change sensitivity; lower => more frames
+MAX_FRAMES_DEFAULT=60
+WHISPER_MODEL_DEFAULT="mlx-community/whisper-large-v3-turbo"
+
+die(){ echo "media: $*" >&2; exit 1; }
+have(){ command -v "$1" >/dev/null 2>&1; }
+pybin(){ [ -x "$VENV_PY" ] && echo "$VENV_PY" || echo python3; }
+is_url(){ case "$1" in http://*|https://*) return 0;; *) return 1;; esac; }
+slugify(){ "$(pybin)" "$TOOLS/bin/slug.py" "$1"; }
+# every subtitle file we hold for this source, best language first (cs > sk > en)
+list_subs(){
+  local wd="$1" lang f
+  for lang in cs sk en en-orig ""; do
+    for f in "$wd"/subs*"$lang"*.vtt "$wd"/subs*"$lang"*.srt; do
+      [ -f "$f" ] && { echo "$f"; return; }
+    done
+  done
+  return 0
+}
+
+hms(){ "$(pybin)" -c "import sys;s=float(sys.argv[1]);print('%02d-%02d-%02d'%(s//3600,s%3600//60,s%60))" "$1"; }
+
+have ffmpeg  || die "ffmpeg not found"
+have ffprobe || die "ffprobe not found"
+
+# YouTube 403s specific player clients at random and rotates which one is broken,
+# so retry across a few before giving up. If all fail, `yt-dlp -U` is the real fix.
+YT_CLIENTS="${YT_CLIENTS:-default mweb tv web_safari ios}"
+YT_MEMO="$TOOLS/.yt-client"     # last client that actually worked; tried first
+ytdl(){
+  local c rc order
+  order="$YT_CLIENTS"
+  [ -f "$YT_MEMO" ] && order="$(cat "$YT_MEMO") $YT_CLIENTS"
+  for c in $order; do
+    if [ "$c" = default ]; then
+      yt-dlp --no-warnings "$@" >&2 && { rm -f "$YT_MEMO"; return 0; }
+    else
+      yt-dlp --no-warnings --extractor-args "youtube:player_client=$c" "$@" >&2 \
+        && { echo "$c" > "$YT_MEMO"; return 0; }
+    fi
+    rc=$?
+    echo "media: player_client=$c failed, trying the next one …" >&2
+  done
+  return $rc
+}
+
+# ---------------------------------------------------------------------------
+# workdir <src> [name]  ->  echoes the per-source folder, creating it
+# ---------------------------------------------------------------------------
+workdir(){
+  local src="$1" name="${2:-}" slug title wd
+  if is_url "$src"; then
+    if [ -n "$name" ]; then slug="$(slugify "$name")"
+    else
+      title="$(yt-dlp --no-warnings --skip-download --print '%(title)s' "$src" 2>/dev/null | head -1)"
+      slug="$(slugify "${title:-video}")"
+    fi
+  else
+    slug="$(slugify "${name:-$(basename "${src%.*}")}")"
+  fi
+  wd="$MEDIA_DIR/$slug"; mkdir -p "$wd"
+  is_url "$src" && printf '%s' "$src" > "$wd/.source-url"
+  echo "$wd"
+}
+
+# ---------------------------------------------------------------------------
+# fetch <src> <wd> <need>   need = subs | audio | video
+# Echoes the local media path (empty for need=subs when only subs were pulled).
+# Lazy on purpose: transcribing a 2 h lecture must not download 2 GB of video.
+# ---------------------------------------------------------------------------
+fetch(){
+  local src="$1" wd="$2" need="$3" existing=""
+  if ! is_url "$src"; then
+    [ -f "$src" ] || die "no such file: $src"
+    echo "$(cd "$(dirname "$src")" && pwd)/$(basename "$src")"; return
+  fi
+  have yt-dlp || die "yt-dlp not found (needed for URLs)"
+
+  case "$need" in
+    subs)
+      if [ -z "$(list_subs "$wd")" ]; then
+        ytdl --skip-download --sleep-subtitles 1 \
+          --write-subs --write-auto-subs --sub-langs 'cs,sk,en,en-orig' --sub-format 'vtt/srt/best' \
+          -o "$wd/subs" "$src" || true
+      fi
+      echo ""; return;;
+    audio)
+      existing="$(find "$wd" -maxdepth 1 -name 'audio-src.*' 2>/dev/null | head -1)"
+      if [ -z "$existing" ]; then
+        echo "media: downloading audio only …" >&2
+        ytdl -f 'ba/b' -o "$wd/audio-src.%(ext)s" "$src" \
+          || die "no player client could download the audio. Try: yt-dlp -U"
+        existing="$(find "$wd" -maxdepth 1 -name 'audio-src.*' ! -name '*.part' | head -1)"
+      fi;;
+    video)
+      existing="$(find "$wd" -maxdepth 1 -name 'source.*' ! -name '*.part' ! -name '*.vtt' ! -name '*.srt' 2>/dev/null | head -1)"
+      if [ -z "$existing" ]; then
+        echo "media: downloading video …" >&2
+        ytdl -f 'bv*[height<=1080]+ba/b[height<=1080]/b' --merge-output-format mp4 \
+          --write-subs --write-auto-subs --sub-langs 'cs,sk,en,en-orig' --sub-format 'vtt/srt/best' \
+          -o "$wd/source.%(ext)s" "$src" \
+          || die "no player client could download the video. Try: yt-dlp -U"
+        # keep subtitle naming consistent with the subs-only path
+        for s in "$wd"/source*.vtt "$wd"/source*.srt; do
+          [ -f "$s" ] && mv "$s" "$wd/subs.${s##*source}" 2>/dev/null || true
+        done
+        existing="$(find "$wd" -maxdepth 1 -name 'source.*' ! -name '*.part' ! -name '*.vtt' ! -name '*.srt' | head -1)"
+      fi;;
+  esac
+  [ -n "$existing" ] || die "download produced no file"
+  echo "$existing"
+}
+
+# ---------------------------------------------------------------------------
+cmd_info(){
+  local src="" name=""
+  while [ $# -gt 0 ]; do
+    case "$1" in
+      --name) name="$2"; shift 2;;
+      --lang|--model|--scene|--every|--count|--max|--from|--to) shift 2;;
+      --force-whisper|--refresh) shift;;
+      *) [ -z "$src" ] && src="$1"; shift;;
+    esac
+  done
+  [ -n "$src" ] || die "usage: media info <url|file> [--name X]"
+  local wd; wd="$(workdir "$src" "$name")"
+  if is_url "$src"; then
+    yt-dlp --no-warnings -J "$src" > "$wd/ytdlp.json" 2>/dev/null || die "could not read metadata"
+    "$(pybin)" "$TOOLS/bin/ytinfo.py" "$wd/ytdlp.json"
+  else
+    local f; f="$(fetch "$src" "$wd" video)"; [ -n "$f" ] || exit 1
+    ffprobe -v error -print_format json -show_format -show_streams "$f" > "$wd/info.json"
+    "$(pybin)" "$TOOLS/bin/probe.py" "$wd/info.json" "$f"
+  fi
+  echo "workdir   : $wd"
+}
+
+# ---------------------------------------------------------------------------
+cmd_frames(){
+  local src="" mode="scene" val="$SCENE_DEFAULT" maxf="$MAX_FRAMES_DEFAULT" name="" from="" to=""
+  while [ $# -gt 0 ]; do
+    case "$1" in
+      --scene) mode=scene; val="$2"; shift 2;;
+      --every) mode=every; val="$2"; shift 2;;
+      --count) mode=count; val="$2"; shift 2;;
+      --max)   maxf="$2";  shift 2;;
+      --name)  name="$2";  shift 2;;
+      --from)  from="$2";  shift 2;;
+      --to)    to="$2";    shift 2;;
+      --lang|--model) shift 2;;
+      --force-whisper|--refresh) shift;;
+      *) src="$1"; shift;;
+    esac
+  done
+  [ -n "$src" ] || die "usage: media frames <url|file> [--scene N|--every S|--count N] [--max N] [--from T] [--to T]"
+  local wd f; wd="$(workdir "$src" "$name")"; f="$(fetch "$src" "$wd" video)"; [ -n "$f" ] || exit 1
+  local out="$wd/frames"; rm -rf "$out"; mkdir -p "$out"
+
+  local dur; dur="$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$f")"
+  local trim=""; [ -n "$from" ] && trim="-ss $from"; [ -n "$to" ] && trim="$trim -to $to"
+
+  local filt iv
+  case "$mode" in
+    scene) filt="select='gt(scene,$val)'";;
+    every) filt="fps=1/$val";;
+    count) iv="$("$(pybin)" -c "print(max(1,float('$dur')/max(1,$val)))")"; filt="fps=1/$iv";;
+  esac
+
+  echo "media: sampling frames ($mode=$val, cap $maxf) …" >&2
+  ffmpeg -hide_banner -loglevel info -nostdin $trim -i "$f" \
+    -vf "${filt},showinfo,scale='min($VISION_MAX_W,iw)':-2" \
+    -fps_mode vfr -q:v 4 "$out/raw_%05d.jpg" 2> "$out/.ffmpeg.log" || true
+
+  # showinfo prints pts_time for each frame that survived the filter, in order
+  grep -o 'pts_time:[0-9.]*' "$out/.ffmpeg.log" | cut -d: -f2 > "$out/.times" || true
+  local i=1 t p
+  while read -r t; do
+    p="$(printf '%s/raw_%05d.jpg' "$out" "$i")"
+    [ -f "$p" ] && mv "$p" "$out/$(printf '%03d' "$i")_$(hms "$t").jpg"
+    i=$((i+1))
+  done < "$out/.times"
+  rm -f "$out"/raw_*.jpg
+
+  local n; n=$(find "$out" -maxdepth 1 -name '*.jpg' | wc -l | tr -d ' ')
+
+  # Screencasts (a hand writing on a digital board) change continuously and never
+  # trip the scene detector, so an empty or near-empty result is expected there,
+  # not an error — fall back to uniform sampling instead of giving up.
+  if [ "$mode" = scene ] && [ "$n" -lt 8 ]; then
+    local want; want="$("$(pybin)" -c "print(max(12,min($maxf,int(float('$dur')/25))))")"
+    echo "media: scene detection found only $n frames (continuous video?) — resampling $want evenly" >&2
+    rm -f "$out"/*.jpg "$out/.times"
+    local iv2; iv2="$("$(pybin)" -c "print(max(1,float('$dur')/$want))")"
+    ffmpeg -hide_banner -loglevel info -nostdin $trim -i "$f" \
+      -vf "fps=1/$iv2,showinfo,scale='min($VISION_MAX_W,iw)':-2" \
+      -fps_mode vfr -q:v 4 "$out/raw_%05d.jpg" 2> "$out/.ffmpeg.log" || true
+    grep -o 'pts_time:[0-9.]*' "$out/.ffmpeg.log" | cut -d: -f2 > "$out/.times" || true
+    i=1
+    while read -r t; do
+      p="$(printf '%s/raw_%05d.jpg' "$out" "$i")"
+      [ -f "$p" ] && mv "$p" "$out/$(printf '%03d' "$i")_$(hms "$t").jpg"
+      i=$((i+1))
+    done < "$out/.times"
+    rm -f "$out"/raw_*.jpg
+    n=$(find "$out" -maxdepth 1 -name '*.jpg' | wc -l | tr -d ' ')
+  fi
+
+  if [ "$n" -gt "$maxf" ]; then
+    echo "media: $n frames -> thinning to $maxf" >&2
+    "$(pybin)" "$TOOLS/bin/thin.py" "$out" "$maxf"
+    n="$maxf"
+  fi
+  [ "$n" -gt 0 ] || die "no frames extracted"
+  echo "media: $n frames -> $out"
+  find "$out" -maxdepth 1 -name '*.jpg' | sort | sed 's|.*/|  |'
+}
+
+# ---------------------------------------------------------------------------
+cmd_at(){
+  local src="" name="" times=""
+  while [ $# -gt 0 ]; do
+    case "$1" in --name) name="$2"; shift 2;;
+      *) if [ -z "$src" ]; then src="$1"; else times="$times $1"; fi; shift;; esac
+  done
+  [ -n "$src" ] && [ -n "$times" ] || die "usage: media at <url|file> <HH:MM:SS> [more…] [--name X]"
+  set -- $times
+  local wd f; wd="$(workdir "$src" "$name")"; f="$(fetch "$src" "$wd" video)"; [ -n "$f" ] || exit 1
+  local out="$wd/frames-at"; mkdir -p "$out"
+  local t tag
+  for t in "$@"; do
+    tag="$(echo "$t" | tr ':.' '--')"
+    ffmpeg -hide_banner -loglevel error -nostdin -ss "$t" -i "$f" -frames:v 1 \
+      -vf "scale='min($VISION_MAX_W,iw)':-2" -q:v 2 -y "$out/at_$tag.jpg"
+    echo "  $out/at_$tag.jpg"
+  done
+}
+
+# ---------------------------------------------------------------------------
+cmd_grid(){
+  local src="${1:?usage: media grid <url|file|framedir> [cols] [rows]}"
+  local cols="${2:-4}" rows="${3:-5}" name="${4:-}" dir wd
+  if [ -d "$src" ]; then dir="$(cd "$src" && pwd)"
+  else
+    wd="$(workdir "$src" "$name")"; dir="$wd/frames"
+    [ -n "$(find "$dir" -maxdepth 1 -name '*.jpg' 2>/dev/null | head -1)" ] || cmd_frames "$src" >/dev/null
+    dir="$wd/frames"
+  fi
+  local out; out="$(dirname "$dir")/grid"; rm -rf "$out"; mkdir -p "$out"
+  local tmp; tmp="$(mktemp -d)"; local i=0 fjpg
+  for fjpg in "$dir"/*.jpg; do i=$((i+1)); ln -sf "$fjpg" "$(printf '%s/%04d.jpg' "$tmp" "$i")"; done
+  [ "$i" -gt 0 ] || die "no frames in $dir"
+  ffmpeg -hide_banner -loglevel error -nostdin -start_number 1 -i "$tmp/%04d.jpg" \
+    -vf "scale=640:-2,drawtext=text='%{n}':x=10:y=10:fontsize=30:fontcolor=yellow:box=1:boxcolor=black@0.65,tile=${cols}x${rows}:padding=6:margin=6:color=white" \
+    -q:v 3 -y "$out/sheet_%02d.jpg" 2>/dev/null \
+  || ffmpeg -hide_banner -loglevel error -nostdin -start_number 1 -i "$tmp/%04d.jpg" \
+    -vf "scale=640:-2,tile=${cols}x${rows}:padding=6:margin=6:color=white" -q:v 3 -y "$out/sheet_%02d.jpg"
+  rm -rf "$tmp"
+  echo "media: contact sheet(s) -> $out"; find "$out" -maxdepth 1 -name '*.jpg' | sort | sed 's|.*/|  |'
+  echo "  tile 0 = $(find "$dir" -maxdepth 1 -name '*.jpg' | sort | head -1 | xargs basename), then in filename order"
+}
+
+# ---------------------------------------------------------------------------
+cmd_audio(){
+  local src="" name=""
+  while [ $# -gt 0 ]; do
+    case "$1" in --name) name="$2"; shift 2;; *) src="$1"; shift;; esac
+  done
+  [ -n "$src" ] || die "usage: media audio <url|file> [--name X]"
+  local wd f; wd="$(workdir "$src" "$name")"; f="$(fetch "$src" "$wd" audio)"; [ -n "$f" ] || exit 1
+  if [ ! -f "$wd/audio.wav" ]; then
+    local has; has="$(ffprobe -v error -select_streams a -show_entries stream=index -of csv=p=0 "$f" | head -1)"
+    [ -n "$has" ] || die "$(basename "$f") has no audio track — nothing to transcribe"
+    ffmpeg -hide_banner -loglevel error -nostdin -i "$f" -vn -ac 1 -ar 16000 -c:a pcm_s16le -y "$wd/audio.wav"
+  fi
+  echo "$wd/audio.wav"
+}
+
+# ---------------------------------------------------------------------------
+cmd_transcript(){
+  local src="" lang="" model="$WHISPER_MODEL_DEFAULT" force=0 name="" refresh=0
+  while [ $# -gt 0 ]; do
+    case "$1" in
+      --lang)  lang="$2";  shift 2;;
+      --model) model="$2"; shift 2;;
+      --name)  name="$2";  shift 2;;
+      --refresh) refresh=1; shift;;
+      --force-whisper) force=1; refresh=1; shift;;
+      --scene|--every|--count|--max|--from|--to) shift 2;;
+      *) src="$1"; shift;;
+    esac
+  done
+  [ -n "$src" ] || die "usage: media transcript <url|file> [--lang cs] [--force-whisper] [--refresh]"
+  local wd; wd="$(workdir "$src" "$name")"
+
+  if [ -s "$wd/transcript.txt" ] && [ "$refresh" -eq 0 ]; then
+    echo "media: reusing existing transcript (--refresh to redo)" >&2
+    echo "$wd/transcript.txt"; return
+  fi
+
+  # 1) cheap path: subtitles that ship with the video
+  if [ "$force" -eq 0 ]; then
+    if is_url "$src"; then fetch "$src" "$wd" subs >/dev/null || true; fi
+    local sub; sub="$(list_subs "$wd" || true)"
+    if [ -n "$sub" ]; then
+      echo "media: using published subtitles ($(basename "$sub"))" >&2
+      "$(pybin)" "$TOOLS/bin/subs2txt.py" "$sub" > "$wd/transcript.txt.tmp" \
+        && mv "$wd/transcript.txt.tmp" "$wd/transcript.txt" \
+        || { rm -f "$wd/transcript.txt.tmp"; die "could not parse $sub"; }
+      echo "$wd/transcript.txt"; return
+    fi
+    echo "media: no subtitles published, falling back to local Whisper" >&2
+  fi
+
+  # 2) local Whisper on the Apple GPU
+  [ -x "$VENV_PY" ] || die "venv missing — see tools/README.md"
+  "$VENV_PY" -c "import mlx_whisper" 2>/dev/null || die "mlx-whisper not installed in tools/.venv"
+  local wav; wav="$(cmd_audio "$src" --name "$(basename "$wd")")" || return 1
+  [ -n "$wav" ] || return 1
+  echo "media: transcribing locally with $model …" >&2
+  "$VENV_PY" "$TOOLS/bin/transcribe.py" "$wav" "$wd" "$model" "$lang" || {
+    rm -f "$wd/transcript.txt"; die "transcription failed"; }
+  echo "$wd/transcript.txt"
+}
+
+# ---------------------------------------------------------------------------
+cmd_grab(){
+  [ $# -ge 1 ] || die "usage: media grab <url|file> [--name X] [--lang cs] [--max N] [--scene N]"
+  local src="$1"
+  echo "=== 1/4  info ==="
+  cmd_info "$@" || true
+  echo; echo "=== 2/4  transcript ==="
+  cmd_transcript "$@" || echo "!! no transcript (see message above) — frames still follow"
+  echo; echo "=== 3/4  frames ==="
+  cmd_frames "$@" | tail -8
+  # (frames honours --name itself)
+  local wd; wd="$(workdir "$src" "$(get_name "$@")")"
+  echo; echo "=== 4/4  contact sheets ==="
+  if [ -n "$(find "$wd/frames" -maxdepth 1 -name '*.jpg' 2>/dev/null | head -1)" ]; then
+    cmd_grid "$wd/frames" 4 5 | tail -6
+  else
+    echo "!! no frames, skipping contact sheets"
+  fi
+  echo
+  echo "DONE -> $wd"
+  echo "  transcript.txt    timestamped text — read this first"
+  echo "  grid/sheet_*.jpg  every frame on a few sheets — skim these second"
+  echo "  frames/NNN_HH-MM-SS.jpg   full-res single moments — open the ones that matter"
+}
+
+get_name(){ while [ $# -gt 0 ]; do [ "$1" = "--name" ] && { echo "$2"; return; }; shift; done; echo ""; }
+
+# ---------------------------------------------------------------------------
+cmd_shrink(){
+  local maxw="${MAXW:-$VISION_MAX_W}" img d
+  for img in "$@"; do
+    d="$(dirname "$img")/_small"; mkdir -p "$d"
+    ffmpeg -hide_banner -loglevel error -nostdin -i "$img" -vf "scale='min($maxw,iw)':-2" -q:v 3 -y "$d/$(basename "${img%.*}").jpg"
+    echo "$d/$(basename "${img%.*}").jpg"
+  done
+}
+
+cmd_sheet(){  # contact sheet straight from a folder of photos (e.g. blackboard shots)
+  local dir="${1:?usage: media sheet <image-dir> [cols] [rows]}"
+  local cols="${2:-3}" rows="${3:-3}"
+  dir="$(cd "$dir" && pwd)"
+  local out="$MEDIA_DIR/sheets/$(basename "$dir")"; rm -rf "$out"; mkdir -p "$out"
+  local tmp; tmp="$(mktemp -d)"; local i=0 img
+  for img in "$dir"/*.[jJpP][pPnN]*[gG]; do
+    [ -f "$img" ] || continue; i=$((i+1))
+    ffmpeg -hide_banner -loglevel error -nostdin -i "$img" -vf "scale=640:-2" -q:v 3 -y "$(printf '%s/%04d.jpg' "$tmp" "$i")"
+  done
+  [ "$i" -gt 0 ] || die "no images in $dir"
+  ffmpeg -hide_banner -loglevel error -nostdin -start_number 1 -i "$tmp/%04d.jpg" \
+    -vf "drawtext=text='%{n}':x=10:y=10:fontsize=30:fontcolor=yellow:box=1:boxcolor=black@0.65,tile=${cols}x${rows}:padding=6:margin=6:color=white" \
+    -q:v 3 -y "$out/sheet_%02d.jpg" 2>/dev/null \
+  || ffmpeg -hide_banner -loglevel error -nostdin -start_number 1 -i "$tmp/%04d.jpg" \
+    -vf "tile=${cols}x${rows}:padding=6:margin=6:color=white" -q:v 3 -y "$out/sheet_%02d.jpg"
+  rm -rf "$tmp"
+  echo "media: $i images -> $out"; find "$out" -maxdepth 1 -name '*.jpg' | sort | sed 's|.*/|  |'
+  echo "  tile order = $(ls "$dir"/*.[jJpP][pPnN]*[gG] 2>/dev/null | head -1 | xargs basename), … (alphabetical)"
+}
+
+cmd_ls(){ # what's already ingested
+  [ -d "$MEDIA_DIR" ] || { echo "(nothing ingested yet)"; return; }
+  local d
+  for d in "$MEDIA_DIR"/*/; do
+    [ -d "$d" ] || continue
+    printf '%-42s' "$(basename "$d")"
+    [ -f "$d/transcript.txt" ] && printf ' transcript' || printf '           '
+    local nf; nf=$(find "$d/frames" -maxdepth 1 -name '*.jpg' 2>/dev/null | wc -l | tr -d ' ')
+    [ "$nf" -gt 0 ] && printf '  %3s frames' "$nf" || printf '            '
+    [ -f "$d/.source-url" ] && printf '  %s' "$(cat "$d/.source-url")"
+    echo
+  done
+}
+
+cmd_help(){ cat <<'H'
+media — video/audio/image ingest for the MFF study HQ
+
+  media grab <url|file> [--name X] [--lang cs] [--max N] [--scene N]
+        One shot: info + transcript + key frames + contact sheets.
+        Normally the only command you need.
+
+  media info       <url|file>                     metadata (URL: no download)
+  media transcript <url|file> [--lang cs] [--force-whisper] [--model M]
+        Published subtitles when they exist (instant, no video download),
+        otherwise local MLX Whisper on the Apple GPU.
+  media frames     <url|file> [--scene 0.22 | --every 30 | --count 24]
+                              [--max 60] [--from T] [--to T] [--name X]
+        Default is scene-change detection: one frame per new board/slide,
+        which beats uniform sampling on lectures. Lower --scene => more frames.
+        Filenames encode the timestamp: 007_00-14-32.jpg
+  media at    <url|file> <HH:MM:SS> …             exact-moment full-res frames
+  media grid  <url|file|framedir> [cols] [rows]   numbered contact sheet
+  media sheet <image-dir> [cols] [rows]           contact sheet from photos
+  media audio <url|file>                          16 kHz mono wav
+  media shrink <img…>                             downscale for cheap reading
+  media ls                                        what's already ingested
+
+  Output lands in  <project>/media/<slug>/
+H
+}
+
+case "${1:-help}" in
+  grab)       shift; cmd_grab "$@";;
+  info)       shift; cmd_info "$@";;
+  frames)     shift; cmd_frames "$@";;
+  at)         shift; cmd_at "$@";;
+  grid)       shift; cmd_grid "$@";;
+  sheet)      shift; cmd_sheet "$@";;
+  audio)      shift; cmd_audio "$@";;
+  transcript) shift; cmd_transcript "$@";;
+  shrink)     shift; cmd_shrink "$@";;
+  ls)         shift; cmd_ls "$@";;
+  help|-h|--help) cmd_help;;
+  *) die "unknown command '$1' (try: media help)";;
+esac

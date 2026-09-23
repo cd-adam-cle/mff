@@ -1,0 +1,64 @@
+# language: cs   model: mlx-community/whisper-large-v3-turbo
+
+[00:00:00] Ahoj! Takže teďka už víme, co je to limita a můžeme se hnedka pustit do počítání prvních příkladů.
+[00:00:09] Jako první příklad máme limitu, když x jde k dvoum z funkce x na druhou plus x.
+[00:00:26] Jak něco takového vypočítám?
+[00:00:30] První pokus, který vždycky udělám, je, že si jednoduše za x dosadím dvojku a zkusím, jestli mi to náhodou nevýjde.
+[00:00:39] Pokud mi to výjde, pak je to řešení.
+[00:00:41] Takže dosadím za x dvojku, takže mám x na druhou, takže mám 2 na druhou plus, místo x dám zase dvojku, 2, což je 4 plus 2, což je 6.
+[00:00:55] Takže mám výsledek a to je řešení tohoto příkladu.
+[00:01:00] To bylo jednoduché, pojďme teda na něco mírně složitějšího.
+[00:01:04] limitá, když x jde ke 4 z odmocniny x plus 3x minus 1 lomeno x minus 3.
+[00:01:26] Znovu není žádný důvod, proč nepoužít to, co jsem dělal v předešlém příkladu.
+[00:01:34] Třeba to bude fungovat, takže si dosadím 4 za x a dostávám odmocnina 4 plus 3x.
+[00:01:44] 4 minus 1 lomeno 4 minus 3.
+[00:01:53] Což se rovná, no víme, že odmocnina 4 je 2, takže to máme 2 plus 12 minus 1 lomeno.
+[00:02:02] 1 a to je 13.
+[00:02:07] Takže nám to znova vyšlo a tohle bylo úplně jednoduché.
+[00:02:11] Takže se můžeme posunout k něčemu aspoň trochu těžšímu, ať máme nějakou zábavu.
+[00:02:22] Napíšu příklad.
+[00:02:25] Chci vidět, co je to limita, když x jde k 0 z x na třetí plus x lomeno x.
+[00:02:44] Za prvé dosadím 0 místo x.
+[00:02:48] Co dostávám? Dostávám 0 na třetí, což je 0, plus 0, lomeno 0.
+[00:02:57] To je 0 lomeno 0.
+[00:03:01] A to je problém.
+[00:03:05] Protože, jak už jsme říkali úplně v prvním videu, nevíme, co tohle znamená.
+[00:03:12] Respektive víme, co to znamená.
+[00:03:14] Znamená to MPU.
+[00:03:20] Co znamená MPU?
+[00:03:23] MPU znamená, musíme pracovat usilovněji.
+[00:03:29] Takže pojďme na to. Smažeme si tenhle ten zbytek.
+[00:03:34] A pojďme trochu víc pracovat s touhletou funkcí.
+[00:03:37] No, tak možná jste si všimli, že je tady nějak hodně x.
+[00:03:45] Takže si můžu tady s čitatele vytknout x.
+[00:03:50] A dostanu x krát x na druhou plus 1 lomeno x.
+[00:03:56] Ano.
+[00:03:56] A tady vidíte, že je x lomeno x.
+[00:04:02] Vidíte?
+[00:04:04] x lomeno x.
+[00:04:10] To je takzvaný agent 0 lomeno 0.
+[00:04:14] Můžeme si to nakreslit.
+[00:04:18] 0 lomeno 0.
+[00:04:21] Tady má oči, tady má pusi, tady má fajfku, tady má klobouk.
+[00:04:28] Ano.
+[00:04:32] Nohy ruce.
+[00:04:34] A je to agent 0 lomeno 0.
+[00:04:36] A náš cíl takovýchto příkladů je zlikvidovat absolutně,
+[00:04:45] tedy absolutně,
+[00:04:49] agenta 0 lomeno 0.
+[00:04:51] A my ho tady máme.
+[00:04:53] A protože limita jenom se nekonečně přibližuje k 0,
+[00:04:57] ale nikdy 0 přímo není,
+[00:04:59] tak my můžeme tohleto prostě škrtnout.
+[00:05:02] A tedy nám tady zběde pouze x na druhou plus 1.
+[00:05:13] A teď zkusíme ten náš starý trik,
+[00:05:16] že jenom dosadíme za x 0.
+[00:05:19] A máme 0 na druhou plus 1, což je 1.
+[00:05:24] A to je řešení.
+[00:05:27] Ano.
+[00:05:28] Takže, jakmile dostanu tvar 0 lomeno 0,
+[00:05:32] potom musíme pracovat usilovněji.
+[00:05:43] Musíme najít agenta 0 lomeno 0,
+[00:05:46] zničit ho a potom dostaneme x.
+[00:05:49] Vidíme se u dalšího videa u ještě zajímavějších příkladů.
+[00:05:54] Ahoj.

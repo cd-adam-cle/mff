@@ -1,0 +1,26 @@
+# --- python prostředí nástrojů (1,2 GB, znovu vytvořitelné) -------------
+tools/.venv/
+tools/.yt-client
+__pycache__/
+*.pyc
+
+# --- vendorované binárky (symlinky do .venv, nemají smysl v gitu) -------
+tools/bin/ffmpeg
+tools/bin/ffprobe
+
+# --- stažená média: přes limit GitHubu 100 MB a znovu stažitelná --------
+# přepisy, snímky a kontaktní listy se verzují, zdroje ne
+**/videa/*/audio.wav
+**/videa/*/audio-src.*
+**/videa/*/source.*
+media/*/audio.wav
+media/*/audio-src.*
+media/*/source.*
+*.part
+
+# --- interní soubory ffmpegu --------------------------------------------
+**/frames/.ffmpeg.log
+**/frames/.times
+
+# --- macOS ---------------------------------------------------------------
+.DS_Store
