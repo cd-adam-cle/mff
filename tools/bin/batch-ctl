@@ -12,7 +12,7 @@ set -uo pipefail
 ROOT="/Users/adamzikmund/Claude/Projects/Mff"
 SCRIPT="$ROOT/tools/bin/batch-prepkurz.sh"
 LOG="${BATCH_LOG:-/private/tmp/claude-501/-Users-adamzikmund-Claude-Projects-Mff/08aa333b-faef-4d06-90d9-13c394be48f6/scratchpad/batch2.log}"
-VIDEOS="$ROOT/opakovani_stredoskolske_matiky/videa"
+VIDEOS="$ROOT/00_pripravny_kurz/videa"
 
 # the batch shell plus everything it spawned (yt-dlp, whisper, ffmpeg)
 tree_pids(){

@@ -22,5 +22,5 @@ Zdrojová videa se po zpracování mažou (zabírala by ~10 GB). URL zůstává
 v `.source-url`, takže se dají kdykoli stáhnout znovu:
 
 ```bash
-MEDIA_DIR=.../opakovani_stredoskolske_matiky/videa tools/bin/media grab "$(cat <slozka>/.source-url)" --name <slozka>
+MEDIA_DIR=.../00_pripravny_kurz/videa tools/bin/media grab "$(cat <slozka>/.source-url)" --name <slozka>
 ```

@@ -5,7 +5,7 @@
 # "it ran" is not the same as "it produced anything".
 set -uo pipefail
 ROOT="/Users/adamzikmund/Claude/Projects/Mff"
-export MEDIA_DIR="$ROOT/opakovani_stredoskolske_matiky/videa"
+export MEDIA_DIR="$ROOT/00_pripravny_kurz/videa"
 M="$ROOT/tools/bin/media"
 
 LECTURES="
