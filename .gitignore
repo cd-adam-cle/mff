@@ -1,8 +1,15 @@
+# --- obecné ------------------------------------------------------------
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+*.tmp
+*.part
+
 # --- python prostředí nástrojů (1,2 GB, znovu vytvořitelné) -------------
 tools/.venv/
 tools/.yt-client
-__pycache__/
-*.pyc
+.venv/
 
 # --- vendorované binárky (symlinky do .venv, nemají smysl v gitu) -------
 tools/bin/ffmpeg
@@ -16,16 +23,12 @@ tools/bin/ffprobe
 media/*/audio.wav
 media/*/audio-src.*
 media/*/source.*
-*.part
 
-# --- originály fotek tabulí --------------------------------------------
-# `media photos` je převede na JPEG (~43x menší, stejně čitelné) a originály
-# odsune sem. Do gitu patří JPEGy, ne 29MB PNG.
+# --- originály fotek -----------------------------------------------------
+# optimize_images.py i `media photos` odkládají originály sem.
+# Do gitu patří zmenšené JPEGy, ne 29MB PNG z iPhonu.
 **/_raw/
 
 # --- interní soubory ffmpegu --------------------------------------------
 **/frames/.ffmpeg.log
 **/frames/.times
-
-# --- macOS ---------------------------------------------------------------
-.DS_Store

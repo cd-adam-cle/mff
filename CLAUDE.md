@@ -1,137 +1,117 @@
-# MFF — studijní headquarters
+# CLAUDE.md – studijní repo MFF
 
-Databáze materiálů + nástroje, kterými Claude umí číst video, zvuk, obrázky a PDF.
+## Kdo jsem a co tu děláme
 
-## Struktura
+- Adík, 1. ročník Bc., **finanční matematika na MFF UK**, zimní semestr 2026/27.
+- Jsem programátor, takže Python (sympy, numpy) na ověřování výpočtů je vítaný.
+- Tohle repo je můj kompletní studijní systém: zápisky, řešení, fotky, PDF, materiály od starších, vytěžené přednášky. Slouží mně i tobě jako kontext.
+- Tvoje role: studijní parťák. Řešíme spolu příklady a cvičení, kontroluješ moje postupy, pomáháš s přípravou na zápočty a zkoušky a držíš nadhled nad celou matematikou (co s čím souvisí napříč předměty).
+
+## Jak se mnou pracovat
+
+- Piš neformální češtinou, stručně a k věci.
+- U příkladů mě **veď**: nejdřív nápověda nebo otázka, celé řešení až když o něj požádám nebo se zaseknu. Když řeknu „ukaž řešení“, ukaž ho celé.
+- Při kontrole mého řešení najdi **první chybu**, vysvětli proč je to chyba a nech mě pokračovat.
+- Když narazíme na pojem nebo větu, která se objevuje i jinde (jiný předmět, finance), zmiň to a zapiš do `80_mapa_matematiky/`.
+- Opakované chyby zapisuj do `80_mapa_matematiky/chyby.md`.
+- Neodhaduj, co bude na zkoušce. Drž se `_info.md`, starých písemek a toho, co řekl vyučující.
+- **Programování 1 (PRG1):** zápočet vyžaduje vlastní kód bez generování. Vysvětluj a kontroluj, kód za mě nepiš.
+
+## Architektura: všechno v gitu
+
+Všechno žije v tomhle repu, včetně fotek a PDF. Aby repo nenabobtnalo, platí:
+
+1. **Obrázky vždy zmenšené.** Před commitem každý obrázek projde `uv run scripts/optimize_images.py <soubor|složka>` (max. 1600 px na delší straně, JPEG q80, HEIC → JPEG, EXIF pryč). Cíl: pod 500 KB na fotku. Originály skončí v `_raw/` (v `.gitignore`).
+   **Výjimka: fotky tabulí z přednášek** → `tools/bin/media photos <složka>` (3200 px). Písmo na tabuli z lavice je drobné, 1600 px na něj nestačí vždy.
+2. **Žádný soubor nad 50 MB.** Velké PDF nejdřív zkus zmenšit; když to nejde, nedávej ho do repa a zeptej se mě.
+3. **Volně dostupná skripta a slidy** stačí odkázat v `_info.md`, nemusí být v repu.
+4. **Obrázky leží vedle textu, ke kterému patří**, ve složce `img/` (např. `cviceni/img/`), a odkazují se relativně: `![moje řešení](img/LA1_cv03_reseni_1.jpg)`.
+
+## Tvoje pravomoci v repu
+
+Strukturu repa spravuješ **ty**. Já jen nahrávám soubory do `_inbox/`.
+
+Bez ptaní smíš:
+- zakládat složky a podsložky,
+- přejmenovávat a přesouvat soubory (`git mv`, ať zůstane historie),
+- zmenšovat a převádět obrázky,
+- kopírovat materiály z `90_od_starsich/prvak_original/` do předmětů,
+- měnit strukturu, když to dává smysl (nový předmět, nové téma, rozdělení přeplněné složky).
+
+Pevné hranice:
+- **`90_od_starsich/prvak_original/` nech nedotčený.** Z něj se jen kopíruje.
+- **Mazat smíš jen jasné duplicity**, vždy v samostatném commitu se zprávou, co a proč. Nejasné věci přesuň do `_archiv/`.
+- **Větší přestavbu struktury** (víc než jeden předmět naráz) mi nejdřív navrhni a počkej na OK.
+- **Každý commit popisuj česky a konkrétně**, co se kam přesunulo (`inbox: 4 fotky → LA1/cviceni, 1 PDF → MA1/zdroje`). Git historie je záznam změn.
+- Pracuješ na vlastní větvi (v cloudu větev session, lokálně ji založ). Na konci práce vytvoř **pull request** se souhrnem změn, mergovat budu já.
+
+## Struktura repa
 
 ```
 Mff/
-├── CLAUDE.md          tenhle soubor
-├── tools/             nástroje (viz tools/README.md)
-│   ├── bin/media      ★ hlavní nástroj na video/audio/obrázky
-│   ├── bin/ffmpeg, ffprobe   vendorované binárky (ffmpeg 7.0, arm64)
-│   └── .venv/         python 3.12 + mlx-whisper
-├── media/<slug>/      vše, co se z videí vytěžilo (viz media/README.md)
-└── <složky předmětů>  materiály ke studiu
+├── CLAUDE.md, README.md, .gitignore
+├── requirements.txt           pillow, pillow-heif
+├── scripts/optimize_images.py zmenšení a převod obrázků
+├── tools/                     čtení videa a zvuku (bin/media) — viz tools/README.md
+├── media/<slug>/              vytěžené přednášky mimo konkrétní předmět
+├── .claude/commands/          /roztrid /uklid /kontrola /zkouska /novy-predmet
+├── _inbox/                    sem jen nahrávám, ty to roztřídíš
+│   └── _nejasne/              co neumíš zařadit, čeká na můj dotaz
+├── _archiv/                   věci, které nikam nepatří, ale nechci je mazat
+├── 00_admin/                  rozvrh.md, harmonogram.md (termíny, zápočty, zkouškové)
+├── 00_pripravny_kurz/         zářijové opakování SŠ matiky: skripta/, tabule/, videa/
+├── 01_semestr_1/
+│   ├── _prehled.md            předměty, podmínky, stav, kredity
+│   └── <ZKR>_<nazev>/         LA1_algebra, MA1_analyza, UCE_ucetnictvi,
+│       │                      PRG1_programovani, PROS_proseminar, RIZ_financni_rizika
+│       ├── _info.md           vyučující, požadavky, literatura, styl písemek
+│       ├── prednasky/         p01.md …  + img/
+│       ├── cviceni/           cv01.md …  + img/
+│       ├── ukoly/             du01.md …  + img/
+│       ├── zkouska/           pisemky.md, otazky.md, tahak.md + img/ a originály písemek
+│       └── zdroje/            PDF, skripta, materiály od starších; sis/ = uložený sylabus
+├── 80_mapa_matematiky/        pojmy.md, souvislosti.md, chyby.md
+└── 90_od_starsich/
+    ├── prvak_index.md         inventura: co tam je, kam patří, co už je zpracované
+    └── prvak_original/        nedotčený originál od třeťačky
 ```
 
-Složky předmětů se ještě přerovnávají, takže tady schválně nejsou vypsané —
-aktuální stav zjistíš `ls`. K září 2026 existují souběžně:
+## Video a zvuk
 
-- `semestr_1/<predmet>/` — novější, `predmet.html` (sylabus ze SISu),
-  `ucebnice*`, názvy bez diakritiky
-- `prvák/<Předmět>/` — starší materiály z července, názvy s diakritikou
-  a mezerami
-- `opakovani_stredoskolske_matiky/` — přípravný kurz: `skripta/` (PDF)
-  a `tabule/` (fotky tabulí z přednášek)
-
-Když nevíš, kam něco patří, zeptej se — nesluč ty dvě struktury sám.
-Videa přednášek patří do `media/` pod názvem, který identifikuje předmět
-a téma (`ma1-04-limity`), ne do složky předmětu.
-
-## Co Claude umí přímo, bez nástrojů
-
-- **Obrázky** (`.png`, `.jpg`) — `Read` je zobrazí, čtu je zrakem. Fotky tabulí
-  z `tabule/` tedy stačí otevřít, není potřeba žádná konverze ani OCR.
-- **PDF** — `Read` s parametrem `pages` (max 20 stran na volání).
-
-## Co vyžaduje nástroj: video a zvuk
-
-Video ani zvuk nepřečtu přímo. Nástroj `tools/bin/media` je převede na to,
-co přečíst umím: **snímky (obrázky) + otitulkovaný přepis (text)**.
-
-```bash
-tools/bin/media grab "https://youtube.com/watch?v=..."   # YouTube
-tools/bin/media grab ~/Downloads/prednaska.mp4 --name la1-04
-tools/bin/media help                                      # všechny příkazy
-```
-
-`grab` udělá vše naráz a vytvoří `media/<slug>/`:
-
-| soubor | co to je | jak to číst |
-|---|---|---|
-| `transcript.txt` | přepis s časovými značkami `[HH:MM:SS]` | **první** — je to text, levný a úplný |
-| `grid/sheet_*.jpg` | všechny snímky na pár očíslovaných listech | **druhé** — přehled o čem video je |
-| `frames/NNN_HH-MM-SS.jpg` | jednotlivé snímky v plném rozlišení | **třetí** — jen ty, které fakt potřebuju |
-| `info.json`, `ytdlp.json` | metadata, kapitoly | podle potřeby |
-
-### Pracovní postup u přednášky
-
-1. `media grab <url>` (u dlouhé přednášky `--max 80`)
-2. Přečti `transcript.txt` — dá kostru a časy.
-3. Otevři `grid/sheet_01.jpg` — z kontaktního listu poznáš témata,
-   ale **ne detaily vzorců**; dlaždice jsou očíslované od 0.
-4. Detail: `Read media/<slug>/frames/017_00-42-10.jpg` v plném rozlišení,
-   nebo `media at <url> 00:42:10` na přesný okamžik.
-
-### Jak se vybírají snímky
-
-`media frames` defaultně nevzorkuje rovnoměrně, ale hledá **změnu obrazu**
-(`--scene 0.22`) — u přednášky se střihy to dá jeden snímek na každý nový
-stav tabule místo náhodných okamžiků uprostřed psaní.
-
-U videí, kde se obraz mění **plynule** (screencast, statická kamera na
-někoho, kdo píše na tabuli), detekce scén nenajde nic. Nástroj to pozná
-a sám přepne na rovnoměrné vzorkování — ověřeno na českém videu o limitách,
-kde scénová detekce vrátila 0 snímků a fallback dal použitelných 14.
-
-Ruční ladění: `--scene 0.08` (víc snímků), `--every 60` (po minutě),
-`--count 30` (pevný počet), `--max N` (strop), `--from/--to` (jen úsek).
-
-### Přepis
-
-- Má-li video titulky (i automatické), použijí se — **je to okamžité a nestahuje
-  se video**. Priorita cs → sk → en.
-- Jinak běží **lokální Whisper** (`large-v3-turbo`) na Apple GPU přes MLX.
-  Nic se neposílá ven. Stahuje se jen audio stopa, ne video.
-- České přednášky: `--lang cs` zlepší výsledek.
-- Vynutit Whisper i při existujících titulcích: `--force-whisper`
-  (auto-titulky na matematiku bývají mizerné).
-- **Zvuk se před přepisem normalizuje** (`loudnorm` na −16 LUFS). Záznamy
-  z posluchárny mají kolem −40 dB a Whisper na nich nejen halucinuje, ale
-  hlavně **většinu řeči vůbec nepřepíše** — na testovaném úseku dala
-  normalizace 65 segmentů místo 35. Nevypínej to.
-- `condition_on_previous_text` je vypnuté: jeden špatný segment jinak spustí
-  smyčku (v jedné přednášce 59× „Titulky vytvořil JohnyX.").
-- Halucinace v tichu mají `no_speech_prob = 0.0`, takže je nelze filtrovat
-  podle jistoty modelu; `transcribe.py` je zahazuje podle seznamu frází
-  a hlavička přepisu říká kolik.
-- Přepis se **necachuje** — opakovaný `grab` přepisuje znovu. Když jen
-  potřebuješ dosnímkovat, použij `media frames`, ne `media grab`.
-
-### Když YouTube vrátí 403
-
-Stává se běžně, YouTube blokuje jednotlivé „player clients" a rotuje je.
-Nástroj sám zkouší `default → mweb → tv → web_safari → ios` a ten, který
-projde, si zapamatuje do `tools/.yt-client`. Když selžou všechny:
-`yt-dlp -U`. Tohle je pohyblivý cíl, počítej s občasnou aktualizací.
-
-## Fotky tabulí
-
-**Po každém focení pusť tohle, ještě než se něco commituje:**
-
-```bash
-tools/bin/media photos opakovani_stredoskolske_matiky/tabule
-```
-
-iPhone fotí 4284x5712; uložené jako PNG má každá fotka ~29 MB a v gitu by
-zůstala navždy. `media photos` je převede na JPEG (3200 px na delší hraně,
-q=4) — vyjde ~0,5 MB a čte se **stejně**, ověřeno porovnáním výřezů 1:1.
-Zvládne i HEIC z telefonu. Originály odsune do `_raw/`, který je mimo git;
-smaž je, až JPEGům uvěříš.
-
-Kontaktní list vyrobí rovnou. Pro čtení konkrétní tabule otevři JPEG
-(`Read`), ne list — ten je jen na přehled.
-
-## Znalostní graf
-
-`graphify` je nainstalovaný (`~/.local/bin/graphify`, skill `/graphify`).
-Výstupy z `media` jsou text a obrázky, tedy přímo použitelný vstup —
-`transcript.txt` z více přednášek dává graf pojmů napříč kurzem.
+Video ani zvuk nepřečteš přímo. `tools/bin/media grab <url|soubor> --name <slug>` z něj udělá
+`transcript.txt` + snímky + kontaktní listy. Čti v pořadí přepis → `grid/sheet_*.jpg` → konkrétní `frames/`.
+Přednášky k předmětu ukládej do `media/<zkr>-<tema>` (`ma1-04-limity`), ne do složky předmětu.
+Detaily (Whisper, normalizace zvuku, YouTube 403, fotky tabulí): [`tools/README.md`](tools/README.md).
 
 ## Konvence
 
-- Do `media/` se sype jen odvozený obsah. Originály videí drž jinde,
-  nebo je nech stáhnout do `media/<slug>/source.*`.
-- `--name` volím tak, aby to šlo dohledat: `la1-04`, `ma1-limity`, `zs25-uvod`.
-- Nová složka = nový předmět. Skripta do `skripta/`, fotky do `tabule/`.
+- Názvy: malá písmena, bez diakritiky, podtržítka. Zkratka předmětu na začátku u obrázků a PDF: `LA1_cv03_reseni_1.jpg`, `MA1_zk_2025-01_pisemka.pdf`.
+- Data: `YYYY-MM-DD`. Týdny: `p01`, `cv01`, `du01`. Zápočtové testy: `zt1`, `zt2`; zkouška: `zk`.
+- Matematika v markdownu přes LaTeX: inline `$...$`, bloky `$$...$$`. Musí se to vykreslit na GitHubu.
+- Každý soubor s cvičením má strukturu: **Zadání** → **Moje řešení** → **Poznámky / chyby** → obrázky.
+- `_info.md` a `_prehled.md` udržuj aktuální, jsou to nejcennější kontextové soubory.
+- Uložené stránky (SIS, weby vyučujících) mají vedle sebe složku `*_files/` — přesouvej je vždy spolu.
+
+## Běžné workflow
+
+- **Třídění `_inbox/`** (`/roztrid`): u každého souboru zjisti, co to je (předmět, typ, týden). Obrázky zmenši skriptem, přejmenuj podle konvence a přesuň do správné složky (chybějící založ). Obsah přepiš do odpovídajícího `.md` (LaTeX) a vlož odkaz na obrázek. Co nejde jednoznačně zařadit, dej do `_inbox/_nejasne/` a zeptej se. Na konci mi dej krátký souhrn, co kam šlo.
+- **Kontrola řešení** (`/kontrola <soubor>`): přečti zadání a moje řešení (text nebo obrázek), najdi první chybu, zapiš poznámku do souboru cvičení.
+- **Příprava na zkoušku** (`/zkouska <ZKR>`): vycházej z `zkouska/` a `_info.md`, udělej mi zkoušecí sadu podobnou starým písemkám.
+- **Konec práce:** commit s konkrétní českou zprávou, pull request se souhrnem.
+
+---
+
+## PRVNÍ SPUŠTĚNÍ (bootstrap) — zbývající kroky
+
+> Hotovo 2026-09-23: předměty, struktura, začlenění `semestr_1/` + `prvák/` + přípravného kurzu,
+> skript na obrázky (otestovaný na generovaných obrázcích a fotce tabule), inventura od třeťačky, příkazy.
+> Až budou hotové i kroky níže, smaž celou tuhle sekci a commitni.
+
+### 4. Test s mojí fotkou
+- Požádej mě, ať nahraju jednu fotku ručně psaného příkladu do `_inbox/`.
+- Zpracuj ji celým workflow: zmenšení, přejmenování, přesun, přepis do markdownu s LaTeXem.
+- Napiš mi na rovinu, jak spolehlivý je přepis a jestli je fotka po zmenšení pořád dobře čitelná. Když ne, uprav parametry skriptu.
+- Ověř přitom, že se HEIC z iPhonu správně otočí (na syntetickém HEIC se to ověřit nedalo).
+
+### 7. Volitelně: automatické třídění
+- Zeptej se mě, jestli chci, aby se `_inbox/` třídil automaticky (routine v Claude Code, např. každý večer spustí `/roztrid` a otevře PR). Pokud ano, řekni mi přesně, jak ji nastavit.
