@@ -1,0 +1,851 @@
+# language: cs   model: mlx-community/whisper-large-v3-turbo
+# segments: 848 kept, 27 dropped as silence artefacts
+
+[00:00:00] Děkuji.
+[00:01:00] a zopakujeme si pojmy a výsledky,
+[00:01:05] o kterých na Matvizu předpokládáme,
+[00:01:07] že je znáte ze střední školy.
+[00:01:10] Konkrétně začali bychom tím,
+[00:01:12] že projdeme kombinatorická pravidla součtu a součinů.
+[00:01:17] Potom se podíváme na variace, permutace, kombinace,
+[00:01:22] ať už bez opakování nebo s opakováním.
+[00:01:25] Připomeneme si známé vzorce,
+[00:01:26] zamyslíme se nad tím, jak se na ně přijde.
+[00:01:32] Potom nás čekají vlastnosti kombinačních čísel
+[00:01:34] paskolů v trojuhelník a na závěr bychom si řekli
+[00:01:38] něco o dynamické větě.
+[00:01:44] Takže pojďme začít těmi kombinatorickými pravidly
+[00:01:46] součtu a součinu.
+[00:01:50] To jsou pravidla, která určitě znáte, jenom možná nevíte,
+[00:01:53] že se jmenují tak, jak se jmenují.
+[00:01:56] kombinatorické pravidlo součinu.
+[00:02:01] Pokud bychom je chtěli
+[00:02:01] sformulovat jako větu,
+[00:02:04] tak můžeme říct, že počet uspořádaných
+[00:02:06] kátic, jež IT člen
+[00:02:08] může vybrat NI způsoby,
+[00:02:11] je rovn součinu
+[00:02:12] N1
+[00:02:13] krát N2, krát N3
+[00:02:16] a tak dále, až
+[00:02:17] NK.
+[00:02:21] Tak asi nejlepší je
+[00:02:23] zkusit si ilustrovat
+[00:02:25] tohle pravidlo na nějakém jednoduchém příkladu.
+[00:02:29] Já napíšu zadání příkladu.
+[00:02:39] Jedná se o otázku.
+[00:02:41] Kolik čtyřtiferných přirozených číslel?
+[00:02:55] Lhze se stavit cifr 0 až 5.
+[00:03:13] Ta úloha má dvě varianty.
+[00:03:18] Je tam podmínka, jestliže za A cifry se mohou opakovat.
+[00:03:24] za B cifry se nesmí opakovat.
+[00:03:51] Takže, o co v té úloze jde?
+[00:03:53] máme k dispozici cifry 0 až 5
+[00:03:57] a z nich vyrábíme čtyřciferná čísla.
+[00:04:01] Jediné, na co musíme návat pozor,
+[00:04:03] je skutečnost, že čtyřciferné číslo
+[00:04:06] nespíš začínat 0.
+[00:04:10] Je to velmi jednoruchá úloha,
+[00:04:12] takže můžeme prakticky napsat rovnou výsledek.
+[00:04:17] Varianta A.
+[00:04:18] Cifry se mohou opakovat.
+[00:04:20] Takže jak to funguje?
+[00:04:21] Když si představíme, že to čtyřciferné číslo budeme zapisovat postupně zleva do prava,
+[00:04:29] tak potřebujeme zaplnit čtyři pozice.
+[00:04:31] Na první pozici může být jakákoliv cifra, kromě nuly.
+[00:04:35] Takže na první pozici máme pět možností.
+[00:04:41] Na druhé pozici už může být libovolná z těch šesti cifr, včetně nuly.
+[00:04:46] Takže šest možností.
+[00:04:48] a podobně na třetí i na čtvrté pozici je šest možností.
+[00:04:55] Takže výsledek je dám tímto součinem.
+[00:04:59] Použili jsme kombinatorické pravidlo součinu.
+[00:05:02] Když vypočítáte hodnotu tohoto součinu, dostanete 1080.
+[00:05:09] Jak to bude ve variantě B, kde se cifry nesmí opakovat?
+[00:05:14] Tak zase si představíme, že 451 číslo
+[00:05:17] vyrábíme z leva do prava.
+[00:05:20] Na první pozici nesmí stát nula.
+[00:05:23] Takže máme pět možností.
+[00:05:26] Na druhé pozici
+[00:05:27] už může být nula,
+[00:05:30] ale pokud se cifry nesmí opakovat,
+[00:05:33] tak nesmíme použít stejnou cifru
+[00:05:35] jako na první pozici.
+[00:05:36] To znamená, těch možností zase pět.
+[00:05:40] No podobně na třetí pozici
+[00:05:41] máme čtyři možnosti.
+[00:05:44] A na čtvrté pozici
+[00:05:46] máme tři možnosti.
+[00:05:47] Takže opět jsme použili kombinatorické pravidlo součinu
+[00:05:57] a když vypočítáme hodnotu toho součinu,
+[00:06:00] tak dostaneme 300.
+[00:06:03] Tím je úloha vyřešená.
+[00:06:47] Tak, budeme pokračovat kombinatorickým pravidlem součtu.
+[00:07:06] To je možná ještě větší trviálita naše kombinatorické pravidlo součinů,
+[00:07:10] ale pokud bychom je chtěli sformulovat hodně účeně,
+[00:07:17] tak by to šlo udělat následujícím způsobem.
+[00:07:22] Mějme nějaké konečné množiny A1 až AN
+[00:07:25] a předpokládejme, že každé dvě jsou disjunktní.
+[00:07:28] To znamená, že žádné dvě nemají společný prvek.
+[00:07:35] Představme si, že chceme spočítat velikost sjednocení A1 až AN.
+[00:07:41] Kombinatorické pravidlo součtu říká,
+[00:07:43] že velikost toho sjednocení je rovna součtu velikostí těch dílčích množin.
+[00:07:50] Já používám takovýhle symbol, svyslé čárky pro velikost množiny,
+[00:07:56] neboli počet prsků nějaké množiny.
+[00:08:03] Takže ještě jednou kombinatorické pravidlo součtu říká,
+[00:08:07] že pokud máme disjunkní množiny, tak velikosti jich sjednocení
+[00:08:11] můžeme získat nasčítáním velikostí jednotlivých množin.
+[00:08:16] To pravidlo nevypadá příliš kombinatoricky.
+[00:08:19] Co je na tom kombinatorického?
+[00:08:22] V kombinatorice se často vyskytují úlohy,
+[00:08:25] kde máme za úkol vypočítat počet nějakých konfigurací.
+[00:08:31] A může se stát, že to neumíme udělat přímo,
+[00:08:35] ale tu množinu konfigurací jsme schopni rozložit
+[00:08:38] na nějaké menší podnožiny,
+[00:08:42] v kterých už zvládneme
+[00:08:44] vypočítat počty jejich prvků.
+[00:08:48] A pak je prostě nasčítáme.
+[00:08:51] Nejlepší je podívat se na konkrétní příklad.
+[00:08:58] Ten příklad je taková varianta
+[00:09:03] té předchozí úlohy.
+[00:09:05] se jde o otázku, kolik čtyřcifarných
+[00:09:10] sudých přirozených číslů
+[00:09:29] lze sastavit cifar 0 až 5.
+[00:09:35] Je v to, že se cifry nesmí opakovat.
+[00:09:49] Tahle úloha má jenom jednu variantu.
+[00:09:52] Cifry se nesmí opakovat.
+[00:10:05] Takže v čem je rozdíl oproti té předchozí úloze?
+[00:10:12] Jediný rozdíl je v tom, že tentokrát nás zajímají pouze suda,
+[00:10:16] přirozená čísla.
+[00:10:22] Tak jak budeme postupovat?
+[00:10:23] Kdybychom zkusili podobný postup jako v té předchozí úloze,
+[00:10:28] tak ono to nebude úplně fungovat.
+[00:10:30] Kdybychom si představili, že to čtyřciferné číslo
+[00:10:34] budeme vyrábět zleva do prava,
+[00:10:37] tak se může stát,
+[00:10:38] že na těch prvních třech pozicích
+[00:10:40] si vyplýtváme všechny sudé cifry
+[00:10:42] a
+[00:10:44] nebudeme schopni
+[00:10:47] zaplnit poslední pozici
+[00:10:50] sudou cifrou.
+[00:10:52] A někdo by mohl říct,
+[00:10:53] že dobře, nebudeme postupovat zleva do prava,
+[00:10:56] ale naopak zprava do leva.
+[00:10:59] V tomhle případě
+[00:11:00] může nastat jiný problém.
+[00:11:02] Když budeme postupovat zprava do leva,
+[00:11:04] tak když dorazíme
+[00:11:08] nakonec, to znamená na první pozitiv zleva,
+[00:11:15] tak v tom okamžiku nevíme,
+[00:11:17] co jsme použili nebo nepoužili nulu.
+[00:11:21] Takže pojďme
+[00:11:22] tu úlohu zkusit řešit nějaký jinak.
+[00:11:26] Asi nejjednodušší je uvědomit si,
+[00:11:31] že sudé číslo
+[00:11:34] vyrobené z těchto cifr
+[00:11:36] musí končit buď 0,
+[00:11:38] nebo 2, nebo 4.
+[00:11:40] Takže my vyšetříme
+[00:11:42] zvlášť tyhle tři případy.
+[00:11:52] Když se přidržíme toho značení
+[00:11:54] z kombinatorického pravidla
+[00:11:56] součtu, tak vlastně děláme
+[00:11:58] to, že na množinu
+[00:12:00] A1 vezmeme
+[00:12:02] všechny přípustné čtveřice
+[00:12:06] končící nulou.
+[00:12:19] Do množiny A2 dáme přípustná čísla
+[00:12:23] končící dvojkou.
+[00:12:24] a v množině A3 budou přípustná čísla končící čteřkou.
+[00:12:40] Tím jsme vyčerpali všechny možnosti
+[00:12:42] a v té úloze jde vlastně o to vypočítat velikost sjednocení
+[00:12:46] A1, A2, A3.
+[00:12:51] Ty množiny jsou disjunkní,
+[00:12:53] Takže podle kombinatorického pravidla součtu stačí zjistit jejich velikosti a nasčítat je.
+[00:13:04] Takže potřebujeme zjistit velikost množiny A1, množiny A2, množiny A3.
+[00:13:12] Tak co je A1? Ještě jednou.
+[00:13:15] A1 obsahuje všechna přípustná čísla končící nulou.
+[00:13:19] kolik takových čísel je, tak na poslední pozici
+[00:13:23] víme, že musí být nula.
+[00:13:27] A zbývá zaplnit první tři volné pozice.
+[00:13:30] Kolika způsoby to jde udělat?
+[00:13:32] Tak na první pozici máme pět možností.
+[00:13:35] Může tam být cokoliv kromě nuly.
+[00:13:39] Na druhé pozici jsou čtyři možnosti.
+[00:13:42] Může tam být cokoliv kromě nuly a kromě čísla,
+[00:13:47] které jsme už použili na první pozici.
+[00:13:49] podobně na třetí pozici
+[00:13:53] máme tři možnosti.
+[00:13:58] Takže tohle je velikost A1,
+[00:13:59] podnota toho součinu je 60.
+[00:14:04] Podíváme se na A2.
+[00:14:10] Tak A2
+[00:14:11] je množina všech přípustních čísel
+[00:14:15] končících dvojkou.
+[00:14:16] Kolik takových čísel je?
+[00:14:22] Tak víme, že na poslední pozici je dvojka.
+[00:14:26] Zbývá zaplnit první tři volné pozice.
+[00:14:29] Tak na první pozici nesmí být dvojka, ta už je na konci,
+[00:14:32] ale taky tam nesmí být nula, takže na první pozici jsou čtyři možnosti.
+[00:14:38] Na druhé pozici nesmí být dvojka,
+[00:14:42] nesmí tam být to číslo, které jsme už použili na první pozici,
+[00:14:48] ale naopak už tam může být nula.
+[00:14:51] Takže ty možnosti jsou pořád čtyři.
+[00:14:55] A podobně na třetí pozici jsou tři možnosti.
+[00:15:01] Takže tohle je velikost A2
+[00:15:02] a hodnota toho součinu je 48.
+[00:15:09] Zbývá nám velikost A3.
+[00:15:12] Ale tam nemusíme dlouho přemýšlet.
+[00:15:15] Velikost A3 je úplně stejná jako velikost A2.
+[00:15:19] Můžeme zopakovat tu stejnou úvahu.
+[00:15:24] A dojdeme k číslu 48.
+[00:15:28] Takže vrátíme se zpátky ke sjednocení nožin A1, A2, A3.
+[00:15:33] a když nasčítáme
+[00:15:42] velikosti těch dílčích množin
+[00:15:45] dostaneme číslo 156
+[00:15:50] že 156 je výsledek, které to uvoří.
+[00:16:03] Konec.
+[00:17:03] Tak to je všechno ke kombinatorickým pravidlům součtu a součinu
+[00:17:15] a budeme pokračovat variacemi, permutacemi a kombinacemi.
+[00:17:20] Existují dvě varianty bez opakování a s opakováním,
+[00:17:24] takže začneme tou variantou bez opakování.
+[00:17:27] U variací, permutací i kombinací jde o to, že máme nějakou konečnou množinu
+[00:17:35] a z ní vybíráme nějaké kátice.
+[00:17:40] Řekněme, že máme nějakou množinu obsahující prvky A1 až A1.
+[00:17:48] Je to nějaká konečná N prvková množina.
+[00:17:52] V té její prvky můžou být úplně libovolné objekty.
+[00:17:54] můžou to být čísla, zákusky, zvířátka, cokoliv vás napadne.
+[00:18:02] Z této množiny budeme výrat nějaké kátice.
+[00:18:05] A podle toho, jestli nás zajímají uspořádané nebo neuspořádané kátice,
+[00:18:11] tak dostaneme buď variace, nebo kombinace, nebo permutace.
+[00:18:17] U variací jde o to, že vybíráme uspořádané kátice.
+[00:18:21] Takže variace jsou uspořádané kátice.
+[00:18:30] Zajímají nás variace bez opakování.
+[00:18:36] To znamená, že každý prvek té množiny A1 až A1
+[00:18:41] se v té kátici vyskytne nejvýše jednou.
+[00:18:47] To jsou variace.
+[00:18:48] kolik takových variací existuje.
+[00:18:52] V těch variacích je n krát n-1 atd.
+[00:18:57] Až n-k plus 1.
+[00:19:00] To je známý vzorec pro počet variací.
+[00:19:04] Vlastně se jedná o součin přirozených čísel.
+[00:19:08] Začínáme číslem n.
+[00:19:10] V každém kroku to číslo klesne o jedničku.
+[00:19:14] V tom součinu je celkem k čísel.
+[00:19:18] Jak se na ten vzorec přijde?
+[00:19:22] Ten vzorec plyne okamžitě z kombinatorického pravidla součinu.
+[00:19:27] Ta variace je uspořádaná kátice.
+[00:19:32] Když tu kátici budeme sestavovat třeba z leva do prava,
+[00:19:36] tak kolik možností máme na jednotlivých pozicích?
+[00:19:39] Na první pozici je n možností.
+[00:19:40] To může být libovolný prvé k té množiny a.
+[00:19:43] Na druhé pozici už máme jenom n minus jedna možností,
+[00:19:47] protože je zakázáno opakování
+[00:19:49] a tak dále.
+[00:19:51] Na poslední pozici už bude
+[00:19:53] jenom N-K plus jedna možnost.
+[00:20:12] Doufám, že to je lepší.
+[00:20:17] Dobře, takže za chvilku si ukážeme nějaké příklady na variace.
+[00:20:25] Pojďme se ještě podívat na permutace a kombinace.
+[00:20:37] Permutace jsou vlastně speciální případ variací,
+[00:20:40] kde to číslo K se rovná číslu N.
+[00:20:47] Takže permutace
+[00:21:06] jsou vlastně uspořádané
+[00:21:09] Ntice, sestavené
+[00:21:11] z prvků N prvkové množiny
+[00:21:13] bez opakování.
+[00:21:17] Kolik takových permutací je?
+[00:21:20] Řekli jsme, že to je speciální případ variací,
+[00:21:23] takže stačí si jít ten předchozí vzorec
+[00:21:25] a místo k dosadit n.
+[00:21:28] Když to uděláme, dostaneme součin přirozených čísel
+[00:21:32] n krát n minus jedna a tak dál až jedna.
+[00:21:37] Součin všech přirozených čísel od jedničky do n.
+[00:21:43] Pro tenhle součin se zavádí speciální označení,
+[00:21:46] to je n faktoriál.
+[00:21:48] Stačí se n s vykřičníkem.
+[00:21:56] Tahle definice faktoriálu
+[00:21:58] platí pro každé přizné číslo n.
+[00:22:04] Možná je dobré si připomenout,
+[00:22:06] že kromě toho definujeme ještě 0 faktoriálu jako jedničku.
+[00:22:11] Proč definujeme 0 faktoriálu jako jedničku?
+[00:22:13] tomu se vrátíme za chvilku.
+[00:22:20] Pojďme se podívat na kombinace.
+[00:22:34] Takže opět vybíráme nějakou káticí
+[00:22:37] z množiny velké A,
+[00:22:40] ale tentokrát půjde o káticí
+[00:22:42] neuspořádanou.
+[00:22:45] Nezáleží nám na pořadí prvků.
+[00:22:48] Takovýmhle neuspořádaným káticím
+[00:22:50] se říká kombinace.
+[00:22:52] Kolik takových kombinací existuje?
+[00:22:56] Odpověď je, že
+[00:22:58] jejich počet je nám zlomká.
+[00:23:04] V jeho čitateli
+[00:23:06] je stejný součin,
+[00:23:09] jako byl u variací
+[00:23:10] a vejmenovateli toho zlomku je K faktoria.
+[00:23:16] Že tento zlomek udává počet kombinací bez opakování.
+[00:23:25] A pro tento zlomek se zavádí speciální symbolika,
+[00:23:30] speciální označení, to je kombinační číslo N nad K.
+[00:23:38] Jak se na ten vzorec přijde?
+[00:23:40] Tak my už jsme si všimli, že v čitateli toho zlomku je stejný součin jako u variací.
+[00:23:51] Takže člověka napadne, že asi nějak souvisejí kombinace a variace.
+[00:23:56] Jaká je ta souvislost? Variace jsou uspořádané kátice, kombinace jsou neuspořádané kátice.
+[00:24:03] Takže jaký je vztah mezi uspořádanými káticemi a neuspořádanými káticemi?
+[00:24:08] On platí takováhle rovnost. Počet uspořádaných kátec.
+[00:24:19] Můžeme získat tak, že vezmeme počet neuspořádaných kátec.
+[00:24:31] A vynásobíme ho počtem způsobů, jak uspořádat jednou libovolnou káteci.
+[00:24:38] Tak v tomto vztahu vystupují tři čísla
+[00:24:59] a dvě z těch čísel známe.
+[00:25:03] Počet uspořádnaných katic,
+[00:25:05] to není nic jiného než variace.
+[00:25:07] těch je n krát n minus 1
+[00:25:10] a tak dál, až n minus k plus 1.
+[00:25:16] Na pravé straně máme počet neuspořádaných kátic,
+[00:25:20] no to jsou kombinace, to je to, co nás právě zajímá,
+[00:25:23] ale pak je tam počet způsobů, jak uspořádat jednu libovolnou kátici,
+[00:25:28] a to jsou permutace.
+[00:25:30] Počet způsobů, jak uspořádat jednu libovolnou kátici,
+[00:25:33] je k faktoria.
+[00:25:37] Takže my z této rovnice můžeme vypočítat počet neuspořádaných kátic,
+[00:25:45] to znamená počet kombinací.
+[00:25:48] Stačí tu rovnici vydělit číslem k faktoriál,
+[00:25:52] tím dojdeme přímo k tomuto zlomku.
+[00:25:56] Takže takhle se odvodí vzadec pro kombinace.
+[00:26:00] Připomněli jsme si definici kombinačního čísla.
+[00:26:02] tak vy asi víte, že kombinační číslo se dá vyjádřit ještě jiným způsobem
+[00:26:08] pouze pomocí faktoriálu. Dá se vyjádřit jako zlomek.
+[00:26:13] n faktoriál lomenovká faktoriál krát n mínuská faktoriál.
+[00:26:23] To jsou dva různé, ale ekvivalentní způsoby, jak počítat faktoriály.
+[00:26:29] Proč se ta dvě čísla rovnají?
+[00:26:32] Když si vezmete to vyjádření pomocí faktoriálů,
+[00:26:36] všechny faktoriály rozepíšete jako součiny,
+[00:26:40] tak v čitateli a vejmenovateli se spousta čísel zkrátí
+[00:26:43] a po zkrácení nám zbyde přesně tento zlomek.
+[00:26:55] Tak já jsem slíbil, že si řekneme,
+[00:26:58] proč je dobré definovat nula faktoriály jako jedničku.
+[00:27:02] Dá se to zdůvodnit několika způsoby.
+[00:27:07] Jeden možný způsob je,
+[00:27:08] že se zamyslíme nad tím,
+[00:27:12] kolik je n nad n.
+[00:27:16] N nad n je počet způsobů,
+[00:27:20] jak z n prvkové množiny
+[00:27:21] vybrat neuspořádanou n-tici bez opakování,
+[00:27:25] čili n nad n nutně musí být jednička.
+[00:27:30] Z definice kombinací
+[00:27:31] Na druhou stranu, když to kombinační číslo n nad n
+[00:27:37] zkusíme počítat pomocí toho vzorce z faktoriály,
+[00:27:42] tak v čitateli máme n faktoriál
+[00:27:44] a do jmenovateli se objeví n faktoriál
+[00:27:47] krát 0 faktoriál.
+[00:27:51] N faktoriál se zkrátí
+[00:27:53] a zbyde tam jedna lomeno 0 faktoriál.
+[00:27:58] Takže vidíte, že pokud chceme,
+[00:28:01] aby ten vzorec fungoval za všech okolností,
+[00:28:03] tak nezbývá než definovat 0 faktoriále jako jedničku.
+[00:29:31] Tak zopakovali jsme si teorie, podíváme se na nějaké jednoduché příklady,
+[00:29:39] ve kterých se vyskytují variace, permutace, případně kombinace.
+[00:29:45] Tak začneme něčím hodně jednoduchým.
+[00:29:49] Stukrárně mají šest druhů zákustků.
+[00:30:01] A ptáme se, kolika způsoby lze zakoupit tři různé zákusky.
+[00:30:31] Takže když budeme přemýšlet nad tím, jak tato úloha souvisí s variacemi,
+[00:30:47] permutacemi a kombinacemi, tak vidíme, že máme nějakou šestiprvkovou množinu
+[00:30:54] a z ní vybíráme trojici.
+[00:30:57] Je ta trojice uspořádaná nebo neuspořádaná?
+[00:31:03] My se ptáme, kolika způsobů lze zakoupit tři různé zákusky.
+[00:31:08] Neříkáme, co s těmi zákusky budeme dělat.
+[00:31:11] Prostě naházíme do tašky.
+[00:31:13] Později se uvidí.
+[00:31:15] Takže jde o neuspořádanou trojici.
+[00:31:18] Tím pádem se jedná o kombinace.
+[00:31:21] Takže můžeme přímo napsat odpověď.
+[00:31:24] Odpověď je kombinační číslo.
+[00:31:26] 6 nad třemi.
+[00:31:34] Kdybychom chtěli vypočítat hodnotu toho kombinačního čísla,
+[00:31:38] tak to je 6 x 5 x 4
+[00:31:40] lomeno 3 faktoriál.
+[00:31:43] 3 faktoriál je 6, takže 6 se zkrátí,
+[00:31:47] výsledek je 20.
+[00:31:56] Tak podíváme se ještě na jednu podobnou úlohu.
+[00:32:04] Pořád jsme v cukrárně, kde mají šest druhů zákusků.
+[00:32:07] Tentokrát se ptáme, kolika způsob byly zakoupit
+[00:32:27] tři různé zákusky pro tři kamarády.
+[00:32:37] Takže v čem je rozdíl mezi těmi úlohami?
+[00:33:04] rozdíl je v tom, že tentokrát říkáme,
+[00:33:07] co s těmi zákusky uděláme.
+[00:33:08] Víme, jak s nimi naložíme.
+[00:33:12] My je chceme rozdělit třem kamarádům.
+[00:33:15] A záleží nám na tom,
+[00:33:16] kdo dostane jaký zákusek.
+[00:33:20] Takže
+[00:33:20] v tomto příkladu
+[00:33:23] se nejedná o
+[00:33:25] neuspořádané trojce,
+[00:33:28] ale o uspořádané trojce.
+[00:33:31] Zakoupíme tři zákusky,
+[00:33:32] vydobíme vznik uspořádanou trojici.
+[00:33:36] První kamará dostane první zákusek,
+[00:33:38] druhý kamará druhý zákusek,
+[00:33:39] třetí kamará třetí zákusek.
+[00:33:42] Takže z tomhle příkladu se jedná
+[00:33:43] o uspořádané trojice,
+[00:33:46] čili variace.
+[00:33:50] Přešení toho příkladu
+[00:33:51] prostě použijeme vzorec pro variace.
+[00:33:54] 6 x 5 x 4
+[00:33:57] 6 x 20
+[00:34:00] Konec.
+[00:35:30] Tak pojďme na další úlohu.
+[00:35:39] Ptáme se, kolika způsoby lze rozdělit 32 různých karet.
+[00:36:00] čtyřem hráčům,
+[00:36:03] tak aby každý dostal 8 karat.
+[00:36:30] Tak kolika způsoby jsi rozdělit 32 karet čtyřem hráčům?
+[00:36:40] Tak začneme tím, že vybereme karty pro prvního hráče.
+[00:36:44] První hráč má dostat 8 karet a je úplně jedno, v jakém pořadí dostane.
+[00:36:50] Jeho zajímá jenom to, jaké karty to budou, nikoli v jakém pořadí dostane.
+[00:36:55] takže jde o to, že potřebujeme vybrat neuspořádanou osmici karet pro prvního hráče.
+[00:37:02] Je to neuspořádaná osmice, takže kombinace.
+[00:37:06] Počet možností, jak přidělit karty prvnímu hráči, je 32 nad 8.
+[00:37:16] Pokračujeme ke druhému hráči.
+[00:37:20] I druhý hráč dostane neuspořádanou osmici karet,
+[00:37:22] ale tentokrátu osmici už nevybíráme ze 32,
+[00:37:28] ale pouze z 24 zbývajících karet.
+[00:37:31] Takže počet možností pro druhého hráče je 24 nad 8.
+[00:37:38] Teď přijde na řadu třetí hráč.
+[00:37:41] Zbývá nám už jenom 16 karet.
+[00:37:44] A z těch 16 vybereme 8 pro třetího hráče.
+[00:37:52] A v tuhle chvíli nám zbývá už jenom posledních 8 karet,
+[00:37:57] které nutně musí dostat ten zbývající čtvrtý hráč,
+[00:38:01] čili pro čtvrtého hráče už je jenom jedna možnost.
+[00:38:06] Pokud bychom to chtěli napsat účeně, tak můžeme napsat 8 nad 8.
+[00:38:10] 8 nad 8 je samozřejmě jednička.
+[00:38:16] Takže tohle je počet možností, jak rozdělit karty čtyřem hráčům.
+[00:38:21] Když zkusíme vypočítat hodnotu toho součinu, tak vyjde docela velké číslo.
+[00:38:28] Já jenom budu číst a jenom napíšu.
+[00:38:45] Docela velký počet možností.
+[00:39:51] ...
+[00:40:15] Nebudu, to jsou spíš myšlené jako domácí úkoly.
+[00:40:18] Pokud by si s nimi nikdo nevěděl rady, tak můžeme napsat na mail.
+[00:40:22] Jsem posluchačům k dispozici.
+[00:40:32] Tak pojďme zkusit ještě další úlohu.
+[00:40:38] V jisté loterii je každý týden taženo 6 čísel ze 49.
+[00:40:48] Z té lotery je každý týden.
+[00:40:56] Baženo šest různých čísel.
+[00:41:07] Za 49.
+[00:41:12] Jaká je pravděpodobnost?
+[00:41:18] že žádné číslo nebude vytaženo
+[00:41:26] ve dvou posobějí jdoucích týdnech.
+[00:41:48] Takže v téhle úloze se ptáme na pravděpodobnost.
+[00:42:03] My jsme zatím nemluvili o pravděpodobnosti,
+[00:42:06] ale vy víte, že pravděpodobnost se počítá jako zlomek,
+[00:42:10] kde v čitateli je počet příznivých případů
+[00:42:12] a vejmenovateli je počet všech případů.
+[00:42:15] Tak o co v té úloze jde?
+[00:42:20] Já myslím, že si to dokážete představit.
+[00:42:22] Představte si člověka, který každý týden pravidelně sází v nějaké lotery,
+[00:42:29] typuje různá čísla.
+[00:42:33] Teď jde o to, jestli je lepší každý týden volit nějaká jiná čísla,
+[00:42:40] anebo třeba zkoušet opakovat pořád stejná čísla.
+[00:42:45] Myslím, že na první pohled není jasné, jak to dopadne.
+[00:42:49] Jestli je pravděpodobnější, že se nějaké číslo zopakuje,
+[00:42:54] anebo je pravděpodobnější, že se žádné číslo nezopakuje.
+[00:42:58] Zkusme to vypočítat.
+[00:43:02] Takže hledáme pravděpodobnost.
+[00:43:06] Zkusme třeba začít jmenovatelem.
+[00:43:08] Ve jmenovateli má být počet všech případů.
+[00:43:11] Co jsou ty případy?
+[00:43:12] To jsou výsledky tahů v té loterii ve dvou posobě jidoucích týdnech.
+[00:43:19] Máme dva posobě jidoucí týdny.
+[00:43:22] Kolika způsoby může dopadnout losování v tom prvním týdnu?
+[00:43:27] Je taženo šest různých čísl ze 49.
+[00:43:30] A je jedno, v jakém pořadí jsou ta čísla tažena.
+[00:43:34] Jde nám jenom o to, která čísla byla vytažena.
+[00:43:37] Nikoliv o to, v jakém pořadí.
+[00:43:39] takže počet možností, jak může dopadnout losování v prvním týdnu
+[00:43:43] je kombinační číslo 49 nad 6.
+[00:43:51] Je to neuspořádaná šestice čísel.
+[00:43:55] Podobně v tom dalším týdnu
+[00:43:57] ta úvaha je úplně stejná, takže opět 49 nad 6.
+[00:44:09] Co bude včitateli té pravděpodobnosti?
+[00:44:11] Tam má být počet příznivých případů.
+[00:44:14] Co jsou pro nás příznivé případy?
+[00:44:16] To jsou výsledky losování takové,
+[00:44:19] že žádné číslo nebude vytaženo v prvním
+[00:44:24] a zároveň ve druhém týdnu.
+[00:44:27] Takže co se děje v tom prvním týdnu?
+[00:44:29] V tom prvním týdnu to může dopadnout jakkoliv.
+[00:44:32] Takže těch možností je 49 nad 6.
+[00:44:35] ale v tom druhém týdnu už musíme být opatrní.
+[00:44:43] Nesmíme zopakovat žádné číslo,
+[00:44:46] které bylo vytaženo v prvním týdnu.
+[00:44:50] Takže v tom druhém týdnu bude vytažena nějaká šestice,
+[00:44:54] ale pokud se žádné číslo nesmí zopakovat,
+[00:44:57] tak tu šestici už nevybíráme za 49 možností,
+[00:45:01] ale pouze za 43 možností.
+[00:45:05] Takže tenhle zlomek udává hodnotu té pravděpodobnosti.
+[00:45:13] Vidíte, že 49 nad 6 se zkrátí.
+[00:45:17] To není žádné velké překvapení.
+[00:45:20] Je jasné, že na tom, co se děje v tom prvním týdnu,
+[00:45:23] vlastně vůbec nezáleží.
+[00:45:25] Důležité je to, co se děje v druhém týdnu.
+[00:45:29] A v tom druhém týdnu ta pravděpodobnost je dána tímhle zlomkem.
+[00:45:35] Když si zkusíte vypočítat ta kombinační čísla,
+[00:45:39] tak vyjde přibližně žádná celá 436 tisíci.
+[00:45:46] Takže asi 44%.
+[00:45:49] Takže vidíte, že je pravděpodobnější,
+[00:45:52] že se nějaké číslo zopakuje,
+[00:45:55] než že se žádné číslo nezopakuje.
+[00:46:00] Špatná zpráva prosázejícího je ta,
+[00:46:02] že nevíme, které číslo se zopakuje.
+[00:47:05] Tak pojďme se podívat dále.
+[00:47:30] Čekají nás variace, promutace a kombinace s opakováním.
+[00:47:35] Takže stejně jako předtím, budeme mít nějakou množinu velké A obsahující prvky A1 až AEN.
+[00:47:46] Z této množiny budeme vybírat nějaké kátice, ale tentokrát je povoleno opakování prvků.
+[00:47:57] Počas způsobů, jak vybrat takovouhle kátici, zase záleží na tom,
+[00:48:00] zda nás zajímají uspořádané nebo neuspořádané kátice.
+[00:48:05] Takže začínáme uspořádanými káticemi, což jsou variace.
+[00:48:09] Variace s opakováním.
+[00:48:20] Takže ještě jednou.
+[00:48:22] Variace s opakováním jsou uspořádané kátice
+[00:48:26] sestavené z prvků množiny velké A,
+[00:48:30] přičemž každý prvek té množiny A
+[00:48:32] co tam může vyskytnout, kolikrát chce.
+[00:48:37] Není žádné omezení na počet opakování prvků.
+[00:48:41] Takže kolik takových variací, kolik takových uspořádaných kátic existuje,
+[00:48:47] počet variací s opakováním je N umocněno na K.
+[00:48:52] Jak se na to přijde, tak představíme si,
+[00:48:58] že tu uspořádanou kátici zapisujeme na tabuli.
+[00:49:02] Třeba zleva do pravá.
+[00:49:05] Tak na první pozici máme N možností.
+[00:49:07] Můžete mít libovolný prvé knožiny A.
+[00:49:10] Na druhé pozici je zase N možností.
+[00:49:14] Na každé z těch K pozic je N možností.
+[00:49:17] Takže podle kombinatorického pravidla součinu
+[00:49:20] počet takových K-těc je N krát N krát N.
+[00:49:25] To N se tam objeví K krát.
+[00:49:26] Takže celkem jich je N umocněno na K.
+[00:49:32] To byly variace, tak jme se podívat na permutace.
+[00:49:42] Permutace s opakováním.
+[00:49:50] Permutace s opakováním jsou trošku specifická úloha.
+[00:49:56] V tomhle případě nejde o speciální případ variací,
+[00:49:59] protože u těch permutací s opakováním je navíc předepsáno,
+[00:50:04] kolikrát se tam který prvek má vyskytnout.
+[00:50:10] Takže řekněme, že jsou dána nějaká čísla K1 až KN,
+[00:50:19] která nám říkají, kolikrát se v té kátiči objeví prvky A1 až AN.
+[00:50:25] chceme, aby A1 tam byla K1 krát,
+[00:50:29] A2 K2 krát a tak dále.
+[00:50:33] Takže K1 až KN jsou nějaká přirozená čísla,
+[00:50:38] případně nuly.
+[00:50:40] Některé prvky se v té káti si nemusí objevit vůbec.
+[00:50:45] A aby ta úloha dávala smysl,
+[00:50:48] tak musíme předpokládat,
+[00:50:49] že součet K1 až KN je roven číslu K.
+[00:50:55] protože chceme vyrábět uspořádané kátice,
+[00:50:58] takže celkový počet prvků musí být k.
+[00:51:15] Takže tohle je úloha na permutace s opakováním.
+[00:51:21] Ptáme se, kolik existuje uspořádaných kátic
+[00:51:26] sestavených z prvků množiny A,
+[00:51:29] takže každý prvek AI se v té kátici objeví KI krát.
+[00:51:35] Odpověď je, že takových uspořádaných kátic
+[00:51:39] je K faktoriál,
+[00:51:42] lomeno K1 faktoriál,
+[00:51:45] K2 faktoriál a tak dále,
+[00:51:48] až Kn faktoriál.
+[00:51:51] Takže ještě jednou, je to zlomerk, kde v čitateli je k faktoriál
+[00:52:00] a vejmenovateli jsou faktoriály z počtu opakování těch jednotlivých prvků.
+[00:52:14] Jak se na ten vzorec přijde?
+[00:52:21] Tak je více možností, jak k němu dospět.
+[00:52:27] Jedna možnost vypadá tak, že si představíme,
+[00:52:30] že máme nějakých k prázdných pozic.
+[00:52:38] Chceme vyrábět kátici, takže máme k prázdných pozic
+[00:52:42] a postupně budeme zaplňovat ty prázdné pozice.
+[00:52:48] Tak začneme s tím prvkem A1.
+[00:52:51] Víme, že ten provek A1 se v té kátiči musí objevit K1 krát.
+[00:53:00] A to je jenom o to, na kterých pozicích se objeví.
+[00:53:04] Kolika způsoby můžeme vybrat pozice, na kterých se objeví provek A1?
+[00:53:10] No z těch celkových K pozic, když vybereme K1.
+[00:53:14] takže tím se nám zaplnily nějaké pozice
+[00:53:18] na kterých je prvek A1
+[00:53:21] pokračujeme k prvku A2
+[00:53:23] chceme vybrat pozice
+[00:53:25] na kterých se objeví prvek
+[00:53:27] A2
+[00:53:28] kolika způsoby to můžeme udělat
+[00:53:31] no těch volných pozic
+[00:53:33] v tomhle okamžiku
+[00:53:34] zbývá K-K1
+[00:53:37] a z nich vybereme nějakých K2
+[00:53:41] na kterých se objeví ten prvek A2.
+[00:53:48] Pokračujeme k prvku A3.
+[00:53:53] Když přemýšlíme nad tím, kolika způsoby můžeme umístit ten prvek A3,
+[00:53:59] tak volných pozic je v tomhle okamžiku K-K1-K2
+[00:54:03] a my z nich vybíráme K3.
+[00:54:08] A takhle podobně to pokračuje dále.
+[00:54:11] Jak to skončí?
+[00:54:15] Tak úplně na konci
+[00:54:16] potřebujeme rozmístit
+[00:54:21] ty prvky AN.
+[00:54:25] A pokud jsme postupovali správně,
+[00:54:27] tak v tomhle okamžiku
+[00:54:28] už máme jenom KN volných pozic.
+[00:54:31] Ale já to schválně napíšu
+[00:54:33] v trošku jiném tvaru.
+[00:54:36] Ten počet volných pozic
+[00:54:38] se dá také vyjádřit jako
+[00:54:39] k minus k1
+[00:54:41] minus k2
+[00:54:42] a tak dále, až minus
+[00:54:45] kn minus 1
+[00:54:47] a z těchto volných pozic
+[00:54:50] vybíráme kn.
+[00:54:55] Takže vlastně tento
+[00:54:57] dlouhatánský součin
+[00:54:58] by měl odpovídat počtu permutací
+[00:55:01] s opakováním.
+[00:55:04] A když je ta kombinační čísla, zkusíte rozepsat
+[00:55:07] pomocí faktoriálů, co se stane?
+[00:55:09] objeví se tam jeden dlouhatánský zlomek.
+[00:55:15] Z toho prvního kombinačního čísla vznikne vejmenovateli k1 faktoriál.
+[00:55:22] A v čitateli se objeví součin k krát k minus jedna
+[00:55:26] a tak dál až k minus k1 plus jedna.
+[00:55:32] Z toho druhého kombinačního čísla se vejmenovateli objeví k2 faktoriál.
+[00:55:39] A v čitateli vznikne součin K-K1,
+[00:55:45] krát K-K1, minus 1 a tak dále,
+[00:55:52] až K-K2 plus 1.
+[00:55:57] A je jasné, jak to bude pokračovat.
+[00:56:01] Ve jmenovateli se postupně objeví faktoriály ze všech čísel K1 až K1.
+[00:56:07] vidíte, že to souhlasí s tím,
+[00:56:11] čemu se chceme dostat.
+[00:56:14] A když se podíváte do čitatelé,
+[00:56:17] tak můžete si všimnout,
+[00:56:18] že ta čísla,
+[00:56:21] která vznikla z druhého kombinačního čísla,
+[00:56:24] pěkně navazují na ta čísla,
+[00:56:26] která vznikla z toho prvního kombinačního čísla.
+[00:56:31] Ten první součin končil u k-k1 plus 1
+[00:56:34] a na to plinule navázal ten další součin K-K1.
+[00:56:40] Podobně to bude dále.
+[00:56:43] Já jsem na konci tabule, ale jestli umíte představit, co tam vyjde.
+[00:56:50] Stane se to, že v čitateli se objeví součin všech přirozených čísel,
+[00:56:57] který začíná číslem K a končí jedničkou,
+[00:57:00] což je přesně K faktoriem.
+[00:57:34] a
+[00:57:34] tk
+[00:58:04] Zbývají nám ještě kombinace z upakování.
+[00:58:19] Takže opět
+[00:58:33] sestavujeme nějaké kátice
+[00:58:36] vybrané z prvků množiny A.
+[00:58:41] Prvky se mohou opakovat,
+[00:58:42] ale tento krás nás zajímají
+[00:58:44] neuspořádané kátice.
+[00:58:46] Nezáleží na pořadí prvků.
+[00:58:47] Takovýmhle káticím se říká kombinace s opakováním.
+[00:58:53] Kolik jich je?
+[00:58:56] Ten jejich počet je dán kombinačním číslem.
+[00:58:59] N plus K minus jedna.
+[00:59:02] Nad K.
+[00:59:02] Ten vzorec se ze všech vzorců asi nejhůře pamatuje.
+[00:59:19] Tak jak se na něj přijde?
+[00:59:20] Dá se na něj přijít pomocí takové pěkné kombinatorické úvahy.
+[00:59:26] Založené na to, že kleskíme obrázky.
+[00:59:32] Pojďme se podívat na to, jak se to udělá.
+[00:59:36] Zkusíme si nějaký konkrétní příklad.
+[00:59:39] Řekněme, že třeba N by byla čtyřka,
+[00:59:44] takže budeme vybírat prvky za čtyřprvkové množiny.
+[00:59:50] A K bude šestka.
+[00:59:53] Takže vybíráme neuspořádané šestice prvků z té čtyřprvkové množiny.
+[01:00:00] tak, jak může nějaký takový výběr vypadat
+[01:00:05] tak řekněme, že bychom třeba mohli vzít
+[01:00:08] jednu A1
+[01:00:11] dvě A2
+[01:00:13] řekněme, že třeba nevezmeme žádnou A3
+[01:00:21] ale vezmeme tři A4
+[01:00:24] takže vybrali jsme
+[01:00:29] 6 ciprvků
+[01:00:33] z té čtyřprvkové množiny.
+[01:00:37] Takže vlastně vidíte, že k tomu,
+[01:00:39] aby ten výběr byl určen,
+[01:00:41] stačí říct, kolik se tam objeví A1,
+[01:00:43] kolik A2,
+[01:00:45] kolik A3 a kolik A4.
+[01:00:47] Pořadí nehraje roli.
+[01:00:50] Takže vlastně můžeme předpokládat,
+[01:00:54] že
+[01:00:54] v té posloubnosti Aček
+[01:00:57] máme neklesající poslouknost indexu.
+[01:01:02] Teď vtip je v tom, že každý takový výběr
+[01:01:04] se dá znázornit obrázkem.
+[01:01:07] V tom obrázku budou nějaká kolečka a oddělovače.
+[01:01:11] Kolečka odpovídají těm vybíraným prvkům
+[01:01:15] a oddělovače říkají,
+[01:01:17] tady začíná další druh prvku.
+[01:01:19] Takže vidíme A1, nakresíme jedno kolečko.
+[01:01:25] Těm končí A1,
+[01:01:26] takže nakreslíme oddělovač, začínají A2.
+[01:01:30] A2 jsou tam dvě, nakreslíme dvě kolečka, končí A2.
+[01:01:36] Teď by měly přijít A3, ale A3 tam není žádná,
+[01:01:41] takže hned kreslíme další oddělovač, začínají A4.
+[01:01:45] A4 jsou tam tři.
+[01:01:47] Takže každou takovouhle kombinaci umíme znázornit obrázkem,
+[01:01:57] kde bude šest koleček a tři oddělovače.
+[01:02:02] Ještě jednou tohoto první kolečko odpovídá jedné A1.
+[01:02:06] Tohoto dvě kolečko odpovídají dvěma A2.
+[01:02:10] Tady by měly být A3, ale ty tam nejsou žádné.
+[01:02:14] A A4 máme tři.
+[01:02:17] Tak to byla jen jedna možná šestice.
+[01:02:24] Kolik by bylo všech takových šestic?
+[01:02:27] No těch šestic je přesně tolik.
+[01:02:29] Kolika způsobil se naklesit obrázek
+[01:02:32] poskládaný se šesti koleček
+[01:02:34] a tří oddělovačů.
+[01:02:38] A ta kolečka a oddělovače
+[01:02:40] se tam můžou objevit v naprosto libovolném pořadí.
+[01:02:43] Takže vlastně můžeme vyrobit úplně libovolnou permutaci
+[01:02:49] šesti koleček a tří oddělovačů
+[01:02:52] a vždycky to bude odpovídat
+[01:02:55] nějaké uspořádané šestici
+[01:02:57] vybrané za čtyřprvkové množiny.
+[01:03:03] A kolik je těch permutací koleček a oddělovačů?
+[01:03:07] Tak máme tady šest koleček a tři oddělovače.
+[01:03:09] To je celkem devět symbolů.
+[01:03:11] Je to úspořadána devítice.
+[01:03:16] A když si vzpomeneme na vzálec pro permutace s opakováním,
+[01:03:19] tak víme, že vejmenovateli se mají objevit faktoriály
+[01:03:22] z počtu opakování těch jednotlivých symbolů.
+[01:03:27] Takže kolečko je tam šestkrát, šest faktoriál.
+[01:03:31] Oddělovač je tam třikrát, tři faktoriál.
+[01:03:34] že tohle se dá případně přepsat jako kombinační číslo 9 nad 6
+[01:03:42] nebo taky 9 nad 3.
+[01:03:52] Takhle to vypadá pro nějaké konkrétní hodnoty N a K.
+[01:03:57] Jak to bude obecně pro obecné N a K?
+[01:04:00] tak ta úvaha pořád funguje.
+[01:04:07] Každou kátici
+[01:04:08] vybranou z prvků N prvkové množiny
+[01:04:12] si můžeme znázornit obrázkem.
+[01:04:15] V tom obrázku bude celkem
+[01:04:17] K koleček.
+[01:04:25] A kromě koleček tam budou oddělovače.
+[01:04:28] Bude jich N minus jedna.
+[01:04:30] N-1 oddělovačů.
+[01:04:37] Proč jich je N-1?
+[01:04:39] Protože my máme N prvkovou množinu
+[01:04:41] a oddělovač říká,
+[01:04:44] tady začíná další typ prvku.
+[01:04:46] Takže těch oddělovačů potřebujeme
+[01:04:48] přesně N-1.
+[01:04:51] Takže nás zajímá, kolik je obrázků
+[01:04:53] vyrobených z K koleček
+[01:04:55] a N-1 oddělovačů.
+[01:04:57] To jsou zase permutace s opakováním.
+[01:04:59] kolik jich je,
+[01:05:02] tak v čitateli bude faktoriál
+[01:05:03] z celkového počtu symbolů.
+[01:05:06] To znamená K plus N minus 1
+[01:05:08] faktoriál.
+[01:05:11] Vejmenovateli budou
+[01:05:12] faktoriály z počtu opakování,
+[01:05:14] takže K faktoriál
+[01:05:15] a N minus 1
+[01:05:18] faktoriál.
+[01:05:25] Když se na to podíváte,
+[01:05:26] tak tento zlomek není nic jiného
+[01:05:28] než kombinační číslo N plus K minus 1 nad K.
+[01:05:34] Takže jsme si připomněli vzorec pro kombinace s opakováním.
+[01:05:40] Možná, že je jednodušší, než si pamatovat ten vzorec,
+[01:05:44] si pamatovat si tu úvahu z kolačky a oddělovači,
+[01:05:47] která ukazuje, jak se k němu dojde.
+[01:06:58] Tak podíváme se na nějaké úlohy.
+[01:07:15] Vrátíme se zpátky do cukrárny.
+[01:07:18] Jsme v cukrárně, kde mají 6 druhů zákusků.
+[01:07:28] Zdravíme se, kolika způsoby za zakoupit čtyři zákusky pro čtyři kamarády?
+[01:07:58] Tak my jsme tady už jednu podobnou úlohu řešili.
+[01:08:12] V čem je rozdíl?
+[01:08:13] V té předchozí úloze se požadovalo,
+[01:08:18] aby ty zákusky byly různé.
+[01:08:22] Tady se neříká nic o tom, jestli mají být různé,
+[01:08:24] takže případně mohou být i stejné.
+[01:08:26] ty zákusky budeme rozdělovat kamarádům.
+[01:08:33] Takže záleží na pořadích.
+[01:08:34] Záleží na tom, kdo dostane který zákusek.
+[01:08:39] Takže vlastně potřebujeme uspořádanou čtveřici zákusků.
+[01:08:43] Tím pádem to jsou variace.
+[01:08:47] A je povolenou opakování.
+[01:08:49] Jsou to variace s opakováním.
+[01:08:51] Takže můžeme rovnou napsat odpověď.
+[01:08:54] Ta odpověď je 6.
+[01:08:56] umocněno na čtvrtou.
+[01:09:02] Když to vypočítáte, tak vyjde 1296.
+[01:09:10] Zkusíme ještě podobnou úlohu.
+[01:09:14] Tak zase cukrárně mají šest druhů zákusku.
+[01:09:26] Ptáme se, kolika způsobil zakoupit čtyři zákusky.
+[01:09:34] Tentokrát neříkáme, co s těmi zákusky uděláme.
+[01:09:57] Prostě naházíme do tašky, pak se uvidí.
+[01:10:00] Takže v téhle úloze jde o neuspořádanou čtveřici zákusku.
+[01:10:08] Takže je jasné, že to je úloha na kombinace s opakováním.
+[01:10:14] Takže mohli bychom použít vzorec pro kombinace s opakováním,
+[01:10:17] ale zkusme se na chvilku tvářit, že jsme ten vzorec zapomněli
+[01:10:20] a zkusíme tu úlohu vyřešit pomocí obrázku z kolečky a oddělovači.
+[01:10:30] Jak to bude vypadat?
+[01:10:31] Tak řekněme, že ty zákusky budeme znázorněvat jako kolečka
+[01:10:34] a oddělovače budou říkat,
+[01:10:38] tady začíná další druh zákusku.
+[01:10:41] Takže například ten nákup by mohl vypadat tak,
+[01:10:45] že vezmeme jeden zákusek prvního druhu,
+[01:10:50] kresíme jedno kolečko.
+[01:10:53] Teď přijde oddělovač, přicházejí zákusky druhého druhu,
+[01:10:57] řekněme, že koupíme dva zákusky druhého druhu.
+[01:11:06] Přijde třetí druh, oddělováč.
+[01:11:10] Od třetího druhu nekoupíme nic,
+[01:11:13] tak se kreslíme hned další oddělováč.
+[01:11:16] Čtvrtý druh.
+[01:11:17] Řekněme, že od čtvrtého druhu
+[01:11:19] koupíme jeden zákusek.
+[01:11:25] To je čtvrtý druh.
+[01:11:27] A tím jsme už vlastně nakoupili čtyři zákusky,
+[01:11:36] takže tady formálně přijde další oddělováč,
+[01:11:39] který by měl říkat,
+[01:11:40] tady bude pátý druh zákusku.
+[01:11:43] A pak ještě další oddělováč,
+[01:11:46] který říká, tady bude šestý druh zákusku.
+[01:11:53] Takže vlastně my jsme tu úlohu převedli na otázku,
+[01:11:57] Kolika způsoby lze naklesit obrázek, kde budou čtyři kolačka a pět oddělovačů?
+[01:12:16] Kolik takových obrázků existuje?
+[01:12:20] Ta kolačka a oddělovače můžeme kleslit v libovolném pořadí.
+[01:12:24] ty symboly můžeme permutovat
+[01:12:28] libovolným způsobem.
+[01:12:30] Takže to jsou permutace s opakováním.
+[01:12:33] Kolik jich je?
+[01:12:35] Pak je to zlomé,
+[01:12:36] kde v čitateli je faktoriál
+[01:12:37] z celkového počtu věcí.
+[01:12:40] 4 plus 5 je 9.
+[01:12:44] A ve jmenovateli jsou faktoriály
+[01:12:46] z počtu opakování.
+[01:12:47] 4 faktoriál
+[01:12:49] a 5 faktoriál.
+[01:12:54] což se dá přepsat jako kombinační číslo 9 nad 4.
+[01:13:00] Když vypočítáte jeho hodnotu, dostanete 126.
+[01:13:08] Takže vidíte, že tu úlohu dokážeme vyřešit,
+[01:13:10] aniž bychom si pamatovali vzorec pro kombinace s opakováním.
+[01:13:15] Samozřejmě pokud si ho pamatujeme,
+[01:13:18] tak se to řešení dá urychlit.
+[01:13:20] Vzorec pro kombinace s opakováním byl N plus K minus 1 K,
+[01:13:24] Takže v tomhle případě n je šestka,
+[01:13:29] vybíráme ze šestiprovkové množiny
+[01:13:31] a káčko je čtyřka.
+[01:13:34] Vybíráme neuspořádanou čtveřici.
+[01:13:40] Takže když dosadíme na vzorce pro kombinace s opakováním,
+[01:13:44] tak dostaneme kombinační číslo
+[01:13:45] 6 plus 4 minus 1 nad 4,
+[01:13:50] 9 nad 4.
+[01:13:51] Zdečíme, ale zřejmě stejný výsledek jako u toho prvního způsobu řešení.
+[01:15:21] Zkusíme další úlohu.
+[01:15:30] Kolika způsobil za rozdělit deset stejných bonbonů mezi pět dětí?
+[01:15:51] Pouloho bude mít dvě varianty.
+[01:16:03] Jestliže za A.
+[01:16:09] Některé děti nemusí dostat nic.
+[01:16:21] Tak je to smutné, takový už je život.
+[01:16:27] Za B.
+[01:16:28] Každé dítě musí dostat
+[01:16:30] aspoň jeden bombón.

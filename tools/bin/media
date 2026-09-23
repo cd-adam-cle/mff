@@ -40,7 +40,10 @@ have ffprobe || die "ffprobe not found"
 
 # YouTube 403s specific player clients at random and rotates which one is broken,
 # so retry across a few before giving up. If all fail, `yt-dlp -U` is the real fix.
-YT_CLIENTS="${YT_CLIENTS:-default mweb tv web_safari ios}"
+# Order matters for QUALITY, not just success: `mweb` and `android` download
+# fine but only expose 360p, while `web_embedded` exposes the full DASH ladder.
+# Getting this wrong cost a whole lecture — 360p loses the projected slides.
+YT_CLIENTS="${YT_CLIENTS:-web_embedded default mweb tv web_safari ios}"
 YT_MEMO="$TOOLS/.yt-client"     # last client that actually worked; tried first
 ytdl(){
   local c rc order
@@ -120,6 +123,13 @@ fetch(){
           [ -f "$s" ] && mv "$s" "$wd/subs.${s##*source}" 2>/dev/null || true
         done
         existing="$(find "$wd" -maxdepth 1 -name 'source.*' ! -name '*.part' ! -name '*.vtt' ! -name '*.srt' | head -1)"
+      fi
+      if [ -n "$existing" ]; then
+        local h; h="$(ffprobe -v error -select_streams v -show_entries stream=height -of csv=p=0 "$existing" 2>/dev/null | head -1)"
+        if [ -n "$h" ] && [ "$h" -lt 500 ]; then
+          echo "media: WARNING — got only ${h}p. Handwriting may be unreadable;" >&2
+          echo "       delete source.* and retry, or set YT_CLIENTS=web_embedded" >&2
+        fi
       fi;;
   esac
   [ -n "$existing" ] || die "download produced no file"
