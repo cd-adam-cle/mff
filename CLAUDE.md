@@ -87,6 +87,15 @@ Ruční ladění: `--scene 0.08` (víc snímků), `--every 60` (po minutě),
 - České přednášky: `--lang cs` zlepší výsledek.
 - Vynutit Whisper i při existujících titulcích: `--force-whisper`
   (auto-titulky na matematiku bývají mizerné).
+- **Zvuk se před přepisem normalizuje** (`loudnorm` na −16 LUFS). Záznamy
+  z posluchárny mají kolem −40 dB a Whisper na nich nejen halucinuje, ale
+  hlavně **většinu řeči vůbec nepřepíše** — na testovaném úseku dala
+  normalizace 65 segmentů místo 35. Nevypínej to.
+- `condition_on_previous_text` je vypnuté: jeden špatný segment jinak spustí
+  smyčku (v jedné přednášce 59× „Titulky vytvořil JohnyX.").
+- Halucinace v tichu mají `no_speech_prob = 0.0`, takže je nelze filtrovat
+  podle jistoty modelu; `transcribe.py` je zahazuje podle seznamu frází
+  a hlavička přepisu říká kolik.
 - Přepis se **necachuje** — opakovaný `grab` přepisuje znovu. Když jen
   potřebuješ dosnímkovat, použij `media frames`, ne `media grab`.
 
