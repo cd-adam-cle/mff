@@ -95,6 +95,8 @@ vysvětlené značení, pozor na kvantifikátory). Početní úlohy = základní
 
 ## 4. Plán kurzu
 
+Týdenní přehled s daty a zaškrtávacím trackerem: [`plan.md`](plan.md).
+
 | Týden od | Téma přednášky | Kapitoly skript | Sada na cvičení (čt) | Kvíz do | DÚ do |
 |---|---|---|---|---|---|
 | 28. 9. | Úvod, analytická geometrie, zobrazení | 1.1–1.3, 1.5 | 01 opakování geometrie | po 5. 10. 12:00 | — |

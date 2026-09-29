@@ -1,7 +1,7 @@
 # Lineární algebra 1 (LA1)
 
 > **Pravidla, plán a kontext předmětu jsou v [`CLAUDE.md`](CLAUDE.md) — ten je nadřazený tomuto souboru.**
-> Tady jsou jen fakta ze SISu, literatura a „co mi dělá problém“.
+> Týdenní plán a tracker: [`plan.md`](plan.md). Tady jsou jen fakta ze SISu, literatura a „co mi dělá problém“.
 
 SIS: NMAG113 · zimní · 4/2 · Z+Zk · 10 kr · [sylabus uložený](zdroje/sis/predmet.html)
 
