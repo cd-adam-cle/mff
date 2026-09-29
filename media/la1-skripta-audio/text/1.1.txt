@@ -1,0 +1,25 @@
+Kapitola první. Opakování. Jedna tečka jedna. Základní geometrické pojmy.
+
+Ve fyzice je vektor veličina, která má směr a velikost. Vektory obvykle znázorňujeme geometricky jako orientované úsečky (stručněji a méně přesně říkáme také šipky). Jeden a ten samý vektor vé můžeme znázornit různými orientovanými úsečkami, pokud mají stejný směr, délku (také se říká velikost) a orientaci. Vektory budeme označovat malými tučnými písmeny.
+
+Obrázek 1.1. Různé šipky znázorňující stejný vektor.
+
+Fyzikální vektor, například síla, může působit v nějakém bodě á. Geometricky to vyjádříme tak, že počáteční bod orientované úsečky znázorňující vektor vé umístíme do bodu á. Tím je jednoznačně určený koncový bod této úsečky, na obrázku 1.2 je označený jako cé. Říkáme také, že cé je koncový bod vektoru vé s počátečním bodem á. Stručně to zapisujeme jako cé rovná se á plus vé. Orientovaná úsečka znázorňující vektor vé je jednoznačně určená svým počátečním bodem á a koncovým bodem cé, což vyjadřujeme rovností vé rovná se cé mínus á.
+
+Obrázek 1.2. Počáteční a koncový bod vektoru.
+
+Vektory můžeme násobit reálnými čísly. Vektor dvě vé má stejný směr a orientaci jako vektor vé, má ale dvojnásobnou délku. Podobně vektor jedna polovina vé má poloviční délku oproti vé, stejný směr a orientaci. Vektor mínus jedna krát vé má stejný směr a délku jako vé, má ale opačnou orientaci. Opačný vektor k vektoru vé také stručněji zapisujeme mínus vé. Násobek nula vé je nulový vektor. Nulový vektor jako jediný nemá jednoznačně určený směr.
+
+Obrázek 1.3. Násobky vektoru.
+
+Vektory umíme také sčítat. Dva vektory vé a dvojité vé sečteme tak, že je umístíme do společného počátečního bodu á a doplníme na rovnoběžník (v případě, že je jeden z vektorů násobkem druhého, bude rovnoběžník degenerovaný). Součet vé plus dvojité vé je vektor s počátečním bodem á, který má směr, délku a orientaci úhlopříčky v tomto rovnoběžníku.
+
+Obrázek 1.4. Součet vektorů.
+
+Přímku v rovině nebo 3D prostoru můžeme zadat mnoha různými způsoby. Jednou z možností je zadat dva různé body přímky. V dalším textu budeme často používat zadání přímky pomocí jednoho bodu á a směrového vektoru vé. Takto zadanou přímku el pak tvoří koncové body všech násobků té vé vektoru vé s počátečním bodem á, to jest el je množina všech bodů á plus té vé, kde té je z er.
+
+Obrázek 1.5. Přímka určená bodem a směrovým vektorem.
+
+Obvyklý způsob jak určit rovinu v 3D prostoru je zadat tři body, které neleží na jedné přímce. Jinou možností je zadat jeden bod á a dvojici vektorů vé a dvojité vé, které nemají stejný směr (tím je vyloučena také možnost, že by jeden z těchto vektorů byl nulový). Vektor vé s počátečním bodem á má nějaký koncový bod bé a vektor dvojité vé s tím samým počátečním bodem á má koncový bod cé. Body á, bé, cé neleží na jedné přímce, protože vektory vé a dvojité vé nemají stejný směr (neboli ani jeden z nich nejde získat jako násobek druhého), a proto určují nějakou rovinu pé. Leží v ní koncové body všech vektorů es vé plus té dvojité vé s počátečním bodem á, kde es, té jsou libovolná reálná čísla. Rovinu pé tak můžeme napsat jako množinu bodů pé je množina všech bodů á plus, v závorce, es vé plus té dvojité vé, kde es, té jsou z er.
+
+Obrázek 1.6. Rovina určená bodem a dvojicí směrových vektorů.
