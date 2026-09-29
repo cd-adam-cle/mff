@@ -1,0 +1,308 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Mff repo//LA1 DU pripominky ZS 2026/27//CS
+CALSCALE:GREGORIAN
+X-WR-CALNAME:LA1 – domácí úkoly
+X-WR-TIMEZONE:Europe/Prague
+BEGIN:VTIMEZONE
+TZID:Europe/Prague
+BEGIN:STANDARD
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:la1-du-01-pripominka@mff-repo
+DTSTAMP:20260929T120000Z
+DTSTART;TZID=Europe/Prague:20261012T180000
+DURATION:PT30M
+SUMMARY:LA1 📬 DÚ 1 – za 2 dny termín (st 14. 10. 23:55)
+DESCRIPTION:DÚ 1 k přednášce z týdne 28. 9. (zobrazení). Odevzdat do st 14. 10. 23:55 do Sovičky (https://owl.mff.cuni.cz/)\, PDF\, každá úloha do svého topicu. Samostatně a bez AI. Potvrzeno na webu kurzu.
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:LA1 DÚ 1 – za 2 dny termín
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-du-01-termin@mff-repo
+DTSTAMP:20260929T120000Z
+DTSTART;TZID=Europe/Prague:20261014T235500
+DURATION:PT5M
+SUMMARY:LA1 📬 DÚ 1 – odevzdat do 23:55
+DESCRIPTION:DÚ 1 k přednášce z týdne 28. 9. (zobrazení). Odevzdat do st 14. 10. 23:55 do Sovičky (https://owl.mff.cuni.cz/)\, PDF\, každá úloha do svého topicu. Samostatně a bez AI. Potvrzeno na webu kurzu.
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P2D
+DESCRIPTION:LA1 DÚ 1 – za 2 dny termín
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-du-02-pripominka@mff-repo
+DTSTAMP:20260929T120000Z
+DTSTART;TZID=Europe/Prague:20261019T180000
+DURATION:PT30M
+SUMMARY:LA1 📬 DÚ – za 2 dny termín (st 21. 10. 23:55) – ověřit
+DESCRIPTION:DÚ k přednášce z týdne 5. 10. (soustavy lin. rovnic). Odevzdat do st 21. 10. 23:55 do Sovičky (https://owl.mff.cuni.cz/)\, PDF\, každá úloha do svého topicu. Samostatně a bez AI. Termín odvozený z pravidla (přednáška týden X → DÚ do st X+2) – ověřit na webu kurzu.
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:LA1 DÚ – za 2 dny termín
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-du-02-termin@mff-repo
+DTSTAMP:20260929T120000Z
+DTSTART;TZID=Europe/Prague:20261021T235500
+DURATION:PT5M
+SUMMARY:LA1 📬 DÚ – odevzdat do 23:55 – ověřit
+DESCRIPTION:DÚ k přednášce z týdne 5. 10. (soustavy lin. rovnic). Odevzdat do st 21. 10. 23:55 do Sovičky (https://owl.mff.cuni.cz/)\, PDF\, každá úloha do svého topicu. Samostatně a bez AI. Termín odvozený z pravidla (přednáška týden X → DÚ do st X+2) – ověřit na webu kurzu.
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P2D
+DESCRIPTION:LA1 DÚ – za 2 dny termín
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-du-03-pripominka@mff-repo
+DTSTAMP:20260929T120000Z
+DTSTART;TZID=Europe/Prague:20261026T180000
+DURATION:PT30M
+SUMMARY:LA1 📬 DÚ – za 2 dny termín (st 28. 10. 23:55) – ověřit
+DESCRIPTION:DÚ k přednášce z týdne 12. 10. (tělesa\, matice). Odevzdat do st 28. 10. 23:55 do Sovičky (https://owl.mff.cuni.cz/)\, PDF\, každá úloha do svého topicu. Samostatně a bez AI. Termín odvozený z pravidla (přednáška týden X → DÚ do st X+2) – ověřit na webu kurzu – st je státní svátek.
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:LA1 DÚ – za 2 dny termín
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-du-03-termin@mff-repo
+DTSTAMP:20260929T120000Z
+DTSTART;TZID=Europe/Prague:20261028T235500
+DURATION:PT5M
+SUMMARY:LA1 📬 DÚ – odevzdat do 23:55 – ověřit
+DESCRIPTION:DÚ k přednášce z týdne 12. 10. (tělesa\, matice). Odevzdat do st 28. 10. 23:55 do Sovičky (https://owl.mff.cuni.cz/)\, PDF\, každá úloha do svého topicu. Samostatně a bez AI. Termín odvozený z pravidla (přednáška týden X → DÚ do st X+2) – ověřit na webu kurzu – st je státní svátek.
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P2D
+DESCRIPTION:LA1 DÚ – za 2 dny termín
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-du-04-pripominka@mff-repo
+DTSTAMP:20260929T120000Z
+DTSTART;TZID=Europe/Prague:20261102T180000
+DURATION:PT30M
+SUMMARY:LA1 📬 DÚ – za 2 dny termín (st 4. 11. 23:55) – ověřit
+DESCRIPTION:DÚ k přednášce z týdne 19. 10. (matice soustavy\, matice jako zobrazení). Odevzdat do st 4. 11. 23:55 do Sovičky (https://owl.mff.cuni.cz/)\, PDF\, každá úloha do svého topicu. Samostatně a bez AI. Termín odvozený z pravidla (přednáška týden X → DÚ do st X+2) – ověřit na webu kurzu.
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:LA1 DÚ – za 2 dny termín
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-du-04-termin@mff-repo
+DTSTAMP:20260929T120000Z
+DTSTART;TZID=Europe/Prague:20261104T235500
+DURATION:PT5M
+SUMMARY:LA1 📬 DÚ – odevzdat do 23:55 – ověřit
+DESCRIPTION:DÚ k přednášce z týdne 19. 10. (matice soustavy\, matice jako zobrazení). Odevzdat do st 4. 11. 23:55 do Sovičky (https://owl.mff.cuni.cz/)\, PDF\, každá úloha do svého topicu. Samostatně a bez AI. Termín odvozený z pravidla (přednáška týden X → DÚ do st X+2) – ověřit na webu kurzu.
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P2D
+DESCRIPTION:LA1 DÚ – za 2 dny termín
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-du-05-pripominka@mff-repo
+DTSTAMP:20260929T120000Z
+DTSTART;TZID=Europe/Prague:20261116T180000
+DURATION:PT30M
+SUMMARY:LA1 📬 DÚ – za 2 dny termín (st 18. 11. 23:55) – ověřit
+DESCRIPTION:DÚ k přednášce z týdne 2. 11. (inverzní matice\, vektorové prostory). Odevzdat do st 18. 11. 23:55 do Sovičky (https://owl.mff.cuni.cz/)\, PDF\, každá úloha do svého topicu. Samostatně a bez AI. Termín odvozený z pravidla (přednáška týden X → DÚ do st X+2) – ověřit na webu kurzu – týž den 1. midterm.
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:LA1 DÚ – za 2 dny termín
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-du-05-termin@mff-repo
+DTSTAMP:20260929T120000Z
+DTSTART;TZID=Europe/Prague:20261118T235500
+DURATION:PT5M
+SUMMARY:LA1 📬 DÚ – odevzdat do 23:55 – ověřit
+DESCRIPTION:DÚ k přednášce z týdne 2. 11. (inverzní matice\, vektorové prostory). Odevzdat do st 18. 11. 23:55 do Sovičky (https://owl.mff.cuni.cz/)\, PDF\, každá úloha do svého topicu. Samostatně a bez AI. Termín odvozený z pravidla (přednáška týden X → DÚ do st X+2) – ověřit na webu kurzu – týž den 1. midterm.
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P2D
+DESCRIPTION:LA1 DÚ – za 2 dny termín
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-du-06-pripominka@mff-repo
+DTSTAMP:20260929T120000Z
+DTSTART;TZID=Europe/Prague:20261123T180000
+DURATION:PT30M
+SUMMARY:LA1 📬 DÚ – za 2 dny termín (st 25. 11. 23:55) – ověřit
+DESCRIPTION:DÚ k přednášce z týdne 9. 11. (lin. (ne)závislost\, báze). Odevzdat do st 25. 11. 23:55 do Sovičky (https://owl.mff.cuni.cz/)\, PDF\, každá úloha do svého topicu. Samostatně a bez AI. Termín odvozený z pravidla (přednáška týden X → DÚ do st X+2) – ověřit na webu kurzu.
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:LA1 DÚ – za 2 dny termín
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-du-06-termin@mff-repo
+DTSTAMP:20260929T120000Z
+DTSTART;TZID=Europe/Prague:20261125T235500
+DURATION:PT5M
+SUMMARY:LA1 📬 DÚ – odevzdat do 23:55 – ověřit
+DESCRIPTION:DÚ k přednášce z týdne 9. 11. (lin. (ne)závislost\, báze). Odevzdat do st 25. 11. 23:55 do Sovičky (https://owl.mff.cuni.cz/)\, PDF\, každá úloha do svého topicu. Samostatně a bez AI. Termín odvozený z pravidla (přednáška týden X → DÚ do st X+2) – ověřit na webu kurzu.
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P2D
+DESCRIPTION:LA1 DÚ – za 2 dny termín
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-du-07-pripominka@mff-repo
+DTSTAMP:20260929T120000Z
+DTSTART;TZID=Europe/Prague:20261207T180000
+DURATION:PT30M
+SUMMARY:LA1 📬 DÚ – za 2 dny termín (st 9. 12. 23:55) – ověřit
+DESCRIPTION:DÚ k přednášce z týdne 23. 11. (souřadnice\, matice přechodu). Odevzdat do st 9. 12. 23:55 do Sovičky (https://owl.mff.cuni.cz/)\, PDF\, každá úloha do svého topicu. Samostatně a bez AI. Termín odvozený z pravidla (přednáška týden X → DÚ do st X+2) – ověřit na webu kurzu.
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:LA1 DÚ – za 2 dny termín
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-du-07-termin@mff-repo
+DTSTAMP:20260929T120000Z
+DTSTART;TZID=Europe/Prague:20261209T235500
+DURATION:PT5M
+SUMMARY:LA1 📬 DÚ – odevzdat do 23:55 – ověřit
+DESCRIPTION:DÚ k přednášce z týdne 23. 11. (souřadnice\, matice přechodu). Odevzdat do st 9. 12. 23:55 do Sovičky (https://owl.mff.cuni.cz/)\, PDF\, každá úloha do svého topicu. Samostatně a bez AI. Termín odvozený z pravidla (přednáška týden X → DÚ do st X+2) – ověřit na webu kurzu.
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P2D
+DESCRIPTION:LA1 DÚ – za 2 dny termín
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-du-08-pripominka@mff-repo
+DTSTAMP:20260929T120000Z
+DTSTART;TZID=Europe/Prague:20261214T180000
+DURATION:PT30M
+SUMMARY:LA1 📬 DÚ – za 2 dny termín (st 16. 12. 23:55) – ověřit
+DESCRIPTION:DÚ k přednášce z týdne 30. 11. (hodnost\, podprostory\, lin. zobrazení). Odevzdat do st 16. 12. 23:55 do Sovičky (https://owl.mff.cuni.cz/)\, PDF\, každá úloha do svého topicu. Samostatně a bez AI. Termín odvozený z pravidla (přednáška týden X → DÚ do st X+2) – ověřit na webu kurzu – týž den 2. midterm.
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:LA1 DÚ – za 2 dny termín
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-du-08-termin@mff-repo
+DTSTAMP:20260929T120000Z
+DTSTART;TZID=Europe/Prague:20261216T235500
+DURATION:PT5M
+SUMMARY:LA1 📬 DÚ – odevzdat do 23:55 – ověřit
+DESCRIPTION:DÚ k přednášce z týdne 30. 11. (hodnost\, podprostory\, lin. zobrazení). Odevzdat do st 16. 12. 23:55 do Sovičky (https://owl.mff.cuni.cz/)\, PDF\, každá úloha do svého topicu. Samostatně a bez AI. Termín odvozený z pravidla (přednáška týden X → DÚ do st X+2) – ověřit na webu kurzu – týž den 2. midterm.
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P2D
+DESCRIPTION:LA1 DÚ – za 2 dny termín
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-du-09-pripominka@mff-repo
+DTSTAMP:20260929T120000Z
+DTSTART;TZID=Europe/Prague:20261221T180000
+DURATION:PT30M
+SUMMARY:LA1 📬 DÚ – za 2 dny termín (st 23. 12. 23:55) – ověřit
+DESCRIPTION:DÚ k přednášce z týdne 7. 12. (jádro a obraz). Odevzdat do st 23. 12. 23:55 do Sovičky (https://owl.mff.cuni.cz/)\, PDF\, každá úloha do svého topicu. Samostatně a bez AI. Termín odvozený z pravidla (přednáška týden X → DÚ do st X+2) – ověřit na webu kurzu – Vánoce\, termín asi posunutý.
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:LA1 DÚ – za 2 dny termín
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-du-09-termin@mff-repo
+DTSTAMP:20260929T120000Z
+DTSTART;TZID=Europe/Prague:20261223T235500
+DURATION:PT5M
+SUMMARY:LA1 📬 DÚ – odevzdat do 23:55 – ověřit
+DESCRIPTION:DÚ k přednášce z týdne 7. 12. (jádro a obraz). Odevzdat do st 23. 12. 23:55 do Sovičky (https://owl.mff.cuni.cz/)\, PDF\, každá úloha do svého topicu. Samostatně a bez AI. Termín odvozený z pravidla (přednáška týden X → DÚ do st X+2) – ověřit na webu kurzu – Vánoce\, termín asi posunutý.
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P2D
+DESCRIPTION:LA1 DÚ – za 2 dny termín
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-du-10-pripominka@mff-repo
+DTSTAMP:20260929T120000Z
+DTSTART;TZID=Europe/Prague:20261228T180000
+DURATION:PT30M
+SUMMARY:LA1 📬 DÚ – za 2 dny termín (st 30. 12. 23:55) – ověřit
+DESCRIPTION:DÚ k přednášce z týdne 14. 12. (permutace). Odevzdat do st 30. 12. 23:55 do Sovičky (https://owl.mff.cuni.cz/)\, PDF\, každá úloha do svého topicu. Samostatně a bez AI. Termín odvozený z pravidla (přednáška týden X → DÚ do st X+2) – ověřit na webu kurzu – Vánoce\, termín asi posunutý.
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:LA1 DÚ – za 2 dny termín
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-du-10-termin@mff-repo
+DTSTAMP:20260929T120000Z
+DTSTART;TZID=Europe/Prague:20261230T235500
+DURATION:PT5M
+SUMMARY:LA1 📬 DÚ – odevzdat do 23:55 – ověřit
+DESCRIPTION:DÚ k přednášce z týdne 14. 12. (permutace). Odevzdat do st 30. 12. 23:55 do Sovičky (https://owl.mff.cuni.cz/)\, PDF\, každá úloha do svého topicu. Samostatně a bez AI. Termín odvozený z pravidla (přednáška týden X → DÚ do st X+2) – ověřit na webu kurzu – Vánoce\, termín asi posunutý.
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P2D
+DESCRIPTION:LA1 DÚ – za 2 dny termín
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-du-11-pripominka@mff-repo
+DTSTAMP:20260929T120000Z
+DTSTART;TZID=Europe/Prague:20270118T180000
+DURATION:PT30M
+SUMMARY:LA1 📬 DÚ – za 2 dny termín (st 20. 1. 23:55) – ověřit
+DESCRIPTION:DÚ k přednášce z týdne 4. 1. (determinanty). Odevzdat do st 20. 1. 23:55 do Sovičky (https://owl.mff.cuni.cz/)\, PDF\, každá úloha do svého topicu. Samostatně a bez AI. Termín odvozený z pravidla (přednáška týden X → DÚ do st X+2) – ověřit na webu kurzu – zkouškové\, jestli vůbec bude.
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT0M
+DESCRIPTION:LA1 DÚ – za 2 dny termín
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-du-11-termin@mff-repo
+DTSTAMP:20260929T120000Z
+DTSTART;TZID=Europe/Prague:20270120T235500
+DURATION:PT5M
+SUMMARY:LA1 📬 DÚ – odevzdat do 23:55 – ověřit
+DESCRIPTION:DÚ k přednášce z týdne 4. 1. (determinanty). Odevzdat do st 20. 1. 23:55 do Sovičky (https://owl.mff.cuni.cz/)\, PDF\, každá úloha do svého topicu. Samostatně a bez AI. Termín odvozený z pravidla (přednáška týden X → DÚ do st X+2) – ověřit na webu kurzu – zkouškové\, jestli vůbec bude.
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P2D
+DESCRIPTION:LA1 DÚ – za 2 dny termín
+END:VALARM
+END:VEVENT
+END:VCALENDAR
