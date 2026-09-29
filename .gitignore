@@ -44,4 +44,4 @@ _kontext/konverzace/*.md
 .env
 
 # --- vygenerované audio skript (1 MB/min, znovu vytvořitelné z text/) ----
-media/*/audio/*.mp3
+media/*/audio/

@@ -12,6 +12,7 @@
 Text se nepřeformulovává. `text` jen odstraní záhlaví stran a spojí slova
 rozdělená na konci řádku. Vzorce z PDF vypadnou rozbité (indexy, mocniny,
 matice), proto se .txt před `tts` kontroluje a vzorce se přepisují do výslovnosti.
+Písmena se píšou velká (V, A, C), ne foneticky (vé, á, cé); W jako „dvojité V“.
 Klíč je v .env (ELEVENLABS_API_KEY).
 """
 import argparse
@@ -26,9 +27,10 @@ ROOT = Path(__file__).resolve().parent.parent
 PDF = ROOT / "01_semestr_1/LA1_algebra/zdroje/kurz/LA1_skripta_la7_barto_tuma.pdf"
 OUT = ROOT / "media/la1-skripta-audio"
 API = "https://api.elevenlabs.io/v1"
-VOICE = "onwK4e9ZLuTAKqWW03F9"  # Daniel
-MODEL = "eleven_multilingual_v2"
-CHUNK = 4500  # znaků na jeden požadavek
+VOICE = "BBz8H3kffyIUs3SYExlh"  # Adíkův výběr z knihovny, chce tarif Creator+
+VOICE_FREE = "onwK4e9ZLuTAKqWW03F9"  # Daniel, funguje i na free (--hlas)
+MODEL = "eleven_v3"
+CHUNK = 2800  # znaků na jeden požadavek (v3 bere kratší text než v2)
 
 NADPIS = re.compile(r"^(\d+\.\d+)\. ")
 ZAHLAVI = re.compile(r"^(\d+|[\dA-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ .,\-–]+)$")
@@ -172,10 +174,16 @@ def cmd_tts(a):
                 json={
                     "text": kus,
                     "model_id": a.model,
-                    "language_code": "cs" if a.model != "eleven_multilingual_v2" else None,
-                    # okolní text drží plynulou intonaci přes hranice kusů
-                    "previous_text": casti[i - 1][-500:] if i else None,
-                    "next_text": casti[i + 1][:500] if i + 1 < len(casti) else None,
+                    **({"language_code": "cs"} if a.model != "eleven_multilingual_v2" else {}),
+                    # okolní text drží plynulou intonaci přes hranice kusů (v3 to neumí)
+                    **(
+                        {
+                            "previous_text": casti[i - 1][-500:] if i else None,
+                            "next_text": casti[i + 1][:500] if i + 1 < len(casti) else None,
+                        }
+                        if a.model != "eleven_v3"
+                        else {}
+                    ),
                 },
                 timeout=600,
             )
