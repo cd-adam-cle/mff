@@ -1,0 +1,259 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Mff repo//LA1 pripominky ZS 2026/27//CS
+CALSCALE:GREGORIAN
+X-WR-CALNAME:LA1 – kvízy, DÚ, skripta
+X-WR-TIMEZONE:Europe/Prague
+BEGIN:VTIMEZONE
+TZID:Europe/Prague
+BEGIN:STANDARD
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:la1-skripta-02@mff
+DTSTART;TZID=Europe/Prague:20261004T180000
+DTEND;TZID=Europe/Prague:20261004T190000
+SUMMARY:LA1 📖 skripta před přednáškou: (2.1)\, 2.2–2.5 soustavy lin. rovnic
+DESCRIPTION:Letmo projít kapitoly\, připravit otázky. Přednáška út 6. 10.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:LA1 skripta
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-skripta-03@mff
+DTSTART;TZID=Europe/Prague:20261011T180000
+DTEND;TZID=Europe/Prague:20261011T190000
+SUMMARY:LA1 📖 skripta před přednáškou: 3.1–3.4\, (3.5)\, 4.1\, 4.2 tělesa\, matice
+DESCRIPTION:Letmo projít kapitoly\, připravit otázky. Přednáška út 13. 10.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:LA1 skripta
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-skripta-04@mff
+DTSTART;TZID=Europe/Prague:20261018T180000
+DTEND;TZID=Europe/Prague:20261018T190000
+SUMMARY:LA1 📖 skripta před přednáškou: 4.3\, 4.4 matice soustavy\, matice jako zobrazení
+DESCRIPTION:Letmo projít kapitoly\, připravit otázky. Přednáška út 20. 10.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:LA1 skripta
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-skripta-06@mff
+DTSTART;TZID=Europe/Prague:20261101T180000
+DTEND;TZID=Europe/Prague:20261101T190000
+SUMMARY:LA1 📖 skripta před přednáškou: 4.5\, 5.1\, 5.2 inverzní matice\, vektorové prostory
+DESCRIPTION:Letmo projít kapitoly\, připravit otázky. Přednáška út 3. 11.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:LA1 skripta
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-skripta-07@mff
+DTSTART;TZID=Europe/Prague:20261108T180000
+DTEND;TZID=Europe/Prague:20261108T190000
+SUMMARY:LA1 📖 skripta před přednáškou: 5.3\, 5.4.1 lin. (ne)závislost\, báze\, Steinitz
+DESCRIPTION:Letmo projít kapitoly\, připravit otázky. Přednáška út 10. 11.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:LA1 skripta
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-midterm1-priprava@mff
+DTSTART;TZID=Europe/Prague:20261115T180000
+DTEND;TZID=Europe/Prague:20261115T190000
+SUMMARY:LA1 📝 příprava na 1. midterm (st 18. 11.): kap. 2\, 3\, 4 + 1 bez důkazů
+DESCRIPTION:Vzory v zkouska/kurz/. Definice a věty celou větou\, základní úlohy ze sad 03–07.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:LA1 midterm
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-midterm1@mff
+DTSTART;TZID=Europe/Prague:20261118T122000
+DTEND;TZID=Europe/Prague:20261118T135000
+SUMMARY:LA1 ⚠️ 1. MIDTERM (místo přednášky\, 90 min)
+DESCRIPTION:Bez kalkulačky\, tabulek\, AI. Nelze opakovat.
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:Zítra 1. midterm LA1
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-skripta-09@mff
+DTSTART;TZID=Europe/Prague:20261122T180000
+DTEND;TZID=Europe/Prague:20261122T190000
+SUMMARY:LA1 📖 skripta před přednáškou: 5.4.2\, 5.4.3 souřadnice\, matice přechodu
+DESCRIPTION:Letmo projít kapitoly\, připravit otázky. Přednáška út 24. 11. (na webu poznámka čt – ověřit).
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:LA1 skripta
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-skripta-10@mff
+DTSTART;TZID=Europe/Prague:20261129T180000
+DTEND;TZID=Europe/Prague:20261129T190000
+SUMMARY:LA1 📖 skripta před přednáškou: 5.5\, 5.6\, 6.1\, 6.2 hodnost\, podprostory\, lin. zobrazení
+DESCRIPTION:Letmo projít kapitoly\, připravit otázky. Přednáška út 1. 12.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:LA1 skripta
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-skripta-11@mff
+DTSTART;TZID=Europe/Prague:20261206T180000
+DTEND;TZID=Europe/Prague:20261206T190000
+SUMMARY:LA1 📖 skripta před přednáškou: 6.3–6.5 skládání\, jádro a obraz
+DESCRIPTION:Letmo projít kapitoly\, připravit otázky. Přednáška út 8. 12.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:LA1 skripta
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-skripta-12@mff
+DTSTART;TZID=Europe/Prague:20261213T180000
+DTEND;TZID=Europe/Prague:20261213T190000
+SUMMARY:LA1 📖 skripta + příprava na 2. midterm: 7.1\, 7.2 permutace; midterm st 16. 12. (kap. 2–5)
+DESCRIPTION:Přednáška út 15. 12.\, midterm st 16. 12. Vzory v zkouska/kurz/.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:LA1 skripta / midterm
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-midterm2@mff
+DTSTART;TZID=Europe/Prague:20261216T122000
+DTEND;TZID=Europe/Prague:20261216T135000
+SUMMARY:LA1 ⚠️ 2. MIDTERM (místo přednášky\, 90 min)
+DESCRIPTION:Kap. 2–5 + 1 bez důkazů. Bez kalkulačky\, tabulek\, AI. Nelze opakovat.
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:Zítra 2. midterm LA1
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-skripta-13@mff
+DTSTART;TZID=Europe/Prague:20270103T180000
+DTEND;TZID=Europe/Prague:20270103T190000
+SUMMARY:LA1 📖 skripta před přednáškou: 7.3–7.5 determinanty\, adjungovaná matice
+DESCRIPTION:Letmo projít kapitoly\, připravit otázky. Přednáška út 5. 1.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:LA1 skripta
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-kviz-01@mff
+DTSTART;TZID=Europe/Prague:20261005T120000
+DTEND;TZID=Europe/Prague:20261005T120000
+SUMMARY:LA1 ❓ kvíz 1 – termín 12:00
+DESCRIPTION:https://forms.gle/yVMthHL4yhmnGsaeA – samostatně\, jen s materiály. Zvolit přezdívku.
+BEGIN:VALARM
+TRIGGER:-PT17H
+ACTION:DISPLAY
+DESCRIPTION:LA1 kvíz 1 do zítra 12:00
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-kviz-dalsi@mff
+DTSTART;TZID=Europe/Prague:20261012T120000
+DTEND;TZID=Europe/Prague:20261012T120000
+RRULE:FREQ=WEEKLY;BYDAY=MO;UNTIL=20261221T110000Z
+EXDATE;TZID=Europe/Prague:20261102T120000,20261123T120000
+SUMMARY:LA1 ❓ kvíz – termín 12:00 (ověřit na webu kurzu\, zda je tenhle týden)
+DESCRIPTION:Kvíz k přednášce minulého týdne. Web: https://www.karlin.mff.cuni.cz/~stovicek/index.php/cs/2627zs-nmag111 – po týdnu bez přednášky (26. 10.) a po midtermu (16. 11.) kvíz nejspíš není.
+BEGIN:VALARM
+TRIGGER:-PT17H
+ACTION:DISPLAY
+DESCRIPTION:LA1 kvíz do zítra 12:00
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-du-01@mff
+DTSTART;TZID=Europe/Prague:20261014T235500
+DTEND;TZID=Europe/Prague:20261014T235500
+SUMMARY:LA1 📬 DÚ 1 – odevzdat do 23:55 (Sovička\, PDF\, každá úloha do svého topicu)
+DESCRIPTION:Zadání: ukoly/kurz/LA1_du01_zadani.pdf. Bez AI\, odpovědi dokázat.
+BEGIN:VALARM
+TRIGGER:-P2D
+ACTION:DISPLAY
+DESCRIPTION:LA1 DÚ 1 – za 2 dny termín
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT6H
+ACTION:DISPLAY
+DESCRIPTION:LA1 DÚ 1 – dnes do 23:55
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-du-dalsi@mff
+DTSTART;TZID=Europe/Prague:20261021T235500
+DTEND;TZID=Europe/Prague:20261021T235500
+RRULE:FREQ=WEEKLY;BYDAY=WE;UNTIL=20270107T225500Z
+SUMMARY:LA1 📬 DÚ – odevzdat do 23:55 (ověřit číslo a termín na webu kurzu)
+DESCRIPTION:Sovička\, PDF\, každá úloha do svého topicu. Bez AI. Přesné termíny doplňovat do 00_admin/harmonogram.md.
+BEGIN:VALARM
+TRIGGER:-P2D
+ACTION:DISPLAY
+DESCRIPTION:LA1 DÚ – za 2 dny termín
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT6H
+ACTION:DISPLAY
+DESCRIPTION:LA1 DÚ – dnes do 23:55
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-cviceni-priprava@mff
+DTSTART;TZID=Europe/Prague:20261007T190000
+DTEND;TZID=Europe/Prague:20261007T200000
+RRULE:FREQ=WEEKLY;BYDAY=WE;UNTIL=20270107T190000Z
+SUMMARY:LA1 ✏️ před cvičením: základní úlohy ze sady (cvičení čt 14:00\, N4)
+DESCRIPTION:Sada k látce minulého týdne\, cviceni/kurz/. Řešené příklady + další základní\, těžší aspoň zkusit. Vzorové řešení až po vlastním pokusu.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:LA1 sada před cvičením
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la1-zapocet-test@mff
+DTSTART;TZID=Europe/Prague:20270111T090000
+DTEND;TZID=Europe/Prague:20270111T103000
+SUMMARY:LA1 opravný zápočtový test (K2) – jen když nemám 70 b
+DESCRIPTION:Přihlášení v SISu. 8 přímočarých příkladů\, 90 min\, potřeba 60 %.
+END:VEVENT
+END:VCALENDAR

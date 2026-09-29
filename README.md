@@ -58,20 +58,24 @@ Každý předmět v `01_semestr_1/<ZKR>_<nazev>/` má stejnou strukturu:
 
 ```
 MA1_analyza/
+├── CLAUDE.md         pravidla, plán a body podle webu kurzu; pro daný předmět nadřazený všemu ostatnímu (zatím má LA1)
 ├── _info.md          ★ vyučující, podmínky zápočtu, styl zkoušky, literatura, co mi nejde
 ├── prednasky/        p01.md, p02.md … (po týdnech) + img/
 ├── cviceni/          cv01.md …  Zadání → Moje řešení → Poznámky / chyby + img/
 ├── ukoly/            du01.md …  domácí úkoly + img/
 ├── zkouska/          pisemky.md (seznam starých písemek + stav přepisu), otazky.md, tahak.md
-│                     + originály písemek (PDF) a img/
-└── zdroje/           skripta, sbírky, materiály od starších; sis/ = uložený sylabus ze SISu
+│                     + img/; originály písemek v kurz/ (z webu) a od_starsich/
+└── zdroje/           kurz/ (skripta, sbírky od vyučujícího), od_starsich/, jine/; sis/ = sylabus ze SISu
+
+Cizí PDF jsou vždy v podsložce podle původu: `kurz/` 🎓 = od vyučujícího nebo z webu kurzu (autoritativní),
+`od_starsich/` 👵 = od starších ročníků, `jine/` 🔎 = co jsem si našel sám. Moje texty leží přímo v typové složce.
 ```
 
 ## Předměty 1. semestru (ZS 2026/27)
 
 | Zkr. | Předmět | Zakončení | Kr | Co už v repu je |
 |---|---|---|---|---|
-| [LA1](01_semestr_1/LA1_algebra/_info.md) | Lineární algebra 1 | Z+Zk | 10 | zadání cvičení, 4 zápočtové písemky + zkouška 2020/21 |
+| [LA1](01_semestr_1/LA1_algebra/CLAUDE.md) | Lineární algebra 1 | Z+Zk | 10 | CLAUDE.md s pravidly kurzu, skripta Barto–Tůma, 13 sad cvičení s řešeními, DÚ 1, vzory midtermů a zápočtu, 4 midtermy + zkouška 2020/21 |
 | [MA1](01_semestr_1/MA1_analyza/_info.md) | Matematická analýza 1 | Z+Zk | 8 | skripta Rmoutil, požadavky ke zkoušce, řešené zápočtové testy, sbírky |
 | [UCE](01_semestr_1/UCE_ucetnictvi/_info.md) | Účetnictví | Z+Zk | 5 | kapitoly přednášky, zadání 11 cvičení, fotky zápočtových testů |
 | [PRG1](01_semestr_1/PRG1_programovani/_info.md) | Programování 1 (Python) | Z | 3 | sylabus |

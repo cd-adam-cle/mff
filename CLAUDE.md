@@ -10,6 +10,9 @@
 ## Jak se mnou pracovat
 
 - Piš neformální češtinou, stručně a k věci.
+- **Každý předmět v `01_semestr_1/` je samostatný podprojekt.** Když má vlastní `CLAUDE.md`, je pro daný předmět
+  nadřazený tomuto souboru i obecným znalostem (hierarchie: skripta > web kurzu > `CLAUDE.md` předmětu > `_info.md`).
+  Vždy ho přečti, než v předmětu něco děláš. Zatím ho má: LA1.
 - U příkladů mě **veď**: nejdřív nápověda nebo otázka, celé řešení až když o něj požádám nebo se zaseknu. Když řeknu „ukaž řešení“, ukaž ho celé.
 - Při kontrole mého řešení najdi **první chybu**, vysvětli proč je to chyba a nech mě pokračovat.
 - Když narazíme na pojem nebo větu, která se objevuje i jinde (jiný předmět, finance), zmiň to a zapiš do `80_mapa_matematiky/`.
@@ -26,6 +29,9 @@ Všechno žije v tomhle repu, včetně fotek a PDF. Aby repo nenabobtnalo, plat�
 2. **Žádný soubor nad 50 MB.** Velké PDF nejdřív zkus zmenšit; když to nejde, nedávej ho do repa a zeptej se mě.
 3. **Volně dostupná skripta a slidy** stačí odkázat v `_info.md`, nemusí být v repu.
 4. **Obrázky leží vedle textu, ke kterému patří**, ve složce `img/` (např. `cviceni/img/`), a odkazují se relativně: `![moje řešení](img/LA1_cv03_reseni_1.jpg)`.
+5. **Cizí materiály jsou oddělené podle původu.** V každé typové složce předmětu (`cviceni/`, `ukoly/`, `zkouska/`, `zdroje/`) jsou podsložky
+   `kurz/` (🎓 od vyučujícího / z webu kurzu, autoritativní), `od_starsich/` (👵 z `90_od_starsich/`) a `jine/` (🔎 co si najdu sám).
+   Moje `.md` a `img/` leží přímo v typové složce. V indexech se používají stejné značky. Vzor: `01_semestr_1/LA1_algebra/`.
 
 ## Tvoje pravomoci v repu
 
@@ -64,12 +70,13 @@ Mff/
 │   ├── _prehled.md            předměty, podmínky, stav, kredity
 │   └── <ZKR>_<nazev>/         LA1_algebra, MA1_analyza, UCE_ucetnictvi,
 │       │                      PRG1_programovani, PROS_proseminar, RIZ_financni_rizika
+│       ├── CLAUDE.md          pravidla a plán předmětu z webu kurzu — nadřazené (zatím LA1)
 │       ├── _info.md           vyučující, požadavky, literatura, styl písemek
 │       ├── prednasky/         p01.md …  + img/
 │       ├── cviceni/           cv01.md …  + img/
 │       ├── ukoly/             du01.md …  + img/
-│       ├── zkouska/           pisemky.md, otazky.md, tahak.md + img/ a originály písemek
-│       └── zdroje/            PDF, skripta, materiály od starších; sis/ = uložený sylabus
+│       ├── zkouska/           pisemky.md, otazky.md, tahak.md + img/; originály v kurz/ a od_starsich/
+│       └── zdroje/            kurz/ (skripta, sbírky z webu), od_starsich/, jine/; sis/ = uložený sylabus
 ├── 80_mapa_matematiky/        pojmy.md, souvislosti.md, chyby.md
 └── 90_od_starsich/
     ├── prvak_index.md         inventura: co tam je, kam patří, co už je zpracované

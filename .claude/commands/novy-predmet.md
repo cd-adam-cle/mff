@@ -10,6 +10,7 @@ Založ nový předmět: `$ARGUMENTS`.
 3. Vytvoř `0N_semestr_N/<ZKR>_<nazev>/` s podsložkami `prednasky/img`, `cviceni/img`, `ukoly/img`,
    `zkouska/img`, `zdroje/` (do prázdných dej `.gitkeep`) a soubory `zkouska/{pisemky,otazky,tahak}.md`.
 4. `_info.md` vyplň podle šablony z CLAUDE.md.
+5. Když má předmět web kurzu s pravidly (body, termíny, plán), založ i `CLAUDE.md` předmětu podle vzoru `01_semestr_1/LA1_algebra/CLAUDE.md`.
 5. Přidej řádek do `_prehled.md` daného semestru a přepočítej kredity.
 6. Když má předmět něco v `90_od_starsich/prvak_index.md`, zkopíruj to podle kroku inventury a aktualizuj stav v indexu.
 7. Commit: `<ZKR>: nový předmět`.

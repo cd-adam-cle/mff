@@ -11,10 +11,10 @@ Nic nemá přes 50 MB (celkem 38 MB), fotky v zipech mají do 230 KB, takže neb
 
 | Soubor / složka | Předmět | Typ | Sem. | Hodnota | Stav | Kopie |
 |---|---|---|---|---|---|---|
-| `Lineární algebra 1, 2/ZS/Midterm_1*.pdf` | LA1 | písemka (1. ZT, 24. 11. 2020, verze A a C) | ZS | **vysoká ★** | 📋 | `LA1/zkouska/LA1_zt1_*` |
-| `Lineární algebra 1, 2/ZS/Midterm_2*.pdf` | LA1 | písemka (2. ZT, 15. 12. 2020, verze B a C) | ZS | **vysoká ★** | 📋 | `LA1/zkouska/LA1_zt2_*` |
-| `Lineární algebra 1, 2/ZS/zk_2021_02-24_*.pdf` | LA1 | písemka (zkouška 24. 2. 2021, 112 str.) | ZS | **vysoká ★** | 📋 | `LA1/zkouska/LA1_zk_2021-02-24_pisemka.pdf` |
-| `Lineární algebra 1, 2/skripta_la7.pdf` | LA1+LA2 | skripta Barto–Tůma (443 str., verze 30. 9. 2025) | ZS+LS | vysoká | ⬜ | — volně dostupná, odkaz v `_info.md` |
+| `Lineární algebra 1, 2/ZS/Midterm_1*.pdf` | LA1 | písemka (1. ZT, 24. 11. 2020, verze A a C) | ZS | **vysoká ★** | 📋 | `LA1/zkouska/od_starsich/LA1_zt1_*` |
+| `Lineární algebra 1, 2/ZS/Midterm_2*.pdf` | LA1 | písemka (2. ZT, 15. 12. 2020, verze B a C) | ZS | **vysoká ★** | 📋 | `LA1/zkouska/od_starsich/LA1_zt2_*` |
+| `Lineární algebra 1, 2/ZS/zk_2021_02-24_*.pdf` | LA1 | písemka (zkouška 24. 2. 2021, 112 str.) | ZS | **vysoká ★** | 📋 | `LA1/zkouska/od_starsich/LA1_zk_2021-02-24_pisemka.pdf` |
+| `Lineární algebra 1, 2/skripta_la7.pdf` | LA1+LA2 | skripta Barto–Tůma (443 str., verze 30. 9. 2025) | ZS+LS | vysoká | ⬜ | stažena do `LA1/zdroje/kurz/LA1_skripta_la7_barto_tuma.pdf` (totožný soubor) |
 | `Lineární algebra 1, 2/lingebra.txt` | LA1 | tip + odkazy | ZS | střední | ✅ | vytěženo do `LA1/_info.md`, `pisemky.md` |
 | `Matematická analýza 1/Řešené zápočtové testy Martin Rmoutil.pdf` | MA1 | řešení písemek (sken) | ZS | **vysoká ★** | 📋 | `MA1/zkouska/MA1_zt_reseni_rmoutil.pdf` |
 | `Matematická analýza 1/Zapoctove testy - reseni.pdf` | MA1 | řešení písemek (sken) | ZS | **vysoká ★** | 📋 | `MA1/zkouska/MA1_zt_reseni.pdf` |

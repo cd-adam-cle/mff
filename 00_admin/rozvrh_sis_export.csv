@@ -1,0 +1,13 @@
+id listku(veskera vyuka pro celou paralelku - vice hodin za tyden);id podlistku(konkretni vyuka v nejaky den a hodinu);kod predmetu;nazev;den(1=po);cas(min od 0:00);mistnost;delka(min);prvni tyden vyuky;prvni den vyuky pro jednorazovou;pocet tydnu vyuky;ctrnactideni vyuka;ucitele
+26aNMAG111p2;26aNMAG111p2;NMAG111;Lineární algebra 1;2;640;T2;90;1;;13;;Stanovský David, doc. RNDr., Ph.D.
+26aNMAG111p2;26aNMAG111p2b;NMAG111;Lineární algebra 1;3;740;T1;90;1;;13;;Stanovský David, doc. RNDr., Ph.D.
+26aNMAG111x11;26aNMAG111x11;NMAG111;Lineární algebra 1;4;840;N4;90;1;;13;;Janík Michal, Bc.
+26aNMFM101p1;26aNMFM101p1;NMFM101;Úèetnictví;1;540;K1;90;1;;13;;Zichová Jitka, RNDr., Dr.
+26aNMFM101x01;26aNMFM101x01;NMFM101;Úèetnictví;4;540;K1;90;1;;13;;Zichová Jitka, RNDr., Dr.
+26aNMFP463p1;26aNMFP463p1;NMFP463;Praktické aspekty mìøení a øízení finanèních rizik;1;940;K1;90;1;;13;;Nìmeèek Tomáš, Mgr., Novotný Václav, Mgr.
+26aNMIN111x02;26aNMIN111x02;NMIN111;Programování 1;4;940;N11;90;1;;13;;Šejnoha Jiøí, Mgr.
+26aNMTM101p1;26aNMTM101p1;NMTM101;Matematická analýza I;3;590;M1;90;1;;13;;Halas Zdenìk, Mgr., DiS., Ph.D.
+26aNMTM101p1;26aNMTM101p1b;NMTM101;Matematická analýza I;5;740;M1;90;1;;13;;Halas Zdenìk, Mgr., DiS., Ph.D.
+26aNMTM101x04;26aNMTM101x04;NMTM101;Matematická analýza I;3;940;N2;90;1;;13;;Borji Vahid, Mgr., Ph.D.
+26aNMTM161x03;26aNMTM161x03;NMTM161;Matematický prosemináø I;4;690;K5;90;1;;13;;Moravcová Vlasta, RNDr., Ph.D.
+26aNTVY014x03;26aNTVY014x03;NTVY014;Tìlesná výchova I;5;440;KTV;225;1;;13;;Teplý Jiøí, Mgr., Vaníèková Zuzana, Mgr., Jaroš Tomáš, Mgr., Brož Jaroslav, Mgr., Paulík Marek, PhDr., Kozák Martin, Mgr., Pospíšilová Jana, Mgr., Šafr Milan, Mgr., Šodek Pavel, Mgr., Horák Tomáš, Mgr.
