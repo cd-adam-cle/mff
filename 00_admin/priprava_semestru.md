@@ -30,7 +30,7 @@ Vstup od Adíka: **odkaz na web kurzu** + co řekl vyučující na první předn
 
 ## 3. Pro každý předmět: kalendář
 
-- [ ] Vygenerovat `00_admin/<ZKR>_pripominky.ics` podle vzoru [`LA1_pripominky.ics`](LA1_pripominky.ics): každý typ události zvlášť
+- [ ] Vygenerovat `00_admin/<ZKR>_pripominky.ics` podle vzoru [`LA1_pripominky_kvizy_skripta.ics`](LA1_pripominky_kvizy_skripta.ics) (+ úkoly zvlášť v [`LA1_pripominky_domaci_ukoly.ics`](LA1_pripominky_domaci_ukoly.ics)): každý typ události zvlášť
   (čtení skript 2 dny před přednáškou · kvíz/test s upozorněním den před · DÚ s upozorněním 2 dny a 6 h před · příprava na cvičení · midtermy/zápočtové písemky den před · opravné termíny).
   Potvrzené termíny jako jednotlivé události, odhadnuté jako týdenní řada s poznámkou „ověřit“ a EXDATE pro prázdné týdny.
 - [ ] Adík naimportuje do samostatného kalendáře (jde smazat najednou). Odkaz na `.ics` do `harmonogram.md`.

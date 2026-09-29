@@ -2,7 +2,7 @@
 
 Zdroj: [web kurzu](https://www.karlin.mff.cuni.cz/~stovicek/index.php/cs/2627zs-nmag111) 🎓 (stav 28. 9. 2026). Pravidla a body: [CLAUDE.md](CLAUDE.md).
 Přednášky **út 10:40 + st 12:20**, cvičení **čt 14:00 N4**, kvíz do **po 12:00**, DÚ do **st 23:55**.
-Kalendář s připomínkami: [`00_admin/LA1_pripominky.ics`](../../00_admin/LA1_pripominky.ics).
+Kalendáře s připomínkami: [`kvízy a skripta`](../../00_admin/LA1_pripominky_kvizy_skripta.ics), [`domácí úkoly`](../../00_admin/LA1_pripominky_domaci_ukoly.ics).
 
 Zaškrtávám: 📖 skripta letmo před · 🎓 přednáška · 📚 skripta podrobně po · ❓ kvíz · ✏️ sada před cvičením · 📬 DÚ
 
