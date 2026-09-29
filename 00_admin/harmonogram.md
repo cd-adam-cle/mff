@@ -1,7 +1,7 @@
 # Harmonogram — ZS 2026/27
 
 Termíny zápočtových písemek, testů, odevzdání a zkoušek. Řadit podle data.
-Kalendář s připomínkami LA1 (kvízy, DÚ, čtení skript, midtermy): [`LA1_pripominky.ics`](LA1_pripominky.ics) — naimportovat do Kalendáře.
+Kalendáře s připomínkami LA1: [`LA1_pripominky_kvizy_skripta.ics`](LA1_pripominky_kvizy_skripta.ics) (kvízy, čtení skript, midtermy) a [`LA1_pripominky_domaci_ukoly.ics`](LA1_pripominky_domaci_ukoly.ics) (DÚ, 2 dny předem) — naimportovat do Kalendáře.
 Opakující se termíny LA1 (kvíz každé po 12:00, DÚ každou st 23:55) jsou v `01_semestr_1/LA1_algebra/CLAUDE.md`, §2 a §4.
 
 | Datum | Předmět | Co | Poznámka |
