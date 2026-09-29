@@ -64,6 +64,7 @@ Mff/
 ├── _inbox/                    sem jen nahrávám, ty to roztřídíš
 │   └── _nejasne/              co neumíš zařadit, čeká na můj dotaz
 ├── _archiv/                   věci, které nikam nepatří, ale nechci je mazat
+├── _kontext/konverzace/       automatický export našich konverzací (hook Stop → scripts/export_konverzace.py); mimo git, repo je veřejné
 ├── 00_admin/                  rozvrh.md, harmonogram.md (termíny, zápočty, zkouškové)
 ├── 00_pripravny_kurz/         zářijové opakování SŠ matiky: skripta/, tabule/, videa/
 ├── 01_semestr_1/
@@ -105,6 +106,7 @@ Detaily (Whisper, normalizace zvuku, YouTube 403, fotky tabulí): [`tools/README
 - **Kontrola řešení** (`/kontrola <soubor>`): přečti zadání a moje řešení (text nebo obrázek), najdi první chybu, zapiš poznámku do souboru cvičení.
 - **Příprava předmětu na semestr** (`/pripravit-predmet <ZKR> <url>`): podle playbooku [`00_admin/priprava_semestru.md`](00_admin/priprava_semestru.md) — web kurzu → `CLAUDE.md` předmětu, materiály do `kurz/`, `plan.md`, kalendář `.ics`. Před každým semestrem projít celý playbook.
 - **Příprava na zkoušku** (`/zkouska <ZKR>`): vycházej z `zkouska/` a `_info.md`, udělej mi zkoušecí sadu podobnou starým písemkám.
+- **Kontext z minulých konverzací:** `_kontext/konverzace/README.md` je index přepisů. Když navazujeme na dřívější práci, přečti si příslušný přepis.
 - **Konec práce:** commit s konkrétní českou zprávou, pull request se souhrnem.
 
 ---

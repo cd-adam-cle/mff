@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/scripts/export_konverzace.py\" >/dev/null 2>&1 || true"
+          }
+        ]
+      }
+    ]
+  }
+}
