@@ -95,6 +95,7 @@ Aktuální stav (co mám splněné) je v [`01_semestr_1/_prehled.md`](01_semestr
 | `/zkouska <ZKR>` | nová zkoušecí sada ve stylu starých písemek, řešení odděleně |
 | `/uklid` | audit repa: duplicity, špatné názvy, nezmenšené obrázky, rozbité odkazy |
 | `/novy-predmet <název>` | založí předmět se vším, co k němu patří |
+| `/pripravit-predmet <ZKR> <url>` | z webu kurzu udělá `CLAUDE.md` předmětu, stáhne materiály, `plan.md` a kalendář — postup v [`00_admin/priprava_semestru.md`](00_admin/priprava_semestru.md) |
 
 ## Konvence
 

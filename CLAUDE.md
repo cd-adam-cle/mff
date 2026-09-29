@@ -103,6 +103,7 @@ Detaily (Whisper, normalizace zvuku, YouTube 403, fotky tabulí): [`tools/README
 
 - **Třídění `_inbox/`** (`/roztrid`): u každého souboru zjisti, co to je (předmět, typ, týden). Obrázky zmenši skriptem, přejmenuj podle konvence a přesuň do správné složky (chybějící založ). Obsah přepiš do odpovídajícího `.md` (LaTeX) a vlož odkaz na obrázek. Co nejde jednoznačně zařadit, dej do `_inbox/_nejasne/` a zeptej se. Na konci mi dej krátký souhrn, co kam šlo.
 - **Kontrola řešení** (`/kontrola <soubor>`): přečti zadání a moje řešení (text nebo obrázek), najdi první chybu, zapiš poznámku do souboru cvičení.
+- **Příprava předmětu na semestr** (`/pripravit-predmet <ZKR> <url>`): podle playbooku [`00_admin/priprava_semestru.md`](00_admin/priprava_semestru.md) — web kurzu → `CLAUDE.md` předmětu, materiály do `kurz/`, `plan.md`, kalendář `.ics`. Před každým semestrem projít celý playbook.
 - **Příprava na zkoušku** (`/zkouska <ZKR>`): vycházej z `zkouska/` a `_info.md`, udělej mi zkoušecí sadu podobnou starým písemkám.
 - **Konec práce:** commit s konkrétní českou zprávou, pull request se souhrnem.
 
