@@ -15,6 +15,7 @@ SIS: NMAG113 · zimní · 4/2 · Z+Zk · 10 kr · [sylabus uložený](zdroje/sis
 - Styl zkoušky: písemná, 2,5 h, 86 b, 7 sekcí (ano/ne, definice, jednoduché příklady, formulace vět, početní s postupem, důkazy, zamyšlení); 3 ≥ 47, 2 ≥ 58, 1 ≥ 68 — podrobně v `CLAUDE.md` §3
 - Literatura a zdroje (🎓 kurz/profesor · 👵 od starších · 🔎 jiné):
   - 🎓 **[`zdroje/kurz/LA1_skripta_la7_barto_tuma.pdf`](zdroje/kurz/LA1_skripta_la7_barto_tuma.pdf)** — L. Barto, J. Tůma: Lineární algebra a geometrie, hlavní a jediný nutný zdroj (kap. 1–7); aktuální verze <https://www.mff.cuni.cz/data/web/obsah/department_math/ka/skripta_la7.pdf>
+    - přehledy kapitol (moje): [kap. 1 Opakování](zdroje/skripta_kap01_prehled.md)
   - 🎓 [`cviceni/sady.md`](cviceni/sady.md) — 13 sad ke cvičením se vzorovými řešeními
   - 🎓 [`zdroje/kurz/LA1_primocare_ulohy_2014.pdf`](zdroje/kurz/LA1_primocare_ulohy_2014.pdf) — sbírka přímočarých početních úloh (ZS 14/15)
   - 🎓 [`zdroje/kurz/LA1_hrncir_jak_studovat_na_mff.pdf`](zdroje/kurz/LA1_hrncir_jak_studovat_na_mff.pdf) — úvaha o studiu matematiky na MFF
