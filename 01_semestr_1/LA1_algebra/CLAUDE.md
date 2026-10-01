@@ -11,12 +11,11 @@
   Přednáška i cvičení jsou společné, **liší se zkouška** (viz níž).
 - Cvičení: **čt 14:00–15:30, N4, Michal Janík** (paralelka x11, podle exportu rozvrhu ze SISu)
 
-> ⚠️ **K OVĚŘENÍ v SISu (Adík):**
-> 1. Export rozvrhu (`00_admin/rozvrh_sis_export.csv`) uvádí přednášku jako **NMAG111, paralelka p2,
->    David Stanovský, T2/T1 (Troja)**. V SISu jsou dvě paralelky přednášky: p1 Šťovíček (N1, Karlín)
->    a p2 Stanovský (T2/T1, Troja). Web kurzu výše je Šťovíčkův. Zkontroluj, (a) že máš zapsaný kód
->    **NMAG113**, ne NMAG111, a (b) na kterou přednášku reálně chodíš — podle toho se opraví rozvrh.
-> 2. Cvičící a čas cvičení potvrdit po 1. cvičení (čt 1. 10.).
+- Přednáška: **út 10:40–12:10 T2 a st 12:20–13:50 T1, Troja, David Stanovský (paralelka p2)** — potvrzeno 2. 10.
+  Web kurzu (Šťovíček, p1 v N1) je společný zdroj pravidel, kvízů a DÚ pro obě paralelky.
+
+> ⚠️ **K OVĚŘENÍ v SISu (Adík):** export rozvrhu uvádí kód **NMAG111**; pro Finanční matematiku má být
+> **NMAG113** (liší se zkouška, viz §3). Zkontroluj zápis. Cvičící a čas cvičení potvrdit po 1. cvičení (čt 1. 10.).
 
 ---
 
