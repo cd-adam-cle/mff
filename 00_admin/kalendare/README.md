@@ -10,6 +10,7 @@ Díky tomu se dají barvit a vypínat zvlášť a při změně režimu se starý
 | [`rezim_posilovna.ics`](rezim_posilovna.ics) | Režim – posilovna | po Karlín, út Waltrovka, pá Butovice, so volitelná | generuje `scripts/tydenni_rezim_ics.py` |
 | [`rezim_plavani.ics`](rezim_plavani.ics) | Režim – plavání | út 6:30 Tyršův dům (Etriatlon, trenér), st 19:30 TV Hostivař | generuje `scripts/tydenni_rezim_ics.py` |
 | [`rezim_uceni.ics`](rezim_uceni.ics) | Režim – učení | bloky učení a odevzdání DÚ | generuje `scripts/tydenni_rezim_ics.py` |
+| [`rezim_ostatni.ics`](rezim_ostatni.ics) | Režim – ostatní | pá 15:30 doučování němčiny Kladno, ne 9:00 kostel | generuje `scripts/tydenni_rezim_ics.py` |
 | [`LA1_pripominky_kvizy_skripta.ics`](LA1_pripominky_kvizy_skripta.ics) | LA1 připomínky | kvízy (po 12:00), čtení skript (ne 18:00), midtermy, příprava na cvičení | ručně, podle webu kurzu |
 | [`LA1_pripominky_domaci_ukoly.ics`](LA1_pripominky_domaci_ukoly.ics) | LA1 DÚ | odevzdání DÚ (st 23:55) + připomínka 2 dny předem | ručně, podle webu kurzu |
 

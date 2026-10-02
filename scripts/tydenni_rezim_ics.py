@@ -6,6 +6,7 @@
   rezim_posilovna.ics  posilovna
   rezim_plavani.ics    plavání (út Tyršův dům s trenérem, st TV Hostivař)
   rezim_uceni.ics      bloky učení a odevzdání
+  rezim_ostatni.ics    pevné body mimo školu (pá doučování Kladno, ne kostel)
 
 Jeden kalendář na kategorii, aby se daly v Kalendáři barvit a vypínat zvlášť. Připomínky LA1 (kvízy, DÚ, skripta)
 jsou v LA1_pripominky_*.ics. Týdenní opakování od pondělí 5. 10. 2026 do pátku 8. 1. 2027 (konec výuky), s výjimkami
@@ -19,7 +20,7 @@ from pathlib import Path
 from uuid import uuid5, NAMESPACE_URL
 
 OUTDIR = Path(__file__).resolve().parent.parent / "00_admin" / "kalendare"
-KALENDARE = {"skola": "Režim – škola", "beh": "Režim – běh", "posilovna": "Režim – posilovna", "plavani": "Režim – plavání", "uceni": "Režim – učení"}
+KALENDARE = {"skola": "Režim – škola", "beh": "Režim – běh", "posilovna": "Režim – posilovna", "plavani": "Režim – plavání", "uceni": "Režim – učení", "ostatni": "Režim – ostatní"}
 FIRST_MONDAY = date(2026, 10, 5)
 UNTIL = "20270108T235959"  # lokální čas, Europe/Prague
 TZ = "Europe/Prague"
@@ -32,6 +33,7 @@ FF_BUT = "Form Factory Butovice, Radlická 117, Praha 5"
 FF_KAR = "Form Factory Karlín, Praha 8"
 MAXFIT = "Max Fitness Waltrovka, Walterovo nám., Praha 5"
 TYRS = "Tyršův dům, Újezd 450/40, Praha 1"
+KLADNO = "Vrchlického 1103, Kladno"
 DOMA = "doma"
 
 # (kalendář, den 0=po, start, konec, název, místo, popis, exdates)
@@ -67,15 +69,15 @@ ev(0, "06:15", "07:15", "🏃 běh 60 lehký", DOMA)
 ev(1, "08:00", "09:15", "🏃 běh 75 lehký/střední (po plavání)", DOMA)
 ev(2, "06:15", "07:15", "🏃 běh 60 lehký", DOMA)
 ev(3, "06:15", "07:15", "🏃 běh 60 lehký (v 6-běhovém týdnu volno)", DOMA)
-ev(4, "06:45", "08:45", "🏃 běh 90–120 dlouhý/tempo", DOMA)
+ev(4, "06:30", "08:00", "🏃 běh 90 střední/tempo → doběhnout do Butovic", DOMA)
 ev(5, "07:00", "09:00", "🏃 dlouhý běh 120", DOMA)
-ev(6, "07:30", "08:45", "🏃 běh 60–75 lehký (nebo volno)", DOMA)
+ev(6, "06:30", "07:45", "🏃 běh 60–75 lehký (nebo volno) – před kostelem", DOMA)
 
 # --- posilovna ---
 KAT = "posilovna"
 ev(0, "10:45", "11:45", "🏋️ posilovna FF Karlín (jen pokud členství platí; jinak večer Butovice)", FF_KAR)
 ev(1, "12:45", "13:45", "🏋️ posilovna Waltrovka", MAXFIT, "autem z Troje")
-ev(4, "15:15", "16:15", "🏋️ posilovna FF Butovice", FF_BUT, "parkování zdarma 2 h")
+ev(4, "08:00", "09:00", "🏋️ posilovna FF Butovice (hned po běhu)", FF_BUT)
 ev(5, "17:30", "18:30", "🏋️ volitelná 4. posilovna", FF_BUT)
 
 # --- učení ---
@@ -90,12 +92,17 @@ ev(2, "18:00", "18:50", "📬 odevzdat DÚ LA1 (Sovička) + večeře", DOMA)
 ev(2, "21:00", "22:00", "📚 zápisky z přednášek, otázky", DOMA)
 ev(3, "10:30", "11:30", "📚 UCE dodělat / PROS připravit", KARLIN)
 ev(3, "19:00", "20:30", "📚 PRG1 DÚ; LA1 cvičení → cvNN.md", DOMA)
-ev(4, "09:30", "11:15", "📚 MA1 před přednáškou; UCE", DOMA)
-ev(4, "16:45", "18:45", "📚 LA1 sada na čt; týdenní revize", DOMA)
+ev(4, "10:00", "11:15", "📚 MA1 před přednáškou", DOMA)
+ev(4, "17:30", "19:30", "📚 LA1 sada na čt; týdenní revize", DOMA)
 ev(5, "10:00", "13:00", "📚 LA1 skripta podrobně + sada; MA1 těžší úlohy", DOMA)
 ev(5, "15:00", "17:00", "📚 UCE / PRG1 DÚ / RIZ", DOMA)
-ev(6, "10:00", "13:00", "📚 LA1 kvíz (do po 12:00) + MA1 na st", DOMA)
+ev(6, "11:00", "13:30", "📚 LA1 kvíz (do po 12:00) + MA1 na st", DOMA)
 ev(6, "17:00", "19:00", "📚 skripta před přednáškou; plán týdne", DOMA)
+
+# --- ostatní pevné body ---
+KAT = "ostatni"
+ev(4, "15:30", "16:30", "📖 doučování němčiny", KLADNO, "délka 60 min = odhad; z Ke Karlovu autem ~40 min / MHD ~70 min")
+ev(6, "09:00", "10:15", "⛪ kostel", "Praha (doplnit)", "odjezd 8:30")
 
 
 def esc(s):

@@ -3,7 +3,7 @@
 Škola + běh (7×/týden, 1–2 h) + posilovna (3–4×/týden, 1 h) + plavání (út ráno s trenérem, st večer TV) + učení + přejezdy.
 Výchozí bod: domov Stodůlky (metro B Lužiny).
 
-Kalendáře k importu jsou v [`kalendare/`](kalendare/README.md), jeden na kategorii (škola, běh, posilovna, plavání, učení, připomínky LA1).
+Kalendáře k importu jsou v [`kalendare/`](kalendare/README.md), jeden na kategorii (škola, běh, posilovna, plavání, učení, ostatní, připomínky LA1).
 Termíny v textu: [`harmonogram.md`](harmonogram.md).
 
 > Je to **první verze k vyzkoušení na 2 týdny**, ne dogma. Co nesedí, přepíšeme. Otevřené otázky jsou dole.
@@ -26,8 +26,10 @@ Termíny v textu: [`harmonogram.md`](harmonogram.md).
    Cíl ~25 h/týden mimo výuku. Čt a st jsou „školní“ dny, večer jen lehké věci (odevzdání, PRG1, opakování).
 4. **Deadliny LA1 diktují týden:** kvíz do **po 12:00** (dělám v ne večer), DÚ do **st 23:55** (hotová v út, ve st jen odevzdám),
    sada na cvičení před **čt 14:00** (út/st), skripta před přednáškou (ne večer, viz LA1 `.ics`).
-5. **Doprava:** do školy MHD; autem jen do Troje (út) a na plavání do Hostivaře (st). Ve středu jsem v Troji MHD,
-   protože den začíná na Ke Karlovu a končí v Karlíně (zóny placeného stání na obou místech), viz §3.
+5. **Doprava:** do školy MHD; autem do Troje (út), na plavání (út ráno Újezd, st večer Hostivař) a nejspíš celý pátek
+   (Ke Karlovu → Kladno → domov). Ve středu jsem v Troji MHD, protože den začíná na Ke Karlovu a končí v Karlíně
+   (zóny placeného stání na obou místech), viz §3.
+6. **Pevné body mimo školu:** pá 15:30 doučování němčiny v Kladně, ne 9:00 kostel. Kolem nich se skládá zbytek dne.
 
 ## 2. Přejezdy (odhady od dveří ke dveřím, ověřit v IDOS/Mapy.cz v reálném čase)
 
@@ -42,6 +44,8 @@ Termíny v textu: [`harmonogram.md`](harmonogram.md).
 | Troja → Karlín | ~25 min (C → Florenc, pěšky 10 min nebo B → Křižíkova) | — |
 | Troja → Max Fitness Waltrovka | — | ~25 min |
 | Domov → Form Factory Butovice (Galerie Butovice, Radlická 117) | ~20 min pěšky (= rozklusání) | ~5 min |
+| Domov → Kladno (Vrchlického 1103) | ~50 min (B → Zličín, bus 300/330 → Kladno) | ~30 min (R7) |
+| Ke Karlovu → Kladno | ~70 min (C/B → Zličín, bus → Kladno) | ~40 min |
 | Domov → Max Fitness Waltrovka | — | ~12 min |
 
 Odjezd z domova = začátek výuky − přejezd − 10 min rezerva. Pro Karlín 9:00 → odchod 8:10, Ke Karlovu 9:50 → 8:55,
@@ -135,19 +139,26 @@ Varianta „středa autem“: ušetří ~30 min, ale 2× placená zóna (Praha 2
 | 19:00–20:30 | 📚 blok (1,5 h): PRG1 DÚ začít / co nešlo na LA1 cvičení zapsat do `cvNN.md` |
 | 20:30– | volno; spát do 23:00 |
 
-### Pátek — dlouhý běh, učení dopoledne, MA1, posilovna odpoledne
+### Pátek — běh + posilovna v jedné cestě, učení dopoledne, MA1, doučování v Kladně
 | Čas | Co |
 |---|---|
-| 6:30 | vstávání |
-| 6:45–8:45 | 🏃 běh 90–120 min (dlouhý nebo tempový) |
-| 8:45–9:30 | sprcha, snídaně |
-| 9:30–11:15 | 📚 blok 1 (1,75 h): MA1 — skripta/zápisky před přednáškou; UCE |
-| 11:25–12:10 | 🚇 → Ke Karlovu |
+| 6:15 | vstávání |
+| 6:30–8:00 | 🏃 běh 90 min (střední/tempo), doběhnout k Form Factory Butovice (nebo pás, když je ošklivo) |
+| 8:00–9:00 | 🏋️ Form Factory Butovice (hned po běhu, jedna cesta) |
+| 9:00–9:20 | 🚶 → domov |
+| 9:20–10:00 | sprcha, snídaně |
+| 10:00–11:15 | 📚 blok 1 (1,25 h): MA1 — skripta/zápisky před přednáškou |
+| 11:25–12:10 | 🚇 → Ke Karlovu (nebo 🚗, viz níž) |
 | 12:20–13:50 | 🏫 MA1 přednáška, M1 |
-| 13:55–14:45 | 🚇 → domov (oběd po cestě / doma) |
-| 15:15–16:15 | 🏋️ Form Factory Butovice (autem 5 min, nebo pěšky jako výklus) |
-| 16:45–18:45 | 📚 blok 2 (2 h): LA1 sada na příští čt — základní úlohy; týdenní revize zápisků |
-| 18:45– | volno, večer je volný |
+| 13:55–15:10 | 🚇 → Kladno (B → Zličín, bus → Kladno; oběd s sebou / po cestě) |
+| 15:30–16:30 | 📖 doučování němčiny, Kladno, Vrchlického 1103 (délka 60 min = odhad, uprav) |
+| 16:30–17:20 | 🚇 → domov |
+| 17:30–19:30 | 📚 blok 2 (2 h): LA1 sada na příští čt — základní úlohy; týdenní revize zápisků |
+| 19:30– | volno, večer je volný |
+
+**Pátek je jediný den, kde se auto vyplatí na celý den:** domov → Ke Karlovu (~25 min, placená zóna Praha 2 na 2 h) →
+Kladno (~40 min, odjezd 14:00, rezerva) → domov (~30 min, doma 17:00). MHD je dohromady ~2 h 45 min, autem ~1 h 35 min.
+Pokud pojedeš MHD, spoj Ke Karlovu → Kladno má rezervu jen ~20 min, zkontroluj ho předem.
 
 ### Sobota — dlouhý běh, dva bloky učení, volitelná 4. posilovna
 | Čas | Co |
@@ -160,12 +171,17 @@ Varianta „středa autem“: ušetří ~30 min, ale 2× placená zóna (Praha 2
 | 17:30–18:30 | 🏋️ volitelná 4. posilovna (Butovice/Waltrovka; o víkendu parkování 4 h) |
 | večer | volno |
 
-### Neděle — lehký běh (nebo volno), příprava týdne, kvíz
+### Neděle — brzký běh (nebo volno), kostel, příprava týdne, kvíz
 | Čas | Co |
 |---|---|
-| 7:30–8:45 | 🏃 běh 60–75 min lehký — **v týdnu se 6 běhy volno** |
-| 10:00–13:00 | 📚 blok 1 (3 h): **LA1 kvíz** (termín po 12:00, samostatně); MA1 úlohy na st |
-| 13:00–17:00 | 🍽 oběd, volno |
+| 6:15 | vstávání |
+| 6:30–7:45 | 🏃 běh 60–75 min lehký — **v týdnu se 6 běhy volno** (pak vstávání 7:30) |
+| 7:45–8:30 | sprcha, snídaně |
+| 8:30–9:00 | 🚇/🚗 → kostel (kde přesně? doplň, podle toho upravím odjezd) |
+| 9:00–10:15 | ⛪ kostel |
+| 10:15–11:00 | návrat |
+| 11:00–13:30 | 📚 blok 1 (2,5 h): **LA1 kvíz** (termín po 12:00, samostatně); MA1 úlohy na st |
+| 13:30–17:00 | 🍽 oběd, volno |
 | 17:00–19:00 | 📚 blok 2 (2 h): **skripta před přednáškou** (připomínka 18:00 z LA1 `.ics`); UCE přednáška po — přečíst minulé; naplánovat týden, sbalit |
 | večer | volno; spát do 23:00 |
 
@@ -175,14 +191,15 @@ Varianta „středa autem“: ušetří ~30 min, ale 2× placená zóna (Praha 2
 |---|---|
 | spánek (7 h) | 49 |
 | výuka | 16,5 |
-| učení mimo výuku | ~26 |
-| běh (60/75/60/60/105/120/70 min) | ~9 |
+| učení mimo výuku | ~25 |
+| běh (60/75/60/60/90/120/70 min) | ~9 |
 | posilovna 3 (+1) | 3–4 |
 | plavání (út 60 + st 45 min) | 1,75 |
-| přejezdy (škola + sport) | ~11 |
-| **zbytek** (jídlo, hygiena, volno, rezerva) | **~50 = 7 h/den** |
+| přejezdy (škola, sport, Kladno, kostel) | ~12,5 |
+| doučování + kostel | 2,25 |
+| **zbytek** (jídlo, hygiena, volno, rezerva) | **~47 = 6,7 h/den** |
 
-Trénink celkem ~14–15 h/týden k 16,5 h výuky a 26 h učení. Jde to, ale jen s pevným ránem a bez „dohánění“ učení v noci.
+Trénink celkem ~14–15 h/týden k 16,5 h výuky a 25 h učení. Jde to, ale jen s pevným ránem a bez „dohánění“ učení v noci.
 Pokud bude týden přetéká, první co škrtnout je **horní hranice běhů** (2 h → 1,5 h), ne učení ani spánek.
 
 ## 5. Výjimky v semestru
@@ -202,4 +219,4 @@ Pokud bude týden přetéká, první co škrtnout je **horní hranice běhů** (
 3. **M1** = posluchárna v budově Ke Karlovu 3 (předpoklad). Potvrď, chodíš tam už od 30. 9.
 4. **Běžecká struktura** — máš nějaký plán (závod, objem/týden)? Zatím: 2 dlouhé (pá, so), 1 střední (út), zbytek lehké. Když mi dáš cíl, rozložím to pořádně.
 5. **Jídlo ve škole** — po a čt jsi v Karlíně přes oběd, st na třech místech. Nosíš si, nebo menza/okolí? Ovlivní to délku pauz.
-6. **Kam s volnem** — pá večer a so/ne odpoledne jsou záměrně prázdné. Pokud máš pravidelné věci (rodina, kamarádi, práce), řekni a zafixujeme.
+6. **Kostel a Kladno** — kde je kostel (odjezd) a jak dlouho trvá doučování (mám 60 min)? Pá večer a so/ne odpoledne jsou záměrně prázdné.
