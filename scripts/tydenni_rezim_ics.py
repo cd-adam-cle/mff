@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
-"""Vygeneruje 00_admin/tydenni_rezim.ics z týdenního režimu (00_admin/tydenni_rezim.md).
+"""Vygeneruje kalendáře týdenního režimu (00_admin/tydenni_rezim.md) do 00_admin/kalendare/:
 
-Jeden kalendář „Režim ZS 2026“: výuka (s adresami), běh, posilovna, plavání, bloky učení.
-Týdenní opakování od pondělí 5. 10. 2026 do pátku 8. 1. 2027 (konec výuky), s výjimkami
+  rezim_skola.ics      výuka s adresami + plavání (TV)
+  rezim_beh.ics        běh
+  rezim_posilovna.ics  posilovna
+  rezim_uceni.ics      bloky učení a odevzdání
+
+Jeden kalendář na kategorii, aby se daly v Kalendáři barvit a vypínat zvlášť. Připomínky LA1 (kvízy, DÚ, skripta)
+jsou v LA1_pripominky_*.ics. Týdenní opakování od pondělí 5. 10. 2026 do pátku 8. 1. 2027 (konec výuky), s výjimkami
 (27. 10. imatrikulace, 28. 10. a 17. 11. svátek). Importovat do Kalendáře jako samostatný kalendář,
 aby se dal celý smazat/nahradit, až režim přepíšeme.
 
@@ -12,7 +17,8 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 from uuid import uuid5, NAMESPACE_URL
 
-OUT = Path(__file__).resolve().parent.parent / "00_admin" / "tydenni_rezim.ics"
+OUTDIR = Path(__file__).resolve().parent.parent / "00_admin" / "kalendare"
+KALENDARE = {"skola": "Režim – škola", "beh": "Režim – běh", "posilovna": "Režim – posilovna", "uceni": "Režim – učení"}
 FIRST_MONDAY = date(2026, 10, 5)
 UNTIL = "20270108T235959"  # lokální čas, Europe/Prague
 TZ = "Europe/Prague"
@@ -26,12 +32,13 @@ FF_KAR = "Form Factory Karlín, Praha 8"
 MAXFIT = "Max Fitness Waltrovka, Walterovo nám., Praha 5"
 DOMA = "doma"
 
-# (den 0=po, start, konec, název, místo, popis, exdates)
+# (kalendář, den 0=po, start, konec, název, místo, popis, exdates)
 E = []
+KAT = "skola"
 
 
 def ev(day, start, end, title, loc="", desc="", ex=()):
-    E.append((day, start, end, title, loc, desc, ex))
+    E.append((KAT, day, start, end, title, loc, desc, ex))
 
 
 # --- škola (ověřený rozvrh: LA1 přednášky Stanovský v Troji, TV = plavání st 19:30) ---
@@ -49,6 +56,7 @@ ev(4, "12:20", "13:50", "🏫 MA1 přednáška M1", KEKARLOVU, "MHD, odjezd 11:2
 ev(2, "19:30", "20:15", "🏊 plavání (TV)", KTV, "autem, odjezd 18:50; plavky!", ex=("20261028",))
 
 # --- běh ---
+KAT = "beh"
 ev(0, "06:15", "07:15", "🏃 běh 60 lehký", DOMA)
 ev(1, "06:20", "07:50", "🏃 běh 90 střední", DOMA)
 ev(2, "06:15", "07:15", "🏃 běh 60 lehký", DOMA)
@@ -58,12 +66,14 @@ ev(5, "07:00", "09:00", "🏃 dlouhý běh 120", DOMA)
 ev(6, "07:30", "08:45", "🏃 běh 60–75 lehký (nebo volno)", DOMA)
 
 # --- posilovna ---
+KAT = "posilovna"
 ev(0, "10:45", "11:45", "🏋️ posilovna FF Karlín (jen pokud členství platí; jinak večer Butovice)", FF_KAR)
 ev(1, "12:45", "13:45", "🏋️ posilovna Waltrovka", MAXFIT, "autem z Troje")
 ev(4, "15:15", "16:15", "🏋️ posilovna FF Butovice", FF_BUT, "parkování zdarma 2 h")
 ev(5, "17:30", "18:30", "🏋️ volitelná 4. posilovna", FF_BUT)
 
 # --- učení ---
+KAT = "uceni"
 ev(0, "12:45", "15:30", "📚 LA1 skripta / sada; UCE opakování", KARLIN)
 ev(0, "19:00", "20:30", "📚 MA1 příprava na st cvičení", DOMA)
 ev(1, "14:45", "17:15", "📚 DÚ LA1 dokončit (termín st 23:55)", DOMA)
@@ -87,33 +97,38 @@ def esc(s):
 
 
 def main():
-    lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Mff repo//tydenni_rezim//CS",
-             "X-WR-CALNAME:Režim ZS 2026", f"X-WR-TIMEZONE:{TZ}",
-             "BEGIN:VTIMEZONE", f"TZID:{TZ}",
-             "BEGIN:DAYLIGHT", "TZOFFSETFROM:+0100", "TZOFFSETTO:+0200", "TZNAME:CEST",
-             "DTSTART:19700329T020000", "RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU", "END:DAYLIGHT",
-             "BEGIN:STANDARD", "TZOFFSETFROM:+0200", "TZOFFSETTO:+0100", "TZNAME:CET",
-             "DTSTART:19701025T030000", "RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU", "END:STANDARD",
-             "END:VTIMEZONE"]
     stamp = datetime.now().strftime("%Y%m%dT%H%M%SZ")
-    for day, start, end, title, loc, desc, ex in E:
-        d = FIRST_MONDAY + timedelta(days=day)
-        ds, de = d.strftime("%Y%m%d"), d.strftime("%Y%m%d")
-        uid = uuid5(NAMESPACE_URL, f"mff-rezim/{day}/{start}/{title}")
-        lines += ["BEGIN:VEVENT", f"UID:{uid}@mff-rezim", f"DTSTAMP:{stamp}",
-                  f"DTSTART;TZID={TZ}:{ds}T{start.replace(':', '')}00",
-                  f"DTEND;TZID={TZ}:{de}T{end.replace(':', '')}00",
-                  f"RRULE:FREQ=WEEKLY;UNTIL={UNTIL}", f"SUMMARY:{esc(title)}"]
-        if loc:
-            lines.append(f"LOCATION:{esc(loc)}")
-        if desc:
-            lines.append(f"DESCRIPTION:{esc(desc)}")
-        for x in ex:
-            lines.append(f"EXDATE;TZID={TZ}:{x}T{start.replace(':', '')}00")
-        lines.append("END:VEVENT")
-    lines.append("END:VCALENDAR")
-    OUT.write_text("\r\n".join(lines) + "\r\n", encoding="utf-8")
-    print(f"{OUT.name}: {len(E)} opakujících se událostí")
+    for kat, name in KALENDARE.items():
+        lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Mff repo//tydenni_rezim//CS",
+                 f"X-WR-CALNAME:{name}", f"X-WR-TIMEZONE:{TZ}",
+                 "BEGIN:VTIMEZONE", f"TZID:{TZ}",
+                 "BEGIN:DAYLIGHT", "TZOFFSETFROM:+0100", "TZOFFSETTO:+0200", "TZNAME:CEST",
+                 "DTSTART:19700329T020000", "RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU", "END:DAYLIGHT",
+                 "BEGIN:STANDARD", "TZOFFSETFROM:+0200", "TZOFFSETTO:+0100", "TZNAME:CET",
+                 "DTSTART:19701025T030000", "RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU", "END:STANDARD",
+                 "END:VTIMEZONE"]
+        n = 0
+        for k, day, start, end, title, loc, desc, ex in E:
+            if k != kat:
+                continue
+            n += 1
+            d = (FIRST_MONDAY + timedelta(days=day)).strftime("%Y%m%d")
+            uid = uuid5(NAMESPACE_URL, f"mff-rezim/{day}/{start}/{title}")
+            lines += ["BEGIN:VEVENT", f"UID:{uid}@mff-rezim", f"DTSTAMP:{stamp}",
+                      f"DTSTART;TZID={TZ}:{d}T{start.replace(':', '')}00",
+                      f"DTEND;TZID={TZ}:{d}T{end.replace(':', '')}00",
+                      f"RRULE:FREQ=WEEKLY;UNTIL={UNTIL}", f"SUMMARY:{esc(title)}"]
+            if loc:
+                lines.append(f"LOCATION:{esc(loc)}")
+            if desc:
+                lines.append(f"DESCRIPTION:{esc(desc)}")
+            for x in ex:
+                lines.append(f"EXDATE;TZID={TZ}:{x}T{start.replace(':', '')}00")
+            lines.append("END:VEVENT")
+        lines.append("END:VCALENDAR")
+        out = OUTDIR / f"rezim_{kat}.ics"
+        out.write_text("\r\n".join(lines) + "\r\n", encoding="utf-8")
+        print(f"{out.name}: {n} opakujících se událostí")
 
 
 if __name__ == "__main__":

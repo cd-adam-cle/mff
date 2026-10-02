@@ -1,9 +1,10 @@
 # Týdenní režim — ZS 2026/27 (návrh v1, 2. 10. 2026)
 
 Škola + běh (7×/týden, 1–2 h) + posilovna (3–4×/týden, 1 h) + plavání (TV) + učení + přejezdy.
-Výchozí bod: domov Stodůlky (metro B Lužiny). Kalendář k importu: [`tydenni_rezim.ics`](tydenni_rezim.ics)
-(generuje `scripts/tydenni_rezim_ics.py`). Školní termíny (kvízy, DÚ, midtermy) jsou zvlášť v [`harmonogram.md`](harmonogram.md)
-a v LA1 `.ics`.
+Výchozí bod: domov Stodůlky (metro B Lužiny).
+
+Kalendáře k importu jsou v [`kalendare/`](kalendare/README.md), jeden na kategorii (škola, běh, posilovna, učení, připomínky LA1).
+Termíny v textu: [`harmonogram.md`](harmonogram.md).
 
 > Je to **první verze k vyzkoušení na 2 týdny**, ne dogma. Co nesedí, přepíšeme. Otevřené otázky jsou dole.
 
