@@ -5,9 +5,10 @@ Díky tomu se dají barvit a vypínat zvlášť a při změně režimu se starý
 
 | Soubor | Kalendář | Co | Zdroj |
 |---|---|---|---|
-| [`rezim_skola.ics`](rezim_skola.ics) | Režim – škola | výuka s adresami budov + plavání (TV) | generuje `scripts/tydenni_rezim_ics.py` |
+| [`rezim_skola.ics`](rezim_skola.ics) | Režim – škola | výuka s adresami budov | generuje `scripts/tydenni_rezim_ics.py` |
 | [`rezim_beh.ics`](rezim_beh.ics) | Režim – běh | ranní běhy po dnech | generuje `scripts/tydenni_rezim_ics.py` |
 | [`rezim_posilovna.ics`](rezim_posilovna.ics) | Režim – posilovna | po Karlín, út Waltrovka, pá Butovice, so volitelná | generuje `scripts/tydenni_rezim_ics.py` |
+| [`rezim_plavani.ics`](rezim_plavani.ics) | Režim – plavání | út 6:30 Tyršův dům (Etriatlon, trenér), st 19:30 TV Hostivař | generuje `scripts/tydenni_rezim_ics.py` |
 | [`rezim_uceni.ics`](rezim_uceni.ics) | Režim – učení | bloky učení a odevzdání DÚ | generuje `scripts/tydenni_rezim_ics.py` |
 | [`LA1_pripominky_kvizy_skripta.ics`](LA1_pripominky_kvizy_skripta.ics) | LA1 připomínky | kvízy (po 12:00), čtení skript (ne 18:00), midtermy, příprava na cvičení | ručně, podle webu kurzu |
 | [`LA1_pripominky_domaci_ukoly.ics`](LA1_pripominky_domaci_ukoly.ics) | LA1 DÚ | odevzdání DÚ (st 23:55) + připomínka 2 dny předem | ručně, podle webu kurzu |

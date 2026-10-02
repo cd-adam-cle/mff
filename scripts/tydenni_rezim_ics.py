@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Vygeneruje kalendáře týdenního režimu (00_admin/tydenni_rezim.md) do 00_admin/kalendare/:
 
-  rezim_skola.ics      výuka s adresami + plavání (TV)
+  rezim_skola.ics      výuka s adresami
   rezim_beh.ics        běh
   rezim_posilovna.ics  posilovna
+  rezim_plavani.ics    plavání (út Tyršův dům s trenérem, st TV Hostivař)
   rezim_uceni.ics      bloky učení a odevzdání
 
 Jeden kalendář na kategorii, aby se daly v Kalendáři barvit a vypínat zvlášť. Připomínky LA1 (kvízy, DÚ, skripta)
@@ -18,7 +19,7 @@ from pathlib import Path
 from uuid import uuid5, NAMESPACE_URL
 
 OUTDIR = Path(__file__).resolve().parent.parent / "00_admin" / "kalendare"
-KALENDARE = {"skola": "Režim – škola", "beh": "Režim – běh", "posilovna": "Režim – posilovna", "uceni": "Režim – učení"}
+KALENDARE = {"skola": "Režim – škola", "beh": "Režim – běh", "posilovna": "Režim – posilovna", "plavani": "Režim – plavání", "uceni": "Režim – učení"}
 FIRST_MONDAY = date(2026, 10, 5)
 UNTIL = "20270108T235959"  # lokální čas, Europe/Prague
 TZ = "Europe/Prague"
@@ -30,6 +31,7 @@ KTV = "Sportovní centrum UK, Bruslařská 1132/10, Praha 10"
 FF_BUT = "Form Factory Butovice, Radlická 117, Praha 5"
 FF_KAR = "Form Factory Karlín, Praha 8"
 MAXFIT = "Max Fitness Waltrovka, Walterovo nám., Praha 5"
+TYRS = "Tyršův dům, Újezd 450/40, Praha 1"
 DOMA = "doma"
 
 # (kalendář, den 0=po, start, konec, název, místo, popis, exdates)
@@ -53,12 +55,16 @@ ev(3, "11:30", "13:00", "🏫 PROS cvičení K5", KARLIN)
 ev(3, "14:00", "15:30", "🏫 LA1 cvičení N4 (Janík)", KARLIN)
 ev(3, "15:40", "17:10", "🏫 PRG1 cvičení N11", KARLIN)
 ev(4, "12:20", "13:50", "🏫 MA1 přednáška M1", KEKARLOVU, "MHD, odjezd 11:25")
+
+# --- plavání ---
+KAT = "plavani"
+ev(1, "06:30", "07:30", "🏊 plavání Etriatlon (trenér)", TYRS, "autem, odjezd 6:00; brýle, pullbuoy, ploutve; rezervace.etriatlon.cz", ex=("20261027", "20261117"))
 ev(2, "19:30", "20:15", "🏊 plavání (TV)", KTV, "autem, odjezd 18:50; plavky!", ex=("20261028",))
 
 # --- běh ---
 KAT = "beh"
 ev(0, "06:15", "07:15", "🏃 běh 60 lehký", DOMA)
-ev(1, "06:20", "07:50", "🏃 běh 90 střední", DOMA)
+ev(1, "08:00", "09:15", "🏃 běh 75 lehký/střední (po plavání)", DOMA)
 ev(2, "06:15", "07:15", "🏃 běh 60 lehký", DOMA)
 ev(3, "06:15", "07:15", "🏃 běh 60 lehký (v 6-běhovém týdnu volno)", DOMA)
 ev(4, "06:45", "08:45", "🏃 běh 90–120 dlouhý/tempo", DOMA)

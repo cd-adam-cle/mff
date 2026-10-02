@@ -1,9 +1,9 @@
 # Týdenní režim — ZS 2026/27 (návrh v1, 2. 10. 2026)
 
-Škola + běh (7×/týden, 1–2 h) + posilovna (3–4×/týden, 1 h) + plavání (TV) + učení + přejezdy.
+Škola + běh (7×/týden, 1–2 h) + posilovna (3–4×/týden, 1 h) + plavání (út ráno s trenérem, st večer TV) + učení + přejezdy.
 Výchozí bod: domov Stodůlky (metro B Lužiny).
 
-Kalendáře k importu jsou v [`kalendare/`](kalendare/README.md), jeden na kategorii (škola, běh, posilovna, učení, připomínky LA1).
+Kalendáře k importu jsou v [`kalendare/`](kalendare/README.md), jeden na kategorii (škola, běh, posilovna, plavání, učení, připomínky LA1).
 Termíny v textu: [`harmonogram.md`](harmonogram.md).
 
 > Je to **první verze k vyzkoušení na 2 týdny**, ne dogma. Co nesedí, přepíšeme. Otevřené otázky jsou dole.
@@ -19,6 +19,9 @@ Termíny v textu: [`harmonogram.md`](harmonogram.md).
    - **pá** odpoledne po MA1 → Form Factory Butovice (Po–Pá 6:00–22:00, So–Ne 8–21; parkování zdarma 2 h ve všední den, 4 h o víkendu),
    - **so** volitelně čtvrtá (Butovice/Waltrovka), když se chce.
    Běh v posilovně (pás) dává smysl, když je ošklivo nebo když chci spojit běh + sílu do jedné cesty (pá, so).
+   **Plavání 2×:** út 6:30–7:30 Tyršův dům s trenérem ([Etriatlon](https://trenink.etriatlon.cz/21658_pravidelne_plavani_v_praze.html),
+   rezervace na rezervace.etriatlon.cz, první hodina zdarma; stejný trénink je i čt a pá 6:30, kdyby úterý vypadlo)
+   a st 19:30 TV v Hostivaři.
 3. **Učení má pevné bloky, ne „až bude čas“.** Hlavní bloky: po (pauza v Karlíně), út odpoledne, pá dopoledne, so a ne.
    Cíl ~25 h/týden mimo výuku. Čt a st jsou „školní“ dny, večer jen lehké věci (odevzdání, PRG1, opakování).
 4. **Deadliny LA1 diktují týden:** kvíz do **po 12:00** (dělám v ne večer), DÚ do **st 23:55** (hotová v út, ve st jen odevzdám),
@@ -33,6 +36,7 @@ Termíny v textu: [`harmonogram.md`](harmonogram.md).
 | Domov → Karlín (Sokolovská 83, metro Křižíkova) | ~40 min (pěšky/bus na Lužiny, B přímo) | ~30 min, modrá zóna |
 | Domov → Ke Karlovu 3 (M1) | ~45 min (B → Florenc, C → I. P. Pavlova, 10 min pěšky) | ~25 min, zóna |
 | Domov → Troja (V Holešovičkách 2) | ~55 min (B → Florenc, C → Nádraží Holešovice, bus 201/pěšky) | ~30 min |
+| Domov → Tyršův dům (Újezd 450/40, Praha 1) | ~35 min (B → Anděl, tram 9/12/15/20 → Újezd) | ~25 min v 6:00 |
 | Domov → KTV Hostivař (Bruslařská 10) | ~65 min | ~25–30 min (Jižní spojka) |
 | Ke Karlovu → Troja | ~25 min (C: I. P. Pavlova → Nádraží Holešovice + bus/pěšky) | — |
 | Troja → Karlín | ~25 min (C → Florenc, pěšky 10 min nebo B → Křižíkova) | — |
@@ -64,13 +68,15 @@ Legenda: 🏫 škola · 🏃 běh · 🏋️ posilovna · 🏊 plavání · 📚
 | 19:00–20:30 | 📚 blok 2 (1,5 h): MA1 — příprava na st cvičení; (nebo 🏋️ Butovice 18:30–19:30, pokud po ráno nebyla) |
 | 20:30– | volno; spát do 23:00 |
 
-### Úterý — nejlehčí školní den: dlouhý běh, Troja autem, posilovna cestou, hlavní učení
+### Úterý — plavání s trenérem, běh, Troja autem, posilovna cestou, hlavní učení
 | Čas | Co |
 |---|---|
-| 6:00 | vstávání |
-| 6:20–7:50 | 🏃 běh 90 min (střední/tempo) |
-| 7:50–9:00 | sprcha, snídaně |
-| 9:00–9:55 | 📚 krátký blok: dočíst, co jde na přednášku (0,5 h) + sbalit do posilovny |
+| 5:45 | vstávání |
+| 6:00–6:25 | 🚗 → Tyršův dům (Újezd, Praha 1); zóna placeného stání v Praze 1 začíná většinou v 8:00 — ověřit na místě |
+| 6:30–7:30 | 🏊 plavání Etriatlon, Tyršův dům (trenér, všechny úrovně; brýle, pullbuoy, ploutve) |
+| 7:35–8:00 | 🚗 → domov |
+| 8:00–9:15 | 🏃 běh 75 min (lehký až střední — po plavání nedávat tempo) |
+| 9:15–10:00 | sprcha, snídaně, sbalit do posilovny |
 | 10:00–10:30 | 🚗 → Troja |
 | 10:40–12:10 | 🏫 LA1 přednáška, T2 (Stanovský) |
 | 12:15–12:45 | 🚗 Troja → Waltrovka |
@@ -82,7 +88,11 @@ Legenda: 🏫 škola · 🏃 běh · 🏋️ posilovna · 🏊 plavání · 📚
 | 17:45–19:15 | 📚 blok 2 (1,5 h): MA1 — úlohy na st cvičení; sada LA1 na čt |
 | 19:15–20:00 | 🍽 večeře |
 | 20:00–21:00 | 📚 blok 3 (1 h): PRG1 DÚ / UCE cvičení na čt |
-| 21:00– | volno; spát do 23:00 |
+| 21:00– | volno; spát do 22:30 (ráno je v 5:45) |
+
+Úterý je trojboj (plavání + běh + posilovna) a pak 5 h učení. Když to bude moc, první ven jde ranní běh (nahradí ho plavání),
+ne posilovna a ne učení. Varianta bez návratu domů: běžet z Tyršova domu po nábřeží/Petřín 7:35–8:45 a jet do Troje rovnou
+z Malé Strany (~15 min) — ušetří přejezd, ale bez snídaně doma a bez sprchy před přednáškou.
 
 ### Středa — maraton: Ke Karlovu → Troja → Karlín → plavání
 | Čas | Co |
@@ -166,13 +176,13 @@ Varianta „středa autem“: ušetří ~30 min, ale 2× placená zóna (Praha 2
 | spánek (7 h) | 49 |
 | výuka | 16,5 |
 | učení mimo výuku | ~26 |
-| běh (60/90/60/60/105/120/70 min) | ~9,5 |
+| běh (60/75/60/60/105/120/70 min) | ~9 |
 | posilovna 3 (+1) | 3–4 |
-| plavání | 0,75 |
-| přejezdy (škola + sport) | ~10 |
-| **zbytek** (jídlo, hygiena, volno, rezerva) | **~52 = 7,5 h/den** |
+| plavání (út 60 + st 45 min) | 1,75 |
+| přejezdy (škola + sport) | ~11 |
+| **zbytek** (jídlo, hygiena, volno, rezerva) | **~50 = 7 h/den** |
 
-Trénink celkem 13–14 h/týden k 16,5 h výuky a 26 h učení. Jde to, ale jen s pevným ránem a bez „dohánění“ učení v noci.
+Trénink celkem ~14–15 h/týden k 16,5 h výuky a 26 h učení. Jde to, ale jen s pevným ránem a bez „dohánění“ učení v noci.
 Pokud bude týden přetéká, první co škrtnout je **horní hranice běhů** (2 h → 1,5 h), ne učení ani spánek.
 
 ## 5. Výjimky v semestru
