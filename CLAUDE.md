@@ -12,7 +12,7 @@
 - Piš neformální češtinou, stručně a k věci.
 - **Každý předmět v `01_semestr_1/` je samostatný podprojekt.** Když má vlastní `CLAUDE.md`, je pro daný předmět
   nadřazený tomuto souboru i obecným znalostem (hierarchie: skripta > web kurzu > `CLAUDE.md` předmětu > `_info.md`).
-  Vždy ho přečti, než v předmětu něco děláš. Zatím ho má: LA1.
+  Vždy ho přečti, než v předmětu něco děláš. Zatím ho má: LA1, MA1.
 - U příkladů mě **veď**: nejdřív nápověda nebo otázka, celé řešení až když o něj požádám nebo se zaseknu. Když řeknu „ukaž řešení“, ukaž ho celé.
 - Při kontrole mého řešení najdi **první chybu**, vysvětli proč je to chyba a nech mě pokračovat.
 - Když narazíme na pojem nebo větu, která se objevuje i jinde (jiný předmět, finance), zmiň to a zapiš do `80_mapa_matematiky/`.
@@ -71,7 +71,7 @@ Mff/
 │   ├── _prehled.md            předměty, podmínky, stav, kredity
 │   └── <ZKR>_<nazev>/         LA1_algebra, MA1_analyza, UCE_ucetnictvi,
 │       │                      PRG1_programovani, PROS_proseminar, RIZ_financni_rizika
-│       ├── CLAUDE.md          pravidla a plán předmětu z webu kurzu — nadřazené (zatím LA1)
+│       ├── CLAUDE.md          pravidla a plán předmětu z webu kurzu — nadřazené (zatím LA1, MA1)
 │       ├── _info.md           vyučující, požadavky, literatura, styl písemek
 │       ├── prednasky/         p01.md …  + img/
 │       ├── cviceni/           cv01.md …  + img/

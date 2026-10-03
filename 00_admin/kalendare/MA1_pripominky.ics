@@ -1,0 +1,437 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Mff repo//MA1 pripominky ZS 2026/27//CS
+CALSCALE:GREGORIAN
+X-WR-CALNAME:MA1 – skripta, cvičení
+X-WR-TIMEZONE:Europe/Prague
+BEGIN:VTIMEZONE
+TZID:Europe/Prague
+BEGIN:STANDARD
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:ma1-skripta-st-02@mff
+DTSTART;TZID=Europe/Prague:20261004T170000
+DTEND;TZID=Europe/Prague:20261004T180000
+SUMMARY:MA1 📖 skripta před st přednáškou: 1.3.1–1.3.3 Reálná čísla\, uspořádané těleso
+DESCRIPTION:Letmo projít kapitoly (odhad\, plan.md). Zkontrolovat Halasovo PDF (co se probralo minulý týden) a Borjiho web. Přednáška st 7. 10. 9:50 M1.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 skripta + kontrola Halasova PDF
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-skripta-pa-02@mff
+DTSTART;TZID=Europe/Prague:20261009T100000
+DTEND;TZID=Europe/Prague:20261009T111500
+SUMMARY:MA1 📖 skripta před pá přednáškou: 1.3.4 Věta o supremu a důsledky\, 1.3.5 rozšířené sup/inf
+DESCRIPTION:Letmo projít kapitoly (odhad\, plan.md). Přednáška pá 9. 10. 12:20 M1.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 skripta
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-cviceni-02@mff
+DTSTART;TZID=Europe/Prague:20261005T190000
+DTEND;TZID=Europe/Prague:20261005T203000
+SUMMARY:MA1 ✏️ úlohy na st cvičení: opakování SŠ\, výroky\, množiny — sbírka 01 (+ sbírka 1 výroky od starších)
+DESCRIPTION:Spočítat úlohy ze sbírky (cviceni/sady.md)\, výsledky zkontrolovat pod úlohou\, postup nechat zkontrolovat. Cvičení st 7. 10. 15:40 N2. V sobotu dopočítat\, co nešlo.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 úlohy na cvičení
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-skripta-st-03@mff
+DTSTART;TZID=Europe/Prague:20261011T170000
+DTEND;TZID=Europe/Prague:20261011T180000
+SUMMARY:MA1 📖 skripta před st přednáškou: 2.1 Limita posloupnosti: definice\, jednoznačnost\, omezenost\, VOAL
+DESCRIPTION:Letmo projít kapitoly (odhad\, plan.md). Zkontrolovat Halasovo PDF (co se probralo minulý týden) a Borjiho web. Přednáška st 14. 10. 9:50 M1.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 skripta + kontrola Halasova PDF
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-skripta-pa-03@mff
+DTSTART;TZID=Europe/Prague:20261016T100000
+DTEND;TZID=Europe/Prague:20261016T111500
+SUMMARY:MA1 📖 skripta před pá přednáškou: 2.1 dokončení: policajti\, monotónní posloupnosti
+DESCRIPTION:Letmo projít kapitoly (odhad\, plan.md). Přednáška pá 16. 10. 12:20 M1.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 skripta
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-cviceni-03@mff
+DTSTART;TZID=Europe/Prague:20261012T190000
+DTEND;TZID=Europe/Prague:20261012T203000
+SUMMARY:MA1 ✏️ úlohy na st cvičení: supremum/infimum\, první limity — sbírka 2 sup/inf (od starších)\, sbírka 02 úlohy 1–3
+DESCRIPTION:Spočítat úlohy ze sbírky (cviceni/sady.md)\, výsledky zkontrolovat pod úlohou\, postup nechat zkontrolovat. Cvičení st 14. 10. 15:40 N2. V sobotu dopočítat\, co nešlo.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 úlohy na cvičení
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-skripta-st-04@mff
+DTSTART;TZID=Europe/Prague:20261018T170000
+DTEND;TZID=Europe/Prague:20261018T180000
+SUMMARY:MA1 📖 skripta před st přednáškou: 2.2 R*\, nevlastní limita\, aritmetika v R*
+DESCRIPTION:Letmo projít kapitoly (odhad\, plan.md). Zkontrolovat Halasovo PDF (co se probralo minulý týden) a Borjiho web. Přednáška st 21. 10. 9:50 M1.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 skripta + kontrola Halasova PDF
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-skripta-pa-04@mff
+DTSTART;TZID=Europe/Prague:20261023T100000
+DTEND;TZID=Europe/Prague:20261023T111500
+SUMMARY:MA1 📖 skripta před pá přednáškou: 2.3.1 Limita a nerovnosti\, 2.3.2 Vybrané posloupnosti\, Cantor\, Bolzano–Weierstrass
+DESCRIPTION:Letmo projít kapitoly (odhad\, plan.md). Přednáška pá 23. 10. 12:20 M1.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 skripta
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-cviceni-04@mff
+DTSTART;TZID=Europe/Prague:20261019T190000
+DTEND;TZID=Europe/Prague:20261019T203000
+SUMMARY:MA1 ✏️ úlohy na st cvičení: limity posloupností I — sbírka 02 úlohy 3–5
+DESCRIPTION:Spočítat úlohy ze sbírky (cviceni/sady.md)\, výsledky zkontrolovat pod úlohou\, postup nechat zkontrolovat. Cvičení st 21. 10. 15:40 N2. V sobotu dopočítat\, co nešlo.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 úlohy na cvičení
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-skripta-pa-05@mff
+DTSTART;TZID=Europe/Prague:20261030T100000
+DTEND;TZID=Europe/Prague:20261030T111500
+SUMMARY:MA1 📖 skripta před pá přednáškou: 2.3.3 Drobnosti k výpočtům\; 3.1 Funkce: základní pojmy
+DESCRIPTION:Letmo projít kapitoly (odhad\, plan.md). Přednáška pá 30. 10. 12:20 M1.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 skripta
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-svatek-28-10@mff
+DTSTART;VALUE=DATE:20261028
+DTEND;VALUE=DATE:20261029
+SUMMARY:MA1 přednáška + cvičení odpadá (státní svátek)
+DESCRIPTION:Doma: sbírka 02 úlohy 6–7 (odmocniny\, číslo e). Páteční přednáška 30. 10. je.
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-skripta-st-06@mff
+DTSTART;TZID=Europe/Prague:20261101T170000
+DTEND;TZID=Europe/Prague:20261101T180000
+SUMMARY:MA1 📖 skripta před st přednáškou: 3.2.1 Definice limity funkce\, 3.2.2 Souvislost s limitou posloupnosti (Heine)
+DESCRIPTION:Letmo projít kapitoly (odhad\, plan.md). Zkontrolovat Halasovo PDF (co se probralo minulý týden) a Borjiho web. Přednáška st 4. 11. 9:50 M1.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 skripta + kontrola Halasova PDF
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-skripta-pa-06@mff
+DTSTART;TZID=Europe/Prague:20261106T100000
+DTEND;TZID=Europe/Prague:20261106T111500
+SUMMARY:MA1 📖 skripta před pá přednáškou: 3.2.3 Metody výpočtu (VOLSF)\, 3.2.4 Limita a nerovnosti\, lokální chování
+DESCRIPTION:Letmo projít kapitoly (odhad\, plan.md). Přednáška pá 6. 11. 12:20 M1.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 skripta
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-cviceni-06@mff
+DTSTART;TZID=Europe/Prague:20261102T190000
+DTEND;TZID=Europe/Prague:20261102T203000
+SUMMARY:MA1 ✏️ úlohy na st cvičení: limity posloupností II (e\, odmocniny\, růstová škála) — sbírka 02 dokončit\; Staněk cv 03–05
+DESCRIPTION:Spočítat úlohy ze sbírky (cviceni/sady.md)\, výsledky zkontrolovat pod úlohou\, postup nechat zkontrolovat. Cvičení st 4. 11. 15:40 N2. V sobotu dopočítat\, co nešlo.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 úlohy na cvičení
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-skripta-st-07@mff
+DTSTART;TZID=Europe/Prague:20261108T170000
+DTEND;TZID=Europe/Prague:20261108T180000
+SUMMARY:MA1 📖 skripta před st přednáškou: 3.3 Bolzanova a Weierstrassova věta
+DESCRIPTION:Letmo projít kapitoly (odhad\, plan.md). Zkontrolovat Halasovo PDF (co se probralo minulý týden) a Borjiho web. Přednáška st 11. 11. 9:50 M1.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 skripta + kontrola Halasova PDF
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-skripta-pa-07@mff
+DTSTART;TZID=Europe/Prague:20261113T100000
+DTEND;TZID=Europe/Prague:20261113T111500
+SUMMARY:MA1 📖 skripta před pá přednáškou: 3.3 důsledky (inverzní funkce\, spojitost)\; 4.1 Derivace: definice
+DESCRIPTION:Letmo projít kapitoly (odhad\, plan.md). Přednáška pá 13. 11. 12:20 M1.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 skripta
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-cviceni-07@mff
+DTSTART;TZID=Europe/Prague:20261109T190000
+DTEND;TZID=Europe/Prague:20261109T203000
+SUMMARY:MA1 ✏️ úlohy na st cvičení: limita funkce I — sbírka 03
+DESCRIPTION:Spočítat úlohy ze sbírky (cviceni/sady.md)\, výsledky zkontrolovat pod úlohou\, postup nechat zkontrolovat. Cvičení st 11. 11. 15:40 N2. V sobotu dopočítat\, co nešlo.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 úlohy na cvičení
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-skripta-st-08@mff
+DTSTART;TZID=Europe/Prague:20261115T170000
+DTEND;TZID=Europe/Prague:20261115T180000
+SUMMARY:MA1 📖 skripta před st přednáškou: 4.1 Pravidla derivování\, derivace elementárních funkcí\, složená a inverzní
+DESCRIPTION:Letmo projít kapitoly (odhad\, plan.md). Zkontrolovat Halasovo PDF (co se probralo minulý týden) a Borjiho web. Přednáška st 18. 11. 9:50 M1.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 skripta + kontrola Halasova PDF
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-skripta-pa-08@mff
+DTSTART;TZID=Europe/Prague:20261120T100000
+DTEND;TZID=Europe/Prague:20261120T111500
+SUMMARY:MA1 📖 skripta před pá přednáškou: 4.2.1 Extrémy (Fermat)\, 4.2.2 Věty o střední hodnotě (Rolle\, Lagrange\, Cauchy)
+DESCRIPTION:Letmo projít kapitoly (odhad\, plan.md). Přednáška pá 20. 11. 12:20 M1.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 skripta
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-cviceni-08@mff
+DTSTART;TZID=Europe/Prague:20261116T190000
+DTEND;TZID=Europe/Prague:20261116T203000
+SUMMARY:MA1 ✏️ úlohy na st cvičení: limita funkce II\, spojitost — sbírka 03 (ZT1 možná ~ konec listopadu)
+DESCRIPTION:Spočítat úlohy ze sbírky (cviceni/sady.md)\, výsledky zkontrolovat pod úlohou\, postup nechat zkontrolovat. Cvičení st 18. 11. 15:40 N2. V sobotu dopočítat\, co nešlo.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 úlohy na cvičení
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-skripta-st-09@mff
+DTSTART;TZID=Europe/Prague:20261122T170000
+DTEND;TZID=Europe/Prague:20261122T180000
+SUMMARY:MA1 📖 skripta před st přednáškou: 4.2.3 Intervaly monotonie\, 4.2.4 Limita derivace
+DESCRIPTION:Letmo projít kapitoly (odhad\, plan.md). Zkontrolovat Halasovo PDF (co se probralo minulý týden) a Borjiho web. Přednáška st 25. 11. 9:50 M1.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 skripta + kontrola Halasova PDF
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-skripta-pa-09@mff
+DTSTART;TZID=Europe/Prague:20261127T100000
+DTEND;TZID=Europe/Prague:20261127T111500
+SUMMARY:MA1 📖 skripta před pá přednáškou: 4.3 Konvexnost a konkávnost\, 4.4 Asymptoty → průběh funkce
+DESCRIPTION:Letmo projít kapitoly (odhad\, plan.md). Přednáška pá 27. 11. 12:20 M1.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 skripta
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-cviceni-09@mff
+DTSTART;TZID=Europe/Prague:20261123T190000
+DTEND;TZID=Europe/Prague:20261123T203000
+SUMMARY:MA1 ✏️ úlohy na st cvičení: derivace I — sbírka 04
+DESCRIPTION:Spočítat úlohy ze sbírky (cviceni/sady.md)\, výsledky zkontrolovat pod úlohou\, postup nechat zkontrolovat. Cvičení st 25. 11. 15:40 N2. V sobotu dopočítat\, co nešlo.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 úlohy na cvičení
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-skripta-st-10@mff
+DTSTART;TZID=Europe/Prague:20261129T170000
+DTEND;TZID=Europe/Prague:20261129T180000
+SUMMARY:MA1 📖 skripta před st přednáškou: 5.1 Řady: základní fakta\, geometrická řada\, nutná podmínka
+DESCRIPTION:Letmo projít kapitoly (odhad\, plan.md). Zkontrolovat Halasovo PDF (co se probralo minulý týden) a Borjiho web. Přednáška st 2. 12. 9:50 M1.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 skripta + kontrola Halasova PDF
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-skripta-pa-10@mff
+DTSTART;TZID=Europe/Prague:20261204T100000
+DTEND;TZID=Europe/Prague:20261204T111500
+SUMMARY:MA1 📖 skripta před pá přednáškou: 5.2 Kritéria konvergence pro řady s nezápornými členy
+DESCRIPTION:Letmo projít kapitoly (odhad\, plan.md). Přednáška pá 4. 12. 12:20 M1.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 skripta
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-cviceni-10@mff
+DTSTART;TZID=Europe/Prague:20261130T190000
+DTEND;TZID=Europe/Prague:20261130T203000
+SUMMARY:MA1 ✏️ úlohy na st cvičení: derivace II\, průběh funkce — sbírka 04\, Pošta\, Brno
+DESCRIPTION:Spočítat úlohy ze sbírky (cviceni/sady.md)\, výsledky zkontrolovat pod úlohou\, postup nechat zkontrolovat. Cvičení st 2. 12. 15:40 N2. V sobotu dopočítat\, co nešlo.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 úlohy na cvičení
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-skripta-st-11@mff
+DTSTART;TZID=Europe/Prague:20261206T170000
+DTEND;TZID=Europe/Prague:20261206T180000
+SUMMARY:MA1 📖 skripta před st přednáškou: 5.3 Absolutní a neabsolutní konvergence\, Leibniz
+DESCRIPTION:Letmo projít kapitoly (odhad\, plan.md). Zkontrolovat Halasovo PDF (co se probralo minulý týden) a Borjiho web. Přednáška st 9. 12. 9:50 M1.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 skripta + kontrola Halasova PDF
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-skripta-pa-11@mff
+DTSTART;TZID=Europe/Prague:20261211T100000
+DTEND;TZID=Europe/Prague:20261211T111500
+SUMMARY:MA1 📖 skripta před pá přednáškou: 5.4 Přerovnání řady (Riemann)
+DESCRIPTION:Letmo projít kapitoly (odhad\, plan.md). Přednáška pá 11. 12. 12:20 M1.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 skripta
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-cviceni-11@mff
+DTSTART;TZID=Europe/Prague:20261207T190000
+DTEND;TZID=Europe/Prague:20261207T203000
+SUMMARY:MA1 ✏️ úlohy na st cvičení: průběh funkce / řady I — sbírka 05
+DESCRIPTION:Spočítat úlohy ze sbírky (cviceni/sady.md)\, výsledky zkontrolovat pod úlohou\, postup nechat zkontrolovat. Cvičení st 9. 12. 15:40 N2. V sobotu dopočítat\, co nešlo.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 úlohy na cvičení
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-skripta-st-12@mff
+DTSTART;TZID=Europe/Prague:20261213T170000
+DTEND;TZID=Europe/Prague:20261213T180000
+SUMMARY:MA1 📖 skripta před st přednáškou: 6.1 l'Hospitalovo pravidlo (jen znění)
+DESCRIPTION:Letmo projít kapitoly (odhad\, plan.md). Zkontrolovat Halasovo PDF (co se probralo minulý týden) a Borjiho web. Přednáška st 16. 12. 9:50 M1.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 skripta + kontrola Halasova PDF
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-skripta-pa-12@mff
+DTSTART;TZID=Europe/Prague:20261218T100000
+DTEND;TZID=Europe/Prague:20261218T111500
+SUMMARY:MA1 📖 skripta před pá přednáškou: 6.2 Bolzanova–Cauchyova podmínka\, 6.3 Zavedení elementárních funkcí
+DESCRIPTION:Letmo projít kapitoly (odhad\, plan.md). Přednáška pá 18. 12. 12:20 M1.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 skripta
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-cviceni-12@mff
+DTSTART;TZID=Europe/Prague:20261214T190000
+DTEND;TZID=Europe/Prague:20261214T203000
+SUMMARY:MA1 ✏️ úlohy na st cvičení: řady II — sbírka 05 (ZT2 možná ~ začátek ledna)
+DESCRIPTION:Spočítat úlohy ze sbírky (cviceni/sady.md)\, výsledky zkontrolovat pod úlohou\, postup nechat zkontrolovat. Cvičení st 16. 12. 15:40 N2. V sobotu dopočítat\, co nešlo.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 úlohy na cvičení
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-skripta-st-13@mff
+DTSTART;TZID=Europe/Prague:20270103T170000
+DTEND;TZID=Europe/Prague:20270103T180000
+SUMMARY:MA1 📖 skripta před st přednáškou: rezerva / opakování
+DESCRIPTION:Letmo projít kapitoly (odhad\, plan.md). Zkontrolovat Halasovo PDF (co se probralo minulý týden) a Borjiho web. Přednáška st 6. 1. 9:50 M1.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 skripta + kontrola Halasova PDF
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-skripta-pa-13@mff
+DTSTART;TZID=Europe/Prague:20270108T100000
+DTEND;TZID=Europe/Prague:20270108T111500
+SUMMARY:MA1 📖 skripta před pá přednáškou: rezerva / opakování (poslední den výuky)
+DESCRIPTION:Letmo projít kapitoly (odhad\, plan.md). Přednáška pá 8. 1. 12:20 M1.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 skripta
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma1-cviceni-13@mff
+DTSTART;TZID=Europe/Prague:20270104T190000
+DTEND;TZID=Europe/Prague:20270104T203000
+SUMMARY:MA1 ✏️ úlohy na st cvičení: opakování\, průběhy funkcí\, staré ZT
+DESCRIPTION:Spočítat úlohy ze sbírky (cviceni/sady.md)\, výsledky zkontrolovat pod úlohou\, postup nechat zkontrolovat. Cvičení st 6. 1. 15:40 N2. V sobotu dopočítat\, co nešlo.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:MA1 úlohy na cvičení
+END:VALARM
+END:VEVENT
+END:VCALENDAR

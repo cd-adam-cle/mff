@@ -4,7 +4,7 @@ Postup, kterým jsme připravili ZS 2026/27 (vzor: LA1, 29. 9. 2026). Použít z
 semestrem, ať nevymýšlíme znovu, co má být hotové. Spouští se příkazem `/pripravit-predmet <ZKR> <url webu kurzu>`
 pro každý předmět; kroky 1 a 5 jsou pro celý semestr.
 
-Stav ZS 2026/27: LA1 ✅ · MA1 ⬜ · UCE ⬜ · PRG1 ⬜ · PROS ⬜ · RIZ ⬜ (⬜ = jen `_info.md`, chybí kroky 2–4)
+Stav ZS 2026/27: LA1 ✅ · MA1 ✅ (3. 10.) · UCE ⬜ · PRG1 ⬜ · PROS ⬜ · RIZ ⬜ (⬜ = jen `_info.md`, chybí kroky 2–4)
 
 ## 1. Před semestrem (celý semestr najednou)
 
@@ -54,3 +54,8 @@ Vstup od Adíka: **odkaz na web kurzu** + co řekl vyučující na první předn
 - Google Drive přes `uc?export=download` vracel 400, funguje `drive.usercontent.google.com`.
 - Číslování sad ke cvičením bylo posunuté o týden proti přednáškám (sada 01 = opakování) — číst názvy v PDF, ne hádat z tabulky.
 - Materiály od starších a z webu se pletly dohromady → konvence `kurz/ od_starsich/ jine/` (kořenový CLAUDE.md, bod 5).
+- MA1 (3. 10.): web „kurzu“ byly tři zdroje (SIS = letošní pravidla, Halasův živý PDF = co se probírá, Rmoutilův web = materiály a staré
+  písemky z let 2021–25) a cvičící má web zatím prázdný. Když přednášející nedává plán dopředu, **odhad rozložení skript** do `plan.md`
+  + sloupec „Probráno“ a týdenní kontrola jeho logu. Kalendář generovat skriptem (`scripts/ma1_pripominky_ics.py`), ne ručně — odhad se bude měnit.
+- Text z PDF: `pdftotext` v systému není; funguje `uv run --with pypdf python -c …` (outline i text), varování pypdf jde do stderr → `2>/dev/null`.
+- Materiály od starších byly z části totožné s webem kurzu (md5), z části starší verze stejných sbírek → totožné `git mv` do `kurz/`, starší verze do `od_starsich/` a označit jako kandidáty na smazání.

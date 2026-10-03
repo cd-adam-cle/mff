@@ -58,7 +58,7 @@ Každý předmět v `01_semestr_1/<ZKR>_<nazev>/` má stejnou strukturu:
 
 ```
 MA1_analyza/
-├── CLAUDE.md         pravidla, plán a body podle webu kurzu; pro daný předmět nadřazený všemu ostatnímu (zatím má LA1)
+├── CLAUDE.md         pravidla, plán a body podle webu kurzu; pro daný předmět nadřazený všemu ostatnímu (zatím má LA1, MA1)
 ├── _info.md          ★ vyučující, podmínky zápočtu, styl zkoušky, literatura, co mi nejde
 ├── prednasky/        p01.md, p02.md … (po týdnech) + img/
 ├── cviceni/          cv01.md …  Zadání → Moje řešení → Poznámky / chyby + img/
@@ -76,7 +76,7 @@ Cizí PDF jsou vždy v podsložce podle původu: `kurz/` 🎓 = od vyučujícíh
 | Zkr. | Předmět | Zakončení | Kr | Co už v repu je |
 |---|---|---|---|---|
 | [LA1](01_semestr_1/LA1_algebra/CLAUDE.md) | Lineární algebra 1 | Z+Zk | 10 | CLAUDE.md s pravidly kurzu, skripta Barto–Tůma, 13 sad cvičení s řešeními, DÚ 1, vzory midtermů a zápočtu, 4 midtermy + zkouška 2020/21 |
-| [MA1](01_semestr_1/MA1_analyza/_info.md) | Matematická analýza 1 | Z+Zk | 8 | skripta Rmoutil, požadavky ke zkoušce, řešené zápočtové testy, sbírky |
+| [MA1](01_semestr_1/MA1_analyza/CLAUDE.md) | Matematická analýza 1 | Z+Zk | 8 | CLAUDE.md s pravidly kurzu, plán po týdnech, skripta Rmoutil + Halasovy instrukce, 5 sbírek ke cvičení, 16 zkoušek 2020–2025 (11 s řešeními), zápočtové testy 2021/22 s řešeními, otázky z teorie, časté chyby |
 | [UCE](01_semestr_1/UCE_ucetnictvi/_info.md) | Účetnictví | Z+Zk | 5 | kapitoly přednášky, zadání 11 cvičení, fotky zápočtových testů |
 | [PRG1](01_semestr_1/PRG1_programovani/_info.md) | Programování 1 (Python) | Z | 3 | sylabus |
 | [PROS](01_semestr_1/PROS_proseminar/_info.md) | Matematický proseminář I | Z | 2 | sylabus; souvisí s přípravným kurzem |

@@ -13,6 +13,7 @@ Díky tomu se dají barvit a vypínat zvlášť a při změně režimu se starý
 | [`rezim_ostatni.ics`](rezim_ostatni.ics) | Režim – ostatní | pá 15:30 doučování němčiny Kladno, ne 9:00 kostel | generuje `scripts/tydenni_rezim_ics.py` |
 | [`LA1_pripominky_kvizy_skripta.ics`](LA1_pripominky_kvizy_skripta.ics) | LA1 připomínky | kvízy (po 12:00), čtení skript (ne 18:00), midtermy, příprava na cvičení | ručně, podle webu kurzu |
 | [`LA1_pripominky_domaci_ukoly.ics`](LA1_pripominky_domaci_ukoly.ics) | LA1 DÚ | odevzdání DÚ (st 23:55) + připomínka 2 dny předem | ručně, podle webu kurzu |
+| [`MA1_pripominky.ics`](MA1_pripominky.ics) | MA1 připomínky | skripta před st přednáškou (ne 17:00, + kontrola Halasova PDF) a před pá (pá 10:00), úlohy na st cvičení (po 19:00); kapitoly = odhad z `plan.md` | generuje `scripts/ma1_pripominky_ics.py` |
 
 Režim běží od po 5. 10. 2026 do pá 8. 1. 2027 (konec výuky), svátky a imatrikulace jsou vyřazené.
 Tisk: [`tydenni_rezim_tisk.pdf`](tydenni_rezim_tisk.pdf) (A4 na šířku, generuje `scripts/tydenni_rezim_tisk.py`). Rozpis a zdůvodnění: [`../tydenni_rezim.md`](../tydenni_rezim.md). Po změně režimu: upravit skript → `python3 scripts/tydenni_rezim_ics.py`
