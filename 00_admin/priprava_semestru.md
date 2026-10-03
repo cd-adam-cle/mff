@@ -4,7 +4,7 @@ Postup, kterým jsme připravili ZS 2026/27 (vzor: LA1, 29. 9. 2026). Použít z
 semestrem, ať nevymýšlíme znovu, co má být hotové. Spouští se příkazem `/pripravit-predmet <ZKR> <url webu kurzu>`
 pro každý předmět; kroky 1 a 5 jsou pro celý semestr.
 
-Stav ZS 2026/27: LA1 ✅ · MA1 ✅ (3. 10.) · UCE ⬜ · PRG1 🟡 (4. 10.; doplnit po 2. cvičení 8. 10.) · PROS ⬜ · RIZ ⬜ (⬜ = jen `_info.md`, chybí kroky 2–4)
+Stav ZS 2026/27: LA1 ✅ · MA1 ✅ (3. 10.) · UCE ✅ (4. 10.; materiály ze SISu průběžně) · PRG1 🟡 (4. 10.; doplnit po 2. cvičení 8. 10.) · PROS ✅ (4. 10.) · RIZ ⬜ (1. přednáška po 5. 10.) (⬜ = jen `_info.md`, chybí kroky 2–4)
 
 ## 1. Před semestrem (celý semestr najednou)
 

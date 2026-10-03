@@ -23,3 +23,13 @@ Co z čeho plyne a kde se co použije — mezi předměty a směrem k financím
 | Rekurze, Fibonacci, rychlé umocňování | Průvodce 1.4, 10, 12 | MA1 posloupnosti; LA1 matice (Fibonacci přes mocninu matice) | |
 | Vektory, matice, skalární součin | Marešovy úlohy (comprehensions) | LA1 kap. 4 | numpy později |
 | Simulace, náhodné procházky, Monte Carlo | Mareš 12 standardní knihovna | finance: ceny jako náhodná procházka, odhad $\pi$ = Monte Carlo | základ pro quant |
+
+## PROS a UCE ↔ ostatní (4. 10. 2026)
+
+| Pojem | Kde | Kde ještě | Poznámka |
+|---|---|---|---|
+| Výroky, negace s kvantifikátory, důkazy | PROS materiály 01–02 | MA1 1.1 (Halas chce obměnu, spor, negaci), LA1 kap. 1, Rmoutilův průvodce | učit jednou, pořádně — v MA1 s přesnými definicemi, v PROS procvičit |
+| Množiny, relace, zobrazení (prosté, na, bijekce, inverzní) | PROS 03–04 | MA1 1.2, LA1 1.5 | stejné definice ve třech předmětech |
+| Elementární funkce, grafy, goniometrie | PROS 05–07 | MA1 kap. 3–4, 6.3; průběh funkce | goniometrické vzorce se v MA1 nezkouší, ale „každý je musí znát“ |
+| Komplexní čísla | PROS 09 | LA1 kap. 1 (tělesa), později FFT (Průvodce kap. 17) | |
+| Rozvaha, cash flow, dluhopisy, akcie, úvěr | UCE kap. 2–3, cv01 | RIZ, finanční matematika (NMFM207), finance obecně | účetní pohled na stejné instrumenty, které se v FM oceňují |

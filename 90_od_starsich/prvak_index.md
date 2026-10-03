@@ -28,10 +28,10 @@ Nic nemá přes 50 MB (celkem 38 MB), fotky v zipech mají do 230 KB, takže neb
 | `Matematická analýza 1/matalyza_skripta.pdf` | MA1 | zápisky (sken, 25 str.) | ZS | střední | 📋 | `MA1/zdroje/od_starsich/MA1_zapisky_sken.pdf` |
 | `Matematická analýza 1/matalyza.txt` | MA1 | tip + odkazy | ZS | střední | ✅ | vytěženo do `MA1/_info.md` |
 | `Účetnictví 1/drive-download-…213248Z….zip` | UCE | písemky (8 fotek: ZT1 A, ZT2 A+B, test 10. 1. 2025) | ZS | **vysoká ★** | 📋 | `UCE/zkouska/img/UCE_zt*` |
-| `Účetnictví 1/přednáška/` | UCE | přednáška, kapitoly 1–7 (.pdf/.doc) | ZS | vysoká | 📋 | `UCE/prednasky/UCE_kapitola_{1..7}` |
-| `Účetnictví 1/cvičení/` | UCE | zadání cvičení 1–11 (.doc, část verze 2025) | ZS | vysoká | 📋 | `UCE/cviceni/UCE_cv{01..11}_zadani.doc` |
-| `Účetnictví 1/ucetnictvi_poznamky.pdf` | UCE | zápisky | ZS | střední | 📋 | `UCE/zdroje/UCE_poznamky_starsi.pdf` |
-| `Účetnictví 1/Resene_priklady_z_financniho_ucetnictvi_2016.pdf` | UCE | řešené příklady | ZS | střední | 📋 | `UCE/zdroje/UCE_resene_priklady_2016.pdf` |
+| `Účetnictví 1/přednáška/` | UCE | přednáška, kapitoly 1–7 (.pdf/.doc) | ZS | vysoká | 📋 | `UCE/zdroje/od_starsich/UCE_ucebnice_kap{1..7}_*` (= učebnice Zichová 2015, kap. 1–7) |
+| `Účetnictví 1/cvičení/` | UCE | zadání cvičení 1–11 (.doc, část verze 2025) | ZS | vysoká | 📋 | `UCE/cviceni/od_starsich/UCE_cv{01..11}_zadani_2025.doc`; klasifikace z cv01–03 vytěžena do `UCE/zkouska/pojmy.md` |
+| `Účetnictví 1/ucetnictvi_poznamky.pdf` | UCE | zápisky | ZS | střední | 📋 | `UCE/zdroje/od_starsich/UCE_poznamky_starsi.pdf` |
+| `Účetnictví 1/Resene_priklady_z_financniho_ucetnictvi_2016.pdf` | UCE | řešené příklady | ZS | střední | 📋 | `UCE/zdroje/od_starsich/UCE_resene_priklady_2016.pdf` |
 | `Účetnictví 1/účto.txt` | UCE | tip + odkaz | ZS | nízká | ✅ | vytěženo do `UCE/_info.md` |
 
 ★ = stará písemka k 1. semestru → **priorita k přepisu** do `zkouska/pisemky.md`.
