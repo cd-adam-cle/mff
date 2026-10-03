@@ -14,3 +14,12 @@ Co z čeho plyne a kde se co použije — mezi předměty a směrem k financím
 | Geometrická řada | 5.1 | finance: současná hodnota anuity, perpetuita | součet $\sum q^n = \frac{1}{1-q}$ → diskontování |
 | Limita $(1+\frac1n)^n = e$ | 2.3, sbírka 02 | finance: spojité úročení | $\lim (1+\frac rn)^n = e^r$ |
 | Derivace, průběh funkce | kap. 4 | RIZ/finance: citlivosti (durace), optimalizace | |
+
+## PRG1 ↔ ostatní (4. 10. 2026)
+
+| Pojem | PRG1 | Kde jinde | Poznámka |
+|---|---|---|---|
+| Složitost, asymptotická notace $O(\cdot)$ | Průvodce kap. 2 | MA1: limity posloupností, růstová škála ($\log n \ll n \ll n^k \ll c^n \ll n!$) | tatáž hierarchie růstu, v MA1 jako limity podílů |
+| Rekurze, Fibonacci, rychlé umocňování | Průvodce 1.4, 10, 12 | MA1 posloupnosti; LA1 matice (Fibonacci přes mocninu matice) | |
+| Vektory, matice, skalární součin | Marešovy úlohy (comprehensions) | LA1 kap. 4 | numpy později |
+| Simulace, náhodné procházky, Monte Carlo | Mareš 12 standardní knihovna | finance: ceny jako náhodná procházka, odhad $\pi$ = Monte Carlo | základ pro quant |

@@ -1,6 +1,10 @@
-# PRG1 — staré písemky
+# PRG1 — testy na cvičení
 
-Zatím nic. Stav: ⬜ nepřepsáno · 🟡 rozpracováno · ✅ přepsáno.
+Zkouška není; zápočet vyžaduje **úspěšné písemné testy na cvičení** (prezenčně, každý lze 1× opravit). Formát, počet a termíny doplní cvičící.
+Stav: ⬜ nepřepsáno · 🟡 rozpracováno · ✅ přepsáno. Originály zadání (pokud budou) do `kurz/` 🎓.
 
-| Priorita | Soubor | Co | Stav |
+| Původ | Soubor / test | Co | Stav |
 |---|---|---|---|
+| | | | |
+
+Příprava: psát kód **na papír, bez našeptávače** — úlohy z Marešova webu k tématu (viz [`../plan.md`](../plan.md)) a cvičení z Průvodce.
