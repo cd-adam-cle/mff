@@ -15,5 +15,5 @@ Díky tomu se dají barvit a vypínat zvlášť a při změně režimu se starý
 | [`LA1_pripominky_domaci_ukoly.ics`](LA1_pripominky_domaci_ukoly.ics) | LA1 DÚ | odevzdání DÚ (st 23:55) + připomínka 2 dny předem | ručně, podle webu kurzu |
 
 Režim běží od po 5. 10. 2026 do pá 8. 1. 2027 (konec výuky), svátky a imatrikulace jsou vyřazené.
-Rozpis a zdůvodnění: [`../tydenni_rezim.md`](../tydenni_rezim.md). Po změně režimu: upravit skript → `python3 scripts/tydenni_rezim_ics.py`
+Tisk: [`tydenni_rezim_tisk.pdf`](tydenni_rezim_tisk.pdf) (A4 na šířku, generuje `scripts/tydenni_rezim_tisk.py`). Rozpis a zdůvodnění: [`../tydenni_rezim.md`](../tydenni_rezim.md). Po změně režimu: upravit skript → `python3 scripts/tydenni_rezim_ics.py`
 → v Kalendáři smazat staré kalendáře „Režim – …“ a naimportovat znovu.
