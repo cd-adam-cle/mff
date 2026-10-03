@@ -6,6 +6,7 @@ _kontext/konverzace/YYYY-MM-DD_<nazev>_<id>.md. Jen text uživatele a Clauda,
 bez výstupů nástrojů a bez interního uvažování. Idempotentní (přepisuje).
 
 Použití:  python3 scripts/export_konverzace.py          # všechny session
+Vyřazení session: ID (nebo prefix) na řádek do _kontext/konverzace/.vyradit.
 Spouští se i automaticky hookem Stop (.claude/settings.json).
 """
 import json, re, sys, unicodedata
@@ -15,6 +16,8 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 SRC = Path.home() / ".claude" / "projects" / re.sub(r"[^A-Za-z0-9]", "-", str(REPO))
 OUT = REPO / "_kontext" / "konverzace"
+# Session, které se nemají exportovat (jeden prefix ID na řádek, # = komentář). Soubor je mimo git.
+VYRADIT = OUT / ".vyradit"
 
 
 def slug(s: str) -> str:
@@ -80,8 +83,16 @@ def export(path: Path):
 
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
+    skip = []
+    if VYRADIT.exists():
+        skip = [l.split("#")[0].strip() for l in VYRADIT.read_text().splitlines()]
+        skip = [x for x in skip if x]
     rows = []
     for p in sorted(SRC.glob("*.jsonl")):
+        if any(p.stem.startswith(x) for x in skip):
+            for old in OUT.glob(f"*_{p.stem[:8]}.md"):
+                old.unlink()
+            continue
         r = export(p)
         if r:
             rows.append(r)

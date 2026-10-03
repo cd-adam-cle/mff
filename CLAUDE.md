@@ -65,7 +65,7 @@ Mff/
 │   └── _nejasne/              co neumíš zařadit, čeká na můj dotaz
 ├── _archiv/                   věci, které nikam nepatří, ale nechci je mazat
 ├── _kontext/konverzace/       automatický export našich konverzací (hook Stop → scripts/export_konverzace.py); mimo git, repo je veřejné
-├── 00_admin/                  rozvrh.md, harmonogram.md (termíny, zápočty, zkouškové)
+├── 00_admin/                  rozvrh.md, harmonogram.md (termíny), tydenni_rezim.md (škola+sport+učení), kalendare/*.ics
 ├── 00_pripravny_kurz/         zářijové opakování SŠ matiky: skripta/, tabule/, videa/
 ├── 01_semestr_1/
 │   ├── _prehled.md            předměty, podmínky, stav, kredity

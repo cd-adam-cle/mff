@@ -36,3 +36,13 @@ media/*/source.*
 # --- přepisy konverzací s Claudem ---------------------------------------
 # Repo je veřejné. Přepisy zůstávají jen lokálně, dokud Adík neřekne jinak.
 _kontext/konverzace/*.md
+_kontext/konverzace/.vyradit
+
+# tajné klíče
+.env
+
+# --- tajné klíče ----------------------------------------------------------
+.env
+
+# --- vygenerované audio skript (1 MB/min, znovu vytvořitelné z text/) ----
+media/*/audio/

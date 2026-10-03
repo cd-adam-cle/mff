@@ -1,0 +1,25 @@
+Kapitola první. Opakování. Jedna tečka jedna. Základní geometrické pojmy.
+
+Ve fyzice je vektor veličina, která má směr a velikost. Vektory obvykle znázorňujeme geometricky jako orientované úsečky (stručněji a méně přesně říkáme také šipky). Jeden a ten samý vektor V můžeme znázornit různými orientovanými úsečkami, pokud mají stejný směr, délku (také se říká velikost) a orientaci. Vektory budeme označovat malými tučnými písmeny.
+
+Obrázek 1.1. Různé šipky znázorňující stejný vektor.
+
+Fyzikální vektor, například síla, může působit v nějakém bodě A. Geometricky to vyjádříme tak, že počáteční bod orientované úsečky znázorňující vektor V umístíme do bodu A. Tím je jednoznačně určený koncový bod této úsečky, na obrázku 1.2 je označený jako C. Říkáme také, že C je koncový bod vektoru V s počátečním bodem A. Stručně to zapisujeme jako C rovná se A plus V. Orientovaná úsečka znázorňující vektor V je jednoznačně určená svým počátečním bodem A a koncovým bodem C, což vyjadřujeme rovností V rovná se C mínus A.
+
+Obrázek 1.2. Počáteční a koncový bod vektoru.
+
+Vektory můžeme násobit reálnými čísly. Vektor dvě V má stejný směr a orientaci jako vektor V, má ale dvojnásobnou délku. Podobně vektor jedna polovina V má poloviční délku oproti V, stejný směr a orientaci. Vektor mínus jedna krát V má stejný směr a délku jako V, má ale opačnou orientaci. Opačný vektor k vektoru V také stručněji zapisujeme mínus V. Násobek nula V je nulový vektor. Nulový vektor jako jediný nemá jednoznačně určený směr.
+
+Obrázek 1.3. Násobky vektoru.
+
+Vektory umíme také sčítat. Dva vektory V a dvojité V sečteme tak, že je umístíme do společného počátečního bodu A a doplníme na rovnoběžník (v případě, že je jeden z vektorů násobkem druhého, bude rovnoběžník degenerovaný). Součet V plus dvojité V je vektor s počátečním bodem A, který má směr, délku a orientaci úhlopříčky v tomto rovnoběžníku.
+
+Obrázek 1.4. Součet vektorů.
+
+Přímku v rovině nebo 3D prostoru můžeme zadat mnoha různými způsoby. Jednou z možností je zadat dva různé body přímky. V dalším textu budeme často používat zadání přímky pomocí jednoho bodu A a směrového vektoru V. Takto zadanou přímku L pak tvoří koncové body všech násobků T V vektoru V s počátečním bodem A, to jest L je množina všech bodů A plus T V, kde T je z R.
+
+Obrázek 1.5. Přímka určená bodem a směrovým vektorem.
+
+Obvyklý způsob jak určit rovinu v 3D prostoru je zadat tři body, které neleží na jedné přímce. Jinou možností je zadat jeden bod A a dvojici vektorů V a dvojité V, které nemají stejný směr (tím je vyloučena také možnost, že by jeden z těchto vektorů byl nulový). Vektor V s počátečním bodem A má nějaký koncový bod B a vektor dvojité V s tím samým počátečním bodem A má koncový bod C. Body A, B, C neleží na jedné přímce, protože vektory V a dvojité V nemají stejný směr (neboli ani jeden z nich nejde získat jako násobek druhého), a proto určují nějakou rovinu P. Leží v ní koncové body všech vektorů S V plus T dvojité V s počátečním bodem A, kde S, T jsou libovolná reálná čísla. Rovinu P tak můžeme napsat jako množinu bodů P je množina všech bodů A plus, v závorce, S V plus T dvojité V, kde S, T jsou z R.
+
+Obrázek 1.6. Rovina určená bodem a dvojicí směrových vektorů.
