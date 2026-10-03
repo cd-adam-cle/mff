@@ -16,16 +16,16 @@ Nic nemá přes 50 MB (celkem 38 MB), fotky v zipech mají do 230 KB, takže neb
 | `Lineární algebra 1, 2/ZS/zk_2021_02-24_*.pdf` | LA1 | písemka (zkouška 24. 2. 2021, 112 str.) | ZS | **vysoká ★** | 📋 | `LA1/zkouska/od_starsich/LA1_zk_2021-02-24_pisemka.pdf` |
 | `Lineární algebra 1, 2/skripta_la7.pdf` | LA1+LA2 | skripta Barto–Tůma (443 str., verze 30. 9. 2025) | ZS+LS | vysoká | ⬜ | stažena do `LA1/zdroje/kurz/LA1_skripta_la7_barto_tuma.pdf` (totožný soubor) |
 | `Lineární algebra 1, 2/lingebra.txt` | LA1 | tip + odkazy | ZS | střední | ✅ | vytěženo do `LA1/_info.md`, `pisemky.md` |
-| `Matematická analýza 1/Řešené zápočtové testy Martin Rmoutil.pdf` | MA1 | řešení písemek (sken) | ZS | **vysoká ★** | 📋 | `MA1/zkouska/MA1_zt_reseni_rmoutil.pdf` |
-| `Matematická analýza 1/Zapoctove testy - reseni.pdf` | MA1 | řešení písemek (sken) | ZS | **vysoká ★** | 📋 | `MA1/zkouska/MA1_zt_reseni.pdf` |
-| `Matematická analýza 1/Vzorovy ZT.pdf` | MA1 | písemka (vzorový 1. ZT) | ZS | **vysoká ★** | 📋 | `MA1/zkouska/MA1_zt1_vzorovy.pdf` |
-| `Matematická analýza 1/Vzorový zápočtový test 2.pdf` | MA1 | písemka (vzorový 2. ZT, 2024) | ZS | **vysoká ★** | 📋 | `MA1/zkouska/MA1_zt2_vzorovy_2024.pdf` |
-| `Matematická analýza 1/Zápočet Limity.pdf` | MA1 | řešení (ručně psané limity) | ZS | střední | 📋 | `MA1/zkouska/MA1_zt_limity_rucne.pdf` |
-| `Matematická analýza 1/Sbírka_příkladů_pro_MA1-{1,2,3}.pdf` | MA1 | sbírka příkladů | ZS | vysoká | 📋 | `MA1/zdroje/MA1_sbirka_{1,2,3}.pdf` |
-| `Matematická analýza 1/Sbírka_příkladů_limita_funkce.pdf` | MA1 | sbírka příkladů | ZS | vysoká | 📋 | `MA1/zdroje/MA1_sbirka_limita_funkce.pdf` |
-| `Matematická analýza 1/Derivace (2).pdf`, `Řady (2).pdf`, `Průběh funkce - řešené příklady.pdf` | MA1 | řešené příklady | ZS | vysoká | 📋 | `MA1/zdroje/MA1_{derivace,rady,prubeh_funkce_resene}.pdf` |
-| `Matematická analýza 1/cviceni_MAI_Stanek.pdf` | MA1 | zadání cvičení (Staněk) | ZS | střední | 📋 | `MA1/zdroje/MA1_cviceni_stanek.pdf` |
-| `Matematická analýza 1/matalyza_skripta.pdf` | MA1 | zápisky (sken, 25 str.) | ZS | střední | 📋 | `MA1/zdroje/MA1_zapisky_starsi_sken.pdf` |
+| `Matematická analýza 1/Řešené zápočtové testy Martin Rmoutil.pdf` | MA1 | řešení písemek (sken) | ZS | **vysoká ★** | 📋 | `MA1/zkouska/kurz/MA1_zt2_vzor_2021_reseni.pdf` (totožné s webem kurzu = řešení vzoru 2. ZT 2021/22) |
+| `Matematická analýza 1/Zapoctove testy - reseni.pdf` | MA1 | řešení písemek (sken) | ZS | **vysoká ★** | 📋 | `MA1/zkouska/kurz/MA1_zt_2023_reseni_vsechny_skupiny.pdf` (totožné s webem kurzu) |
+| `Matematická analýza 1/Vzorovy ZT.pdf` | MA1 | písemka (vzorový 1. ZT) | ZS | **vysoká ★** | 📋 | `MA1/zkouska/od_starsich/MA1_zt1_vzor.pdf` |
+| `Matematická analýza 1/Vzorový zápočtový test 2.pdf` | MA1 | písemka (vzorový 2. ZT, 2024) | ZS | **vysoká ★** | 📋 | `MA1/zkouska/od_starsich/MA1_zt2_vzor_2024.pdf` |
+| `Matematická analýza 1/Zápočet Limity.pdf` | MA1 | řešení (ručně psané limity) | ZS | střední | 📋 | `MA1/zkouska/od_starsich/MA1_zt_limity_rucne.pdf` |
+| `Matematická analýza 1/Sbírka_příkladů_pro_MA1-{1,2,3}.pdf` | MA1 | sbírka příkladů | ZS | vysoká | 📋 | `MA1/cviceni/od_starsich/MA1_sbirka_{1_vyroky_dukazy,2_supremum_infimum,3_limita_posloupnosti}.pdf` (3 = starší verze Rmoutilovy sbírky 02) |
+| `Matematická analýza 1/Sbírka_příkladů_limita_funkce.pdf` | MA1 | sbírka příkladů | ZS | vysoká | 📋 | `MA1/cviceni/od_starsich/MA1_sbirka_limita_funkce.pdf` (starší verze Rmoutilovy sbírky 03) |
+| `Matematická analýza 1/Derivace (2).pdf`, `Řady (2).pdf`, `Průběh funkce - řešené příklady.pdf` | MA1 | řešené příklady | ZS | vysoká | 📋 | `MA1/cviceni/od_starsich/MA1_sbirka_{derivace,rady}.pdf` (starší verze sbírek 04, 05); průběhy = `MA1/cviceni/kurz/MA1_posta_prubehy_funkci_resene.pdf` (totožné s webem kurzu) |
+| `Matematická analýza 1/cviceni_MAI_Stanek.pdf` | MA1 | zadání cvičení (Staněk) | ZS | střední | 📋 | `MA1/cviceni/od_starsich/MA1_stanek_cviceni_03-05.pdf` |
+| `Matematická analýza 1/matalyza_skripta.pdf` | MA1 | zápisky (sken, 25 str.) | ZS | střední | 📋 | `MA1/zdroje/od_starsich/MA1_zapisky_sken.pdf` |
 | `Matematická analýza 1/matalyza.txt` | MA1 | tip + odkazy | ZS | střední | ✅ | vytěženo do `MA1/_info.md` |
 | `Účetnictví 1/drive-download-…213248Z….zip` | UCE | písemky (8 fotek: ZT1 A, ZT2 A+B, test 10. 1. 2025) | ZS | **vysoká ★** | 📋 | `UCE/zkouska/img/UCE_zt*` |
 | `Účetnictví 1/přednáška/` | UCE | přednáška, kapitoly 1–7 (.pdf/.doc) | ZS | vysoká | 📋 | `UCE/prednasky/UCE_kapitola_{1..7}` |
