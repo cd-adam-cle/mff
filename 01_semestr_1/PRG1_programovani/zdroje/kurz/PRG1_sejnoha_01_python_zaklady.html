@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1. týden: poznámky – Python</title>
+<style>
+body { font-family: Arial, sans-serif; line-height: 1.55; max-width: 1000px; margin: 0 auto; padding: 2rem; color: #222; }
+h1, h2, h3, h4 { line-height: 1.25; }
+pre { background: #f5f5f5; padding: 1em; overflow-x: auto; border-radius: 4px; }
+code { font-family: Consolas, "Liberation Mono", monospace; }
+a { color: #000080; }
+li { margin: 0.25em 0; }
+</style>
+</head>
+<body>
+<h1>1. týden: poznámky</h1>
+<h2>Python</h2>
+<p><b>Python</b> je univerzální programovací jazyk. Je to relativně vysokoúrovňový jazyk (například mnohem vyšší úrovně než C). První verze Pythonu se objevila v roce 1990, takže je mu nyní 36 let. Původně šlo o jednoduchý jazyk, který se postupem času stal složitějším. Základ jazyka však stále působí jednoduše a v tomto kurzu se budeme zabývat především jím.</p>
+<p>Python je poměrně flexibilní a výkonný. Je také mimořádně rozšířený. Podle <a href="https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/">GitHubu</a> je Python již několik posledních let druhým nejpopulárnějším jazykem (po JavaScriptu).</p>
+<p>Python je však podstatně méně efektivní než jazyky jako C nebo C++ (alespoň ve své standardní implementaci nazývané CPython). Proto se obvykle nepoužívá pro programovací úlohy, u nichž je důležitá efektivita. Přesto zůstává velmi praktickým a užitečným jazykem.</p>
+<h2>instalace Pythonu</h2>
+<p>Chcete-li do počítače nainstalovat interpret Pythonu, postupujte následovně:</p>
+<h3>Linux</h3>
+<p>Python pravděpodobně najdete nainstalovaný ve výchozím nastavení. Pokud ne, použijte správce balíčků svého systému. (V Ubuntu nebo Debianu doporučuji použít <a href="https://www.nongnu.org/synaptic/">Synaptic</a>.) Najděte balíček pro Python 3. Na mnoha systémech (např. Ubuntu) se jmenuje <code>python3</code>. Nainstalujte jej.</p>
+<h3>macOS</h3>
+<p>Ve webovém prohlížeči přejděte na <a href="https://www.python.org/downloads">stránku pro stažení Pythonu</a>. Klikněte na tlačítko „Download Python 3.14.7“ (pokud bude k dispozici novější verze, může mít vyšší číslo). Po dokončení stahování instalačního programu jej spusťte a potvrďte všechna výchozí nastavení instalace.</p>
+<h3>Windows</h3>
+<p>Ve webovém prohlížeči přejděte na <a href="https://www.python.org/downloads">stránku pro stažení Pythonu</a>. Klikněte na tlačítko „Download Python 3.14.7“ (pokud bude k dispozici novější verze, může mít vyšší číslo). Zobrazí se zpráva „What do you want to do with <b>python-3.14.7-amd64.exe</b> from <b>python.org</b>?“. Klikněte na Run.</p>
+<p>Nyní se zobrazí okno „Install Python 3.14.7 (64-bit)“. V tomto okně <b>nezapomeňte zaškrtnout políčko</b> „Add Python 3.14 to PATH“. Poté klikněte na „Install Now“. Zobrazí se zpráva „Do you want to allow this app to make changes to your device?“. Klikněte na Yes.</p>
+<h2>otevření okna terminálu</h2>
+<h4>Linux</h4>
+<p>V mnoha distribucích to provedete stisknutím klávesy Super a následným zadáním slova „terminal“.</p>
+<h4>macOS</h4>
+<p>Stiskněte Command + Space, zadejte „terminal“ a stiskněte Enter.</p>
+<h4>Windows</h4>
+<p>Stiskněte klávesu Windows, zadejte „command“ a stiskněte Enter.</p>
+<h2>spuštění Pythonu z příkazového řádku</h2>
+<p>Na všech výše uvedených systémech by při úspěšné instalaci Pythonu mělo jeho spuštění vést k výstupu podobnému tomuto:</p>
+<pre class="western">$ python3
+Python 3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt;
+</pre>
+<p>Výzva „>>>“ výše označuje, že se nacházíte v <b>interaktivním interpretu</b> Pythonu, známém také jako REPL (= read-eval-print loop, tedy smyčka čtení–vyhodnocení–výpisu). V interpretu můžete zadávat výrazy, které se vyhodnotí:</p>
+<pre class="western"><font color="#000000">&gt;&gt;&gt; </font><font color="#0000ff">200</font><font color="#000000"> + </font><font color="#0000ff">300</font>
+<font color="#0000ff">500</font>
+<font color="#000000">&gt;&gt;&gt; </font><font color="#0000ff">200</font><font color="#000000"> * </font><font color="#0000ff">300</font>
+<font color="#0000ff">60000</font></pre>
+<p>Na některých systémech můžete Python spustit zadáním pouze „python“ místo „python3“.</p>
+<p>Chcete-li interpret ukončit, zadejte Ctrl+D (v Linuxu nebo macOS) nebo Ctrl+Z a poté Enter (ve Windows). Tyto klávesové zkratky označují konec vstupu. Brzy se s nimi v tomto kurzu setkáme znovu.</p>
+<h2>int a float</h2>
+<p>První dva datové typy Pythonu, které se naučíme, jsou:</p>
+<ul><li><code>int</code> – celé číslo</li><li><code>float</code> – číslo s plovoucí desetinnou čárkou, tedy číslo, které může mít desetinnou část</li></ul>
+<p>S těmito číselnými typy můžeme používat následující <b>aritmetické operátory</b>:</p>
+<ul><li><code>+</code> : sčítá dvě čísla (typu int nebo float)</li><li><code>-</code> : odečítá dvě čísla</li><li><code>*</code> : násobí dvě čísla</li><li><code>/</code> : dělí dvě čísla a výsledkem je float</li><li><code>**</code> : umocňování</li><li><code>//</code> : provádí celočíselné dělení a výsledkem je int</li><li><code>%</code> : vypočítává zbytek po dělení dvou celých čísel (a mod b), výsledkem je int.</li></ul>
+<p>Všimněte si, že celá čísla mohou být v Pythonu <b>libovolně velká</b>:</p>
+<pre class="western"><font color="#000000">&gt;&gt;&gt; </font><font color="#0000ff">2</font><font color="#000000"> ** </font><font color="#0000ff">100</font>
+<font color="#0000ff">1267650600228229401496703205376</font>
+<font color="#000000">&gt;&gt;&gt; </font><font color="#0000ff">2</font><font color="#000000"> ** </font><font color="#0000ff">1000</font>
+<font color="#0000ff">10715086071862673209484250490600018105614048117055336074437503883703510511249361224931983788156958581275946729175531468251871452856923140435984577574698574803934567774824230985421074605062371141877954182153046474983581941267398767559165543946077062914571196477686542167660429831652624386837205668069376</font></pre>
+<p>Naproti tomu čísla s plovoucí desetinnou čárkou jsou uložena v pevně daném množství paměti, takže mohou obsahovat pouze určitý počet číslic:</p>
+<pre class="western"><font color="#000000">&gt;&gt;&gt; </font><font color="#0000ff">2.0</font><font color="#000000"> ** </font><font color="#0000ff">100</font>
+<font color="#0000ff">1.2676506002282294e+30</font></pre>
+<p>Výše uvedené <code>e+30</code> znamená „krát 10<sup>30</sup>“. Všimněte si, že toto číslo s plovoucí desetinnou čárkou obsahuje pouze prvních 17 číslic hodnoty 2<sup>100</sup>, kterou jsme výše vypsali jako celé číslo.</p>
+<p>Možný rozsah hodnot čísel s plovoucí desetinnou čárkou je v Pythonu velký, ale není nekonečný:</p>
+<pre class="western"><font color="#000000">&gt;&gt;&gt; </font><font color="#0000ff">2.0</font><font color="#000000"> ** </font><font color="#0000ff">1000</font>
+<font color="#0000ff">1.0715086071862673e+301</font>
+
+<font color="#000000">&gt;&gt;&gt; </font><font color="#0000ff">2.0</font><font color="#000000"> ** </font><font color="#0000ff">10000</font>
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+OverflowError: (34, 'Numerical result out of range')</pre>
+<p>Operátor <code>//</code> dělí dvě celá čísla a výsledek zaokrouhluje <b>směrem dolů</b> na nejbližší celé číslo:</p>
+<pre class="western"><font color="#000000">&gt;&gt;&gt; </font><font color="#0000ff">20</font><font color="#000000"> // </font><font color="#0000ff">6</font>
+<font color="#0000ff">3</font></pre>
+<p>Operátor <code>%</code> vypočítává zbytek po dělení dvou celých čísel, tedy <b>zbytek</b>, který zbude po celočíselném dělení:</p>
+<pre class="western"><font color="#000000">&gt;&gt;&gt; </font><font color="#0000ff">20</font><font color="#000000"> % </font><font color="#0000ff">6</font>
+<font color="#0000ff">2</font></pre>
+<p>Všimněte si, že 20 = 3 * 6 + 2, tedy 20 = (20 // 6) * 6 + 2. To můžeme zobecnit: pro libovolná celá čísla a a b:</p>
+<p>a = (a // b) * b + (a % b)</p>
+<p>Mimochodem, při zápisu číselných konstant v Pythonu můžeme podtržítka umístit kamkoli. To může zvýšit jejich čitelnost:</p>
+<pre class="western"><font color="#000000">&gt;&gt;&gt; </font><font color="#0000ff">1_000_000_000</font><font color="#000000"> + </font><font color="#0000ff">100_000</font>
+<font color="#0000ff">1000100000</font></pre>
+<h2>bool</h2>
+<p>V Pythonu typ <code>bool</code> představuje <b>logickou</b> hodnotu, která je buď <code>True</code>, nebo <code>False</code>. Tyto konstanty jsou součástí jazyka:</p>
+<pre class="western"><font color="#000000">&gt;&gt;&gt; </font><font color="#000080">True</font>
+<font color="#000080">True</font>
+<font color="#000000">&gt;&gt;&gt; </font><font color="#000080">False</font>
+<font color="#000080">False</font></pre>
+<p>Python obsahuje <b>porovnávací operátory</b>, které mohou porovnávat čísla (nebo jiné druhy hodnot):</p>
+<ul><li><code>x &lt; y</code> (menší než)</li><li><code>x &lt;= y</code> (menší nebo rovno)</li><li><code>x &gt; y</code> (větší než)</li><li><code>x &gt;= y</code> (větší nebo rovno)</li><li><code>x == y</code> (rovná se)</li><li><code>x != y</code> (nerovná se)</li></ul>
+<p>Každý z těchto operátorů vytváří logickou hodnotu:</p>
+<pre class="western"><font color="#000000">&gt;&gt;&gt; </font><font color="#0000ff">4</font><font color="#000000"> &lt; </font><font color="#0000ff">5</font>
+<font color="#000080">True</font>
+<font color="#000000">&gt;&gt;&gt; </font><font color="#0000ff">5</font><font color="#000000"> &lt; </font><font color="#0000ff">2</font>
+<font color="#000080">False</font>
+<font color="#000000">&gt;&gt;&gt; </font><font color="#0000ff">8</font><font color="#000000"> == </font><font color="#0000ff">8</font>
+<font color="#000080">True</font>
+<font color="#000000">&gt;&gt;&gt; </font><font color="#0000ff">8</font><font color="#000000"> != </font><font color="#0000ff">9</font>
+<font color="#000080">True</font></pre>
+<h3>logické operátory</h3>
+<p>Python má <b>logické operátory</b>, které mohou kombinovat logické hodnoty:</p>
+<ul><li><code>and</code></li><li><code>or</code></li><li><code>not</code></li></ul>
+<p>Například:</p>
+<pre class="western"><font color="#000000">&gt;&gt;&gt; </font><font color="#000080">True</font><font color="#000000"> or </font><font color="#000080">False</font>
+<font color="#000080">True</font>
+<font color="#000000">&gt;&gt;&gt; </font><font color="#000080">True</font><font color="#000000"> and </font><font color="#000080">False</font>
+<font color="#000080">False</font>
+<font color="#000000">&gt;&gt;&gt; not </font><font color="#000080">True</font>
+<font color="#000080">False</font>
+<font color="#000000">&gt;&gt;&gt; not </font><font color="#000080">False</font>
+<font color="#000080">True</font></pre>
+<p>Tyto logické operátory často používáme ke kombinování porovnání:</p>
+<pre class="western"><font color="#000000">&gt;&gt;&gt; </font><font color="#0000ff">3</font><font color="#000000"> &lt; </font><font color="#0000ff">5</font><font color="#000000"> and </font><font color="#0000ff">10</font><font color="#000000"> &lt; </font><font color="#0000ff">20</font>
+<font color="#000080">True</font>
+<font color="#000000">&gt;&gt;&gt; not </font><font color="#0000ff">10</font><font color="#000000"> &lt;= </font><font color="#0000ff">50</font>
+<font color="#000080">False</font></pre>
+<h2>string</h2>
+<p><b>Řetězec</b> je posloupnost znaků, tedy kus textu. V Pythonu můžeme řetězce zapisovat v jednoduchých nebo dvojitých uvozovkách:</p>
+<pre class="western"><font color="#000000">&gt;&gt;&gt; </font><font color="#0000ff">'potato'</font>
+<font color="#0000ff">'potato'</font>
+<font color="#000000">&gt;&gt;&gt; </font><font color="#0000ff">"grapefruit"</font>
+<font color="#0000ff">'grapefruit'</font></pre>
+<p>Jednoduché ani dvojité uvozovky nejsou součástí řetězce – pouze označují, že znaky uvnitř tvoří řetězec.</p>
+<p>Řetězce obvykle zapisujeme v jednoduchých uvozovkách, dvojité uvozovky jsou však vhodné, když chceme zapsat řetězec, který uvnitř obsahuje jednoduché uvozovky:</p>
+<pre class="western"><font color="#000000">&gt;&gt;&gt; </font><font color="#0000ff">"she didn't say why"</font>
+<font color="#0000ff">"she didn't say why"</font></pre>
+<p>Všimněte si, že některé operátory, které jsme viděli výše, fungují i s řetězci. Operátor <code>+</code> <b>spojí</b> dva řetězce:</p>
+<pre class="western"><font color="#000000">&gt;&gt;&gt; '</font><font color="#0000ff">pizza'</font><font color="#000000"> + '</font><font color="#0000ff">pie'</font>
+<font color="#0000ff">'pizzapie'</font></pre>
+<p>Operátor <code>*</code> spojí více kopií řetězce za sebou:</p>
+<pre class="western"><font color="#000000">&gt;&gt;&gt; </font><font color="#0000ff">3</font><font color="#000000"> * </font><font color="#0000ff">'orange'</font>
+<font color="#0000ff">'orangeorangeorange'</font>
+<font color="#000000">&gt;&gt;&gt; </font><font color="#0000ff">'xyz'</font><font color="#000000"> * </font><font color="#0000ff">10</font>
+<font color="#0000ff">'xyzxyzxyzxyzxyzxyzxyzxyzxyzxyz'</font></pre>
+<p>Porovnávací operátory, které jsme viděli výše, porovnávají řetězce abecedně:</p>
+<pre class="western"><font color="#000000">&gt;&gt;&gt; </font><font color="#0000ff">'house'</font><font color="#000000"> &lt; </font><font color="#0000ff">'sky'</font>
+<font color="#000080">True</font>
+<font color="#000000">&gt;&gt;&gt; </font><font color="#0000ff">'xyzzy'</font><font color="#000000"> == </font><font color="#0000ff">'xyzzy'</font>
+<font color="#000080">True</font></pre>
+<h2>datové typy: shrnutí</h2>
+<p>Zde jsou vestavěné datové typy, které jsme se dosud naučili:</p>
+<ul><li><code>int</code></li><li><code>float</code></li><li><code>bool</code></li><li><code>string</code></li></ul>
+<p>Tyto typy budou dostačující pro psaní mnoha programů. Později se seznámíme s dalšími vestavěnými datovými typy a dokonce se naučíme vytvářet vlastní typy.</p>
+<h2>převody typů</h2>
+<p>Každý typ, který jsme viděli, má přidruženou <b>funkci pro převod typu</b>:</p>
+<ul><li><code>int(x)</code> převede <code>x</code> na celé číslo. Desetinná část se zahodí; například <code>int(45.228)</code> vytvoří 45. <code>True</code> se převede na 1 a <code>False</code> na 0.</li><li><code>float(x)</code> převede <code>x</code> na číslo s plovoucí desetinnou čárkou. (Pokud je <code>x</code> obrovské celé číslo, nemusí se do něj vejít a dojde k chybě.)</li><li><code>bool(x)</code> převede <code>x</code> na logickou hodnotu. Jakékoli nenulové číslo se převede na <code>True</code> a nula na <code>False</code>. Pokud je <code>x</code> řetězec, výsledná hodnota bude <code>True</code>, pokud řetězec není prázdný, nebo <code>False</code>, pokud je prázdný.</li><li><code>str(x)</code> převede <code>x</code> na řetězec.</li></ul>
+<p>V našich programech budeme zejména často převádět řetězce na celá čísla:</p>
+<pre class="western"><font color="#000000">&gt;&gt;&gt; int(</font><font color="#0000ff">'52'</font><font color="#000000">)</font>
+<font color="#0000ff">52</font></pre>
+<h2>použití IDE</h2>
+<p>Pro psaní programů v Pythonu budete pravděpodobně chtít používat IDE (integrované vývojové prostředí) namísto obyčejného textového editoru. K dispozici je mnoho různých IDE. Obecně doporučuji <a href="https://code.visualstudio.com/">Visual Studio Code</a>, které je open source, funguje na všech hlavních platformách (tj. operačních systémech) a podporuje mnoho různých programovacích jazyků včetně Pythonu.</p>
+<p>Všimněte si, že (poněkud matoucím způsobem) Visual Studio Code není stejný program jako <a href="https://visualstudio.microsoft.com/">Visual Studio</a>, což je starší IDE s uzavřeným zdrojovým kódem, které funguje pouze ve Windows. Při čtení dokumentace online se ujistěte, že se týká programu, který skutečně používáte. (Visual Studiu se v tomto kurzu nebudu věnovat.)</p>
+<p>Ve Visual Studio Code nezapomeňte nainstalovat rozšíření <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python</a> a <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance">Pylance</a>. Umožní IDE rozpoznávat chyby ve vašem Pythonovém kódu a upozorňovat na ně při jeho psaní.</p>
+<p>Ve Visual Studio Code obecně doporučuji otevřít složku, ve které můžete mít jeden nebo více zdrojových souborů. Spusťte Visual Studio Code a v nabídce zvolte File / Open Folder…. Při příštím spuštění Visual Studio Code se dříve otevřená složka otevře automaticky.</p>
+<p>Po otevření složky v ní můžete vytvořit nový zdrojový soubor. Klikněte pravým tlačítkem v levém panelu a z kontextové nabídky zvolte „New File…“, nebo klikněte nahoře na malou ikonu New File (vypadá jako dokument se znaménkem +). Podle konvence mají zdrojové soubory Pythonu vždy příponu „<code>.py</code>“.</p>
+<p>Například vytvořte soubor <code>hello.py</code> a zadejte do něj tento text:</p>
+<pre class="western" style="margin-bottom: 0.2in; margin-left: 0in"><font color="#000000">print(</font><font color="#0000ff">'hello, world'</font><font color="#000000">)</font></pre>
+<p>Toto je jednopříkazový Pythonový program, který vypíše řetězec. Soubor uložte. Nyní jej spusťme. Jednou z možností je kliknout na ikonu Run Python File, která vypadá jako malý trojúhelník v pravém horním rohu okna editoru. Po kliknutí se program spustí v panelu Terminal ve spodní části okna Visual Studio Code.</p>
+<p>Alternativně můžete nejprve otevřít interní okno terminálu stisknutím Ctrl+` a poté do něj zadat <code>python hello.py</code>, čímž program spustíte.</p>
+<p>Já však obecně dávám přednost spouštění Pythonových programů v externím okně terminálu. Otevřete je pomocí Ctrl+Shift+C (v Linuxu nebo Windows) nebo Command+Shift+C (v macOS). Otevře se okno terminálu, jehož aktuální adresář bude stejný jako složka, kterou si prohlížíte ve Visual Studio Code.</p>
+<p>Po otevření externího terminálu můžete spustit Python a předat mu název zdrojového souboru:</p>
+<pre class="western">$ python hello.py
+hello, world
+$ </pre>
+<h2>funkce „input“ a „print“</h2>
+<p>Téměř každý program načítá vstup a vytváří výstup. V Pythonu k tomu budeme používat následující dvě vestavěné funkce:</p>
+<ul><li><code>input()</code> – načte řádek ze standardního vstupu a vrátí řetězec</li><li><code>print()</code> – vypíše jednu nebo více hodnot na standardní výstup</li></ul>
+<p><b>Standardní vstup</b> obvykle přichází z okna terminálu, ve kterém program spouštíte. Podobně se <b>standardní výstup</b> obvykle vypisuje do okna terminálu. (Brzy uvidíme, že pokud chcete, můžete nastavit standardní vstup a výstup tak, aby používaly soubor.)</p>
+<p>Například zde je program:</p>
+<pre class="western"><font color="#000000">print(</font><font color="#0000ff">'What is your name?'</font><font color="#000000">)</font>
+<font color="#000000">name = input()</font>
+<font color="#000000">print(</font><font color="#0000ff">'hello'</font><font color="#000000">, name)</font></pre>
+<p>Spusťme jej:</p>
+<pre class="western"><font color="#000000">$ python hello.py </font>
+<font color="#000000">What is your name?</font>
+<font color="#000000">fred</font>
+<font color="#000000">hello fred</font>
+<font color="#000000">$</font></pre>
+<p>Všimněte si, že funkce <code>input()</code> může přijmout volitelný parametr určující <b>výzvu (prompt)</b>, která se vypíše před načtením vstupu. Předchozí program bychom například mohli přepsat takto:</p>
+<pre class="western"><font color="#000000">name = input(</font><font color="#0000ff">'What is your name? '</font><font color="#000000">)</font>
+<font color="#000000">print(</font><font color="#0000ff">'hello'</font><font color="#000000">, name)</font></pre>
+<p>Uživatel pak zadá vstup na stejném řádku, na kterém byla vypsána výzva:</p>
+<pre class="western">$ py hello.py
+What is your name? joe
+hello joe
+$ </pre>
+<p>Jak bylo uvedeno výše, <code>input()</code> vrací řetězec. Často zavoláme <code>int()</code>, abychom výsledek funkce <code>input()</code> převedli na celé číslo:</p>
+<pre class="western"><font color="#000000">x = int(input(</font><font color="#0000ff">'Enter x: '</font><font color="#000000">))</font>
+<font color="#000000">print(x * x)</font>
+
+$ py hello.py
+Enter x: 111
+12321
+$</pre>
+<h2>proměnné</h2>
+<p>V příkladech z předchozí části jsou <code>name</code> a <code>x</code> <b>proměnné</b>. V Pythonu můžeme proměnné přiřadit hodnotu libovolného typu:</p>
+<pre class="western"><font color="#000000">&gt;&gt;&gt; x = </font><font color="#0000ff">17</font>
+<font color="#000000">&gt;&gt;&gt; y = </font><font color="#0000ff">'mountain'</font>
+<font color="#000000">&gt;&gt;&gt; x</font>
+<font color="#0000ff">17</font>
+<font color="#000000">&gt;&gt;&gt; y</font>
+<font color="#0000ff">'mountain'</font></pre>
+<p>Během běhu programu se hodnoty proměnných mohou v průběhu času měnit. Program</p>
+<pre class="western"><font color="#000000">x = </font><font color="#0000ff">100</font>
+<font color="#000000">print(x + </font><font color="#0000ff">2</font><font color="#000000">)</font>
+<font color="#000000">x = </font><font color="#0000ff">200</font>
+<font color="#000000">print(x + </font><font color="#0000ff">2</font><font color="#000000">)</font></pre>
+<p>vytvoří výstup</p>
+<pre class="western"><font color="#0000ff">102</font>
+<font color="#0000ff">202</font></pre>
+<p>Jak vidíme v příkladech výše, <b>operátor přiřazení „=“</b> přiřadí proměnné novou hodnotu. Dávejte pozor, abyste jej odlišili od porovnávacího operátoru „==“, který testuje, zda jsou dvě hodnoty stejné.</p>
+<p>Často proměnné přiřadíme novou hodnotu vytvořenou z její staré hodnoty:</p>
+<pre class="western"><font color="#000000">&gt;&gt;&gt; x = </font><font color="#0000ff">77</font>
+<font color="#000000">&gt;&gt;&gt; x = x + </font><font color="#0000ff">2</font>
+<font color="#000000">&gt;&gt;&gt; x</font>
+<font color="#0000ff">79</font></pre>
+<p>Příkaz <code>x = x + 2</code> znamená „nová hodnota x je stará hodnota x plus 2“. (Naproti tomu v matematice je „x = x + 2“ rovnice bez řešení.)</p>
+<h2>if, else, elif</h2>
+<p>Pomocí příkazů <code>if</code> a <code>else</code> můžeme podmíněně provádět kód:</p>
+<pre class="western"><font color="#000000">x = int(input(</font><font color="#0000ff">'Enter x: '</font><font color="#000000">))</font>
+
+<font color="#000080">if</font><font color="#000000"> x &gt; </font><font color="#0000ff">1000</font><font color="#000000">:</font>
+<font color="#000000">    print(</font><font color="#0000ff">"That's a big number."</font><font color="#000000">)</font>
+<font color="#000080">else</font><font color="#000000">:</font>
+<font color="#000000">    print(</font><font color="#0000ff">"It's not so big."</font><font color="#000000">)</font>
+<font color="#000000">    print(</font><font color="#0000ff">"Try to think of something bigger."</font><font color="#000000">)</font></pre>
+<p>Příkaz <code>if</code> přijímá logickou podmínku. Pokud je podmínka pravdivá, provede řádky následující po <code>if</code>; v opačném případě provede řádky následující po <code>else</code>. Všimněte si, že každý z těchto bloků může obsahovat jeden nebo více řádků kódu. Všimněte si také, že Python používá <b>odsazení</b> (prázdné znaky na začátku řádku) k rozpoznání těchto bloků.</p>
+<p>Příkaz <code>if</code> nemusí obsahovat část <code>else</code>. Pokud ji neobsahuje a podmínka je nepravdivá, neprovede se nic.</p>
+<p>Příkaz <code>if</code> může obsahovat jednu nebo více částí <code>elif</code>. <code>elif</code> znamená „else if“. Například:</p>
+<pre class="western"><font color="#000080">if</font><font color="#000000"> x &gt; </font><font color="#0000ff">1000</font><font color="#000000">:</font>
+<font color="#000000">    print(</font><font color="#0000ff">"That's a big number."</font><font color="#000000">)</font>
+<font color="#000080">elif</font><font color="#000000"> x &gt; </font><font color="#0000ff">100</font><font color="#000000">:</font>
+<font color="#000000">    print(</font><font color="#0000ff">"It's kind of big."</font><font color="#000000">)</font>
+<font color="#000080">elif</font><font color="#000000"> x &gt; </font><font color="#0000ff">0</font><font color="#000000">:</font>
+<font color="#000000">    print(</font><font color="#0000ff">"It's not very big, but at least it's positive."</font><font color="#000000">)</font>
+<font color="#000080">elif</font><font color="#000000"> x == </font><font color="#0000ff">0</font><font color="#000000">:</font>
+<font color="#000000">    print(</font><font color="#0000ff">"It's zero."</font><font color="#000000">)</font>
+<font color="#000080">else</font><font color="#000000">:</font>
+<font color="#000000">    print(</font><font color="#0000ff">"It's negative."</font><font color="#000000">)</font></pre>
+<h2>komentáře</h2>
+<p>Na libovolném řádku Pythonového programu jsou všechny znaky za znakem „#“ <b>komentářem</b> a ignorují se. Komentáře jsou užitečné pro přidávání vysvětlujícího textu do programů:</p>
+<pre class="western"><font color="#000000">x = int(input())</font>
+<font color="#000080">if</font><font color="#000000"> x % </font><font color="#0000ff">2</font><font color="#000000"> == </font><font color="#0000ff">0</font><font color="#000000">:  </font><font color="#008800"># x is even</font>
+<font color="#000000">    x = x // </font><font color="#0000ff">2</font>
+<font color="#000080">else</font><font color="#000000">:           </font><font color="#008800"># x is odd</font>
+<font color="#000000">    x = </font><font color="#0000ff">3</font><font color="#000000"> * x + </font><font color="#0000ff">1</font></pre>
+<p>Ve Visual Studio Code můžete stisknutím Ctrl+/ zakomentovat nebo odkomentovat aktuálně vybraný blok kódu.</p>
+<h2>další operátory přiřazení</h2>
+<p>Jak víme, příkaz <code>x = x + 2</code> znamená „přičti k proměnné x hodnotu 2“.</p>
+<p>Ve skutečnosti je tento typ operace tak běžný, že Python má pro něj speciální operátor přiřazení <code>+=</code>, který umožňuje tento příkaz zapsat stručněji:</p>
+<pre class="western"><font color="#000000">&gt;&gt;&gt; x = </font><font color="#0000ff">10</font>
+<font color="#000000">&gt;&gt;&gt; x = x + </font><font color="#0000ff">2</font><font color="#000000">    </font><font color="#008800"># add 2 to x</font>
+<font color="#000000">&gt;&gt;&gt; x</font>
+<font color="#0000ff">12</font>
+<font color="#000000">&gt;&gt;&gt; x += </font><font color="#0000ff">2</font><font color="#000000">       </font><font color="#008800"># add 2 to x</font>
+<font color="#000000">&gt;&gt;&gt; x</font>
+<font color="#0000ff">14</font></pre>
+<p>Operátory <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>//=</code> a <code>%=</code> fungují podobně. Například:</p>
+<pre class="western"><font color="#000000">&gt;&gt;&gt; y = </font><font color="#0000ff">100</font>
+<font color="#000000">&gt;&gt;&gt; y *= </font><font color="#0000ff">20</font><font color="#000000">   </font><font color="#008800"># multiply y by 20</font>
+<font color="#000000">&gt;&gt;&gt; y</font>
+<font color="#0000ff">2000</font></pre>
+<p><b>Inkrementovat</b> proměnnou znamená přičíst k ní 1. Podobně <b>dekrementovat</b> proměnnou znamená odečíst od ní 1:</p>
+<pre class="western"><font color="#000000">x += </font><font color="#0000ff">1</font><font color="#000000">          </font><font color="#008800"># increment x</font>
+<font color="#000000">y -= </font><font color="#0000ff">1</font><font color="#000000">          </font><font color="#008800"># decrement y</font></pre>
+<h2>cykly while</h2>
+<p>Cyklus <code>while</code> provádí vnořený blok příkazů (<b>tělo</b> cyklu), dokud je podmínka pravdivá. Například:</p>
+<pre class="western"><font color="#000000">x = int(input(</font><font color="#0000ff">'Enter x: '</font><font color="#000000">))</font>
+
+<font color="#000080">while</font><font color="#000000"> x &gt; </font><font color="#0000ff">0</font><font color="#000000">:</font>
+<font color="#000000">    print(x)</font>
+<font color="#000000">    x = x - </font><font color="#0000ff">1</font>
+
+<font color="#000000">print(</font><font color="#0000ff">'Liftoff!'</font><font color="#000000">)</font></pre>
+<p>Spusťme jej:</p>
+<pre class="western">$ py count.py
+Enter x: 10
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+Liftoff!
+$</pre>
+<p>Zde je program, který pro libovolné N vypočítá součet celých čísel od 1 do N:</p>
+<pre class="western"><font color="#000000">n = int(input(</font><font color="#0000ff">'Enter n: '</font><font color="#000000">))</font>
+
+<font color="#000000">sum = </font><font color="#0000ff">0</font>
+
+<font color="#000080">while</font><font color="#000000"> n &gt; </font><font color="#0000ff">0</font><font color="#000000">:</font>
+<font color="#000000">    sum = sum + n</font>
+<font color="#000000">    n = n - </font><font color="#0000ff">1</font>
+
+<font color="#000000">print(</font><font color="#0000ff">'The sum is'</font><font color="#000000">, sum)</font></pre>
+<p>Zkusme jej:</p>
+<pre class="western">$ py sum.py
+Enter n: 10
+The sum is 55
+$
+<font color="#000000">print(</font><font color="#0000ff">'The sum is'</font><font color="#000000">, sum)</font></pre>
+<p>Nakonec zde je program, který odstraní všechny nuly na konci celého čísla v desítkové soustavě:</p>
+<pre class="western"><font color="#000000">a = int(input(</font><font color="#0000ff">'Enter a: '</font><font color="#000000">))</font>
+
+<font color="#000080">while</font><font color="#000000"> a % </font><font color="#0000ff">10</font><font color="#000000"> == </font><font color="#0000ff">0</font><font color="#000000">:</font>
+<font color="#000000">    a = a // </font><font color="#0000ff">10</font>
+
+<font color="#000000">print(a)</font></pre>
+<h2>cykly for</h2>
+<p>Příkaz <code>for</code> prochází posloupnost hodnot. Může například procházet rozsah celých čísel:</p>
+<pre class="western"><font color="#000080">for</font><font color="#000000"> i in range(</font><font color="#0000ff">1</font><font color="#000000">, </font><font color="#0000ff">5</font><font color="#000000">):</font>
+<font color="#000000">    print(i)</font></pre>
+<p>vytvoří</p>
+<pre class="western">$ py hello.py
+1
+2
+3
+4
+$</pre>
+<p>Všimněte si, že program vypsal čísla 1 až 4, <b>ale ne 5</b>. Je to proto, že v Pythonu <code>range(a, b)</code> vytváří posloupnost hodnot od a až po <b>b, ale b už nezahrnuje</b>. To může působit překvapivě. Později možná uvidíte, proč to v některých souvislostech dává smysl. Prozatím je to něco, na co si musíte zvyknout.</p>
+<p>Pomocí <code>for</code> můžeme součet celých čísel od 1 do N vypočítat o něco snadněji:</p>
+<pre class="western"><font color="#000000">n = int(input(</font><font color="#0000ff">'Enter n: '</font><font color="#000000">))</font>
+
+<font color="#000000">sum = </font><font color="#0000ff">0</font>
+
+<font color="#000080">for</font><font color="#000000"> i in range(</font><font color="#0000ff">1</font><font color="#000000">, n + </font><font color="#0000ff">1</font><font color="#000000">):</font>
+<font color="#000000">    sum = sum + i</font>
+
+<font color="#000000">print(</font><font color="#0000ff">'The sum is'</font><font color="#000000">, sum)</font></pre>
+<p>Ve skutečnosti může <code>for</code> procházet mnoho dalších druhů posloupností. Může například procházet všechny znaky v řetězci:</p>
+<pre class="western"><font color="#000080">for</font><font color="#000000"> c in </font><font color="#0000ff">'hello'</font><font color="#000000">:</font>
+<font color="#000000">    print(c)</font></pre>
+<p>Výsledkem je výstup</p>
+<pre class="western">$ py hello.py
+h
+e
+l
+l
+o
+$</pre>
+</body>
+</html>

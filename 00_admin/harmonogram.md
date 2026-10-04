@@ -3,6 +3,7 @@
 Termíny zápočtových písemek, testů, odevzdání a zkoušek. Řadit podle data.
 Kalendáře k importu (režim týdne + připomínky LA1 a MA1): [`kalendare/`](kalendare/README.md).
 Opakující se termíny LA1 (kvíz každé po 12:00, DÚ každou st 23:55) jsou v `01_semestr_1/LA1_algebra/CLAUDE.md`, §2 a §4.
+PRG1: 10 DÚ do ReCodExu, termín standardně **do dalšího cvičení (čt 15:40)**; testy na cvičení oznámí Šejnoha dopředu.
 MA1 nemá průběžné odevzdávání; zápočtové písemky oznámí cvičící ≥ 2 týdny předem (odhad termínů v `01_semestr_1/MA1_analyza/plan.md`).
 
 | Datum | Předmět | Co | Poznámka |

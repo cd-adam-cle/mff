@@ -1,37 +1,41 @@
 # Programování 1 — NMIN111 (ZS 2026/27)
 
 > **Tento soubor je pro PRG1 nadřazený všemu ostatnímu v této složce i kořenovému `CLAUDE.md`.** Když se cokoli rozchází, platí:
-> pokyny cvičícího (Šejnoha, až budou) > SIS > Marešův web kurzu > Průvodce labyrintem algoritmů > tento soubor > `_info.md`.
-> Zatím je krátký — většinu pravidel a materiálů dá cvičící na 2. cvičení (čt 8. 10.). Potom doplnit a blok ⚠️ smazat.
+> web cvičení Šejnohy > SIS > Marešův web kurzu > Průvodce labyrintem algoritmů > tento soubor > `_info.md`.
 
-- Cvičení (jen cvičení, přednáška není): **čt 15:40–17:10, N11 (Karlín), Mgr. Jiří Šejnoha**. Garant doc. Pavel Töpfer (KSVI).
-- Jazyk: **Python 3** (≥ 3.9). Zaměření cvičení: základy Pythonu + **teorie algoritmů** podle knihy
-  M. Mareš, T. Valla: **Průvodce labyrintem algoritmů** (2. vyd. 2022, CC BY-ND) —
-  [`zdroje/kurz/PRG1_pruvodce_labyrintem_algoritmu_2022.pdf`](zdroje/kurz/PRG1_pruvodce_labyrintem_algoritmu_2022.pdf), <https://pruvodce.ucw.cz/>.
-- Web kurzu ze SISu: Martin Mareš, *Programování 1 pro matematiky* <http://mj.ucw.cz/vyuka/p1m/> — přesměrovává na ročník **2024/25**
-  (jeho úterní cvičení). Letošní stránku Mareš pro NMIN111 nemá; Šejnohův web zatím neznám. Marešova stránka slouží jako
-  **referenční sled témat a výklady** (kopie [`zdroje/web/mares_p1m_2425.html`](zdroje/web/mares_p1m_2425.html), výklady v [`zdroje/kurz/`](zdroje/kurz/)).
-- SIS: [`zdroje/sis/predmet.html`](zdroje/sis/predmet.html) (podmínky zakončení upravil Töpfer 30. 7. 2026).
+- Cvičení (jen cvičení, přednáška není): **čt 15:40–17:10, N11, Mgr. Jiří Šejnoha** (druhá paralelka čt 14:00). Garant doc. Pavel Töpfer (KSVI).
+- **Web cvičení (zdroj pravdy pro zápočet, program a materiály):** <https://kam.mff.cuni.cz/~aston/prg1m/prg1m_ct.html>
+  (rozcestník <https://kam.mff.cuni.cz/~aston/>) — kopie [`zdroje/web/sejnoha_prg1m_ct_2026-10-04.html`](zdroje/web/sejnoha_prg1m_ct_2026-10-04.html).
+  Kontrolovat **každý čtvrtek večer**: přibývá řádek „týden – datum – Přednáška + Notes“ s materiálem k hodině a poznámkami.
+- Kontakt: jiri.sejnoha@mff.cuni.cz (jen školní e-mail). Konzultace po domluvě, nejlépe před/po cvičení; dotazy ideálně přímo na cvičení.
+- Jazyk: **Python 3** (Šejnoha doporučuje aktuální 3.14, VS Code + Python + Pylance; Mareš IDLE). Odevzdávání: **ReCodEx** <https://recodex.mff.cuni.cz/>.
+- Teorie algoritmů podle M. Mareš, T. Valla: **Průvodce labyrintem algoritmů** — [`zdroje/kurz/PRG1_pruvodce_labyrintem_algoritmu_2022.pdf`](zdroje/kurz/PRG1_pruvodce_labyrintem_algoritmu_2022.pdf),
+  <https://pruvodce.ucw.cz/> (Šejnoha z něj bral příklad Hvězdičky už na 1. hodině).
+- Referenční sled témat a výklady: Martin Mareš, *Programování 1 pro matematiky* 2024/25 (web ze SISu, [`zdroje/web/mares_p1m_2425.html`](zdroje/web/mares_p1m_2425.html), výklady v `zdroje/kurz/`).
+- SIS: [`zdroje/sis/predmet.html`](zdroje/sis/predmet.html).
 
-> ⚠️ **K DOPLNĚNÍ po 2. cvičení (8. 10.):** web/materiály Šejnohy, systém odevzdávání (ReCodEx? skupina), bodování DÚ a termíny,
-> kolik testů a kdy, jestli se počítá účast, jak přesně využívá Průvodce (které kapitoly), pravidla pro AI nad rámec SISu.
+> ⚠️ **K DOPLNĚNÍ po 2. cvičení (8. 10.):** Šejnoha podmínky probere podrobně a odpoví na dotazy — ověřit: kdy jde první DÚ, kolik je testů a kdy,
+> jak se počítá 70 % (ze 100 b za DÚ, nebo včetně docházkových bodů), jestli smím při učení (ne při DÚ) používat AI.
 
-## 1. Zápočet (SIS 2026)
+---
 
-- Zápočet = prokázání schopnosti **samostatně navrhovat, implementovat a upravovat** programy. Samostatný návrh = **vlastní tvorba
-  algoritmu a programu bez nástrojů na automatické generování kódu.**
-- **≥ 70 % bodů z průběžných domácích úkolů** zadávaných cvičícím (na cvičení nebo doma, v termínech). Cvičící může stanovit, jak nahradit chybějící body.
-- **Úspěšné písemné testy na cvičení** (prezenčně); každý lze **1× opravit**.
-- Mareš 2024/25 (orientačně, Šejnoha může mít jinak): DÚ do **ReCodExu** (<https://recodex.mff.cuni.cz>, automatické testy, cvičící body koriguje —
-  odměna za elegantní řešení, penalizace za nefunkční, které náhodou prošlo), úkoly za ≥ 100 b, potřeba ≥ 70 b.
+## 1. Zápočet (web Šejnohy, 3. 10. 2026) — všechny části jsou nutné
+
+- **Domácí úkoly:** 10 zadání po 10 b, zadávané během semestru do ReCodExu; každé zadání = jedna nebo víc jednodušších úloh; termín standardně
+  **1 týden (do následujícího cvičení)**. Potřeba **≥ 70 %**. Pod 50 % = bez zápočtu (výjimky jen nemoc apod.); 50–70 % lze doplnit zadanými úkoly
+  (těžšími, případně s osobním předvedením a vysvětlením). Část hodnotí ReCodEx automaticky, část ručně po termínu. Při nejasnostech může chtít
+  ústní vysvětlení kteréhokoli DÚ. Cíl DÚ: procvičení látky a přesvědčit ho, že látce rozumím teoreticky i prakticky.
+- **DÚ samostatně: „no llm, no copy, no co-work, no StackOverflow“** (výjimky oznámí explicitně); přiměřená diskuse s kolegy je povolená a žádoucí.
+- **Průběžné testy** na cvičení, termíny oznámené dopředu; z příkladů ze cvičení a z DÚ; neúspěšný test lze opravit.
+- **Docházka:** +1 b za každé plnohodnotně a aktivně navštívené cvičení, přičítá se k bodům za DÚ. **Aktivita v hodině.**
+- **Podvádění:** výstupy se kontrolují proti plagiátorství; první shodný/podezřelý kód **−10 b**, druhý prohřešek = bez zápočtu; závažné případy formálně, prohřešky jsou fakultně evidované.
+- SIS navíc: zápočet = prokázání schopnosti samostatně navrhovat a implementovat programy **bez nástrojů na generování kódu**.
 
 ## 2. Plán a materiály
 
-Týdenní plán s odhadem témat (Marešův sled 2024/25) a čtením Průvodce: [`plan.md`](plan.md). Log DÚ a testů: [`ukoly/ukoly.md`](ukoly/ukoly.md).
-
-Marešův sled témat (12 výkladů, 🎓 v `zdroje/kurz/`): úvod do Pythonu → podmínky a cykly → seznamy → třídění a vyhledávání → funkce →
-řezy a řetězce → list comprehensions → množiny a slovníky → třídy a objekty → triky s funkcemi (lambda, redukce, generátory) → soubory a výjimky → standardní knihovna.
-Ukázkové programy: <https://gitlab.kam.mff.cuni.cz/mj/prm1>. Průvodce po kapitolách s tím, co se hodí kdy: [`zdroje/pruvodce_obsah.md`](zdroje/pruvodce_obsah.md).
+Předpokládaný obsah 12 cvičení (Šejnohovy notes z 1. 10.) týden po týdnu, s Marešovým výkladem a kapitolou Průvodce k tématu: [`plan.md`](plan.md).
+Log DÚ, docházky a testů: [`ukoly/ukoly.md`](ukoly/ukoly.md). Šejnohovy materiály k hodinám (🎓 „Přednáška“ + „Notes“) ukládám do `zdroje/kurz/PRG1_sejnoha_NN_*`.
+Marešovy výklady 01–12 a ukázkové programy (<https://gitlab.kam.mff.cuni.cz/mj/prm1>) pokrývají stejná témata. Průvodce po kapitolách: [`zdroje/pruvodce_obsah.md`](zdroje/pruvodce_obsah.md).
 
 ## 3. Co už umím (kontext pro Clauda)
 
@@ -40,33 +44,34 @@ Ukázkové programy: <https://gitlab.kam.mff.cuni.cz/mj/prm1>. Průvodce po kapi
   insert/select/bubble/merge/quick/heap sort, lineární a binární vyhledávání, BVS, rozděl a panuj, dynamické programování, backtracking,
   aritmetické výrazy, OOP a dědičnost, Python vs C#, událostmi řízené programování, teorie grafů, BFS/DFS, minimální kostra, topologické třídění, nejkratší cesty.
 - Seminární projekty v C# (`cd-adam-cle/ProgSemAdamZikmund`: backtracking, minimax, práce s textovými soubory, hry), weby (PHP, TypeScript/Next.js).
-- Dlouhodobě: zůstat u programování, zapsat si **Programování 2** (NMIN112, LS; LA1 to doporučuje kvůli algoritmickému uvažování),
-  směřovat k **algoritmickému obchodování a quant věcem** (Python: numpy, pandas, později simulace, optimalizace, časové řady).
+- Dlouhodobě: zůstat u programování, zapsat si **Programování 2** (NMIN112, LS — Šejnoha ho taky cvičí), směřovat k **algoritmickému obchodování
+  a quant věcem** (Python: numpy, pandas, simulace, optimalizace, časové řady).
 
-Důsledek: syntaxe Pythonu je pro mě **překlad z C#**, ne nová látka; hodnota kurzu je v **algoritmickém myšlení, složitosti a čistém návrhu**
-(Průvodce) a v pythonovských idiomech (řezy, comprehensions, slovníky, generátory, výjimky).
+Důsledek: syntaxe Pythonu je pro mě **překlad z C#**; hodnota kurzu je v **algoritmickém myšlení, složitosti a čistém návrhu** (Průvodce, Šejnohův důraz
+na vlastnosti algoritmů a složitost jako funkci) a v pythonských idiomech (řezy, comprehensions, slovníky, generátory, výjimky).
 
 ## 4. Jak má Claude v tomto předmětu pracovat
 
-- **Kód za mě nepíše.** Platí pro DÚ, testy i úlohy ze cvičení: žádné řešení, žádná kostra řešení, žádné „ukázkové“ řešení stejné úlohy.
-  Zápočet stojí na vlastním návrhu bez generování kódu a já to chci umět bez našeptávače (testy jsou na papír/bez pomůcek).
-- Co Claude **dělá**: vysvětlí zadání a pojmy; přeloží moji C# znalost do Pythonu („v C# bys udělal X, tady je idiom Y“); u **mého** kódu
-  najde **první chybu** a vysvětlí proč (ne opraví); navrhne, jaké testovací vstupy zkusit; po odevzdání udělá review (čitelnost, složitost,
-  idiomy, hraniční případy); vysvětlí standardní knihovnu a dokumentaci.
-- **Teorie algoritmů (Průvodce):** tady se může jít naplno — rozbor složitosti, invarianty cyklů, důkazy správnosti, cvičení z knihy
-  (nejsou zápočtové). Pořád nejdřív nápověda, pak řešení na vyžádání. Složitost vždy zdůvodnit, ne jen tvrdit.
-- **Před cvičením**: přečíst Marešův výklad k tématu a kapitolu Průvodce podle `plan.md`; úlohy z Marešova webu k tématu si zkusit sám.
-- **Zápis**: `cviceni/cvNN.md` (co se dělalo, co nešlo, idiomy), `ukoly/duNN/` (zadání `.md` + můj `.py` + poznámky). Vlastní kód do repa patří.
-- Pravidla pro AI z SISu: generování kódu = porušení podmínek zápočtu. Doporučení UK: <https://www.ai.cuni.cz/AI-81.html>.
-- Souvislosti: složitost a rekurze ↔ MA1 (posloupnosti, odhady růstu), matice a vektory ↔ LA1, řady a simulace ↔ finance → `80_mapa_matematiky/`.
+- **Domácí úkoly jsou úplně bez Clauda.** Pravidlo cvičícího je „no llm“: dokud je DÚ otevřená, nenosím k Claudovi ani zadání, ani svůj kód k té úloze
+  (ani „jen vysvětlit zadání“). Po termínu odevzdání: review (čitelnost, složitost, idiomy, hraniční případy), srovnání s tím, co by šlo líp.
+  Obecné učení látky (Šejnohovy a Marešovy výklady, Průvodce, vlastní cvičné úlohy mimo DÚ) s Claudem je v pořádku — ⚠️ potvrdit u Šejnohy 8. 10.
+- **Kód za mě nepíše nikdy** (ani kostru, ani „ukázkové“ řešení stejné úlohy) — testy jsou prezenční a plagiát stojí 10 b.
+- Co Claude **dělá**: vysvětlí pojmy a Python idiomy jako překlad z C#; u **mého** cvičného kódu najde **první chybu** a vysvětlí proč (ne opraví);
+  navrhne testovací vstupy; vysvětlí standardní knihovnu a dokumentaci; připraví cvičné úlohy ve stylu Marešova webu k tématu týdne (pro trénink na testy).
+- **Teorie algoritmů (Průvodce):** naplno — složitost, invarianty, důkazy správnosti, cvičení z knihy (nejsou zápočtové). Nejdřív nápověda, řešení na vyžádání; složitost vždy zdůvodnit.
+- **Před cvičením**: Šejnohova „Přednáška“ k týdnu (když je zveřejněná dopředu) + Marešův výklad + kapitola Průvodce (`plan.md`); úlohy z Marešova webu zkusit sám.
+- **Zápis**: `cviceni/cvNN.md` (co se dělalo, co nešlo, idiomy), `ukoly/duNN/` (zadání + můj kód + poznámky po termínu). Vlastní kód do repa patří; **repo je veřejné** —
+  řešení DÚ commitovat **až po termínu odevzdání** (kvůli pravidlu „no copy“ pro ostatní).
+- Doporučení UK k AI: <https://www.ai.cuni.cz/AI-81.html>.
+- Souvislosti: složitost a růst funkcí ↔ MA1 (růstová škála, limity), matice a vektory ↔ LA1, simulace a náhodné procházky ↔ finance → `80_mapa_matematiky/`.
 
 ## 5. Struktura složky
 
 ```
 PRG1_programovani/
 ├── CLAUDE.md, _info.md, plan.md
-├── cviceni/   cvNN.md + kurz/ (materiály cvičícího) + img/
-├── ukoly/     ukoly.md (log DÚ, body, testy) · duNN/ (zadání + můj kód) · kurz/ (zadání od cvičícího)
+├── cviceni/   cvNN.md + kurz/ + img/
+├── ukoly/     ukoly.md (log DÚ, docházky, testů) · duNN/ (zadání + můj kód, commit až po termínu) · kurz/
 ├── zkouska/   pisemky.md (testy na cvičení), otazky.md, tahak.md + kurz/
-└── zdroje/    kurz/ (Marešovy výklady 01–12, Průvodce) · pruvodce_obsah.md · web/ (Marešova stránka) · sis/ · od_starsich/ · jine/
+└── zdroje/    kurz/ (Šejnoha: PRG1_sejnoha_NN_* · Mareš: výklady 01–12 · Průvodce) · pruvodce_obsah.md · web/ (Šejnoha, Mareš) · sis/ · od_starsich/ · jine/
 ```

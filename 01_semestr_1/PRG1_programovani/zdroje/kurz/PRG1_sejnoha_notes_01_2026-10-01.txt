@@ -1,0 +1,44 @@
+01. 10. 2026 Programování 
+
+1. Hodina (cvičení se koná před přednáškou)
+* Uvítání
+* Představení se a kontakt: využívejte email uvedený na stránce cvičení: 
+* Organizační věci 
+* Stránka cvičení 
+* Podmínky zápočtu (budou doskutovány příště): na stránce cvičení 
+
+Předpokládaný obsah cvičení celého semestru: 
+1.  Úvod, podmínky k zápočtu, ReCodEx. Instalace Pythonu, IDLE. Python jako kalkulačka. Výrazy, operace s čísly, relace, logické spojky. Programy - základní input a print, while, if, indentace, komentáře.
+2. Pořádně print, if (zanořování, elif), ciferný součet, Euklidův algoritmus, test prvočíselnosti.
+3. Zpracování posloupnosti dat. Seznamy, základní operace na seznamech, indexování.
+4. Více čísel na řádku - split(). Fibonacciho čísla, vyhledávání v poli, třídění. Matice jako seznam seznamů.
+5. Formátovaný výstup. Ladění programu. Funkce - parametry, lokalita.
+6. Řezy seznamu, znakové řetězce.
+7. N-tice (tuples). List comprehension. 
+8. Množiny a slovníky.
+9. Základy objektového programování (pouze princip, podrobněji bude v LS).
+10. Funkce jako objekt. Lambda-funkce.
+11. Soubory. Výjimky.
+12. Standardní knihovna (random, ...) .
+
+
+
+Hlavně jsme si povídali o algoritmech:
+* Algoritmus: problém, formalizace, algoritmus intuitivně, více způsobů řešení, který vybrat?, různé vlastnosti algoritmu (konečnost, korektnost, úplnost) - náročnost na zdroje, jaké zdroje?, jak se měří?  
+* Příklady: Hvězdičky (Průvodce labyrintem algoritmů: https://pruvodce.ucw.cz/)
+
+
+Vlastnosti algoritmů. 
+Náročnost algoritmů na zdroje. Jaké zdroje? Počet kafí nebo rozbitých klávesnic?
+Třeba i prostor a čas ... jak je měřit?
+Algoritmus .... pseudokód vs implementace v programu 
+Měření empirické ...
+Více ceste k cíly. Porovnání algoritmů
+Složitost jako funkce. 
+Závislost funkce na čem? 
+Co tím získáme? 
+Jaké funkce máme?
+Jak funkce porovnáváme? 
+
+
+

@@ -18,7 +18,7 @@
 - Když narazíme na pojem nebo větu, která se objevuje i jinde (jiný předmět, finance), zmiň to a zapiš do `80_mapa_matematiky/`.
 - Opakované chyby zapisuj do `80_mapa_matematiky/chyby.md`.
 - Neodhaduj, co bude na zkoušce. Drž se `_info.md`, starých písemek a toho, co řekl vyučující.
-- **Programování 1 (PRG1):** zápočet vyžaduje vlastní kód bez generování. Vysvětluj a kontroluj, kód za mě nepiš.
+- **Programování 1 (PRG1):** zápočet vyžaduje vlastní kód bez generování a DÚ jsou výslovně „no llm“. Vysvětluj a kontroluj, kód za mě nepiš; do otevřených DÚ nevstupuj vůbec (viz `PRG1_programovani/CLAUDE.md` §4).
 
 ## Architektura: všechno v gitu
 
