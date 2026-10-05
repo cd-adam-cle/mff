@@ -58,7 +58,7 @@ Každý předmět v `01_semestr_1/<ZKR>_<nazev>/` má stejnou strukturu:
 
 ```
 MA1_analyza/
-├── CLAUDE.md         pravidla, plán a body podle webu kurzu; pro daný předmět nadřazený všemu ostatnímu (LA1, MA1, PRG1, UCE, PROS)
+├── CLAUDE.md         pravidla, plán a body podle webu kurzu; pro daný předmět nadřazený všemu ostatnímu (všech 6 předmětů)
 ├── _info.md          ★ vyučující, podmínky zápočtu, styl zkoušky, literatura, co mi nejde
 ├── prednasky/        p01.md, p02.md … (po týdnech) + img/
 ├── cviceni/          cv01.md …  Zadání → Moje řešení → Poznámky / chyby + img/
@@ -80,7 +80,7 @@ Cizí PDF jsou vždy v podsložce podle původu: `kurz/` 🎓 = od vyučujícíh
 | [UCE](01_semestr_1/UCE_ucetnictvi/CLAUDE.md) | Účetnictví | Z+Zk | 5 | CLAUDE.md, plán, učebnice kap. 1–7, zadání 11 cvičení 2025, pojmy k testům (110+), fotky zápočtových testů, šablony výkazů a účtový rozvrh ze SISu |
 | [PRG1](01_semestr_1/PRG1_programovani/CLAUDE.md) | Programování 1 (Python) | Z | 3 | CLAUDE.md (bez generování kódu), plán podle Marešova sledu, 12 Marešových výkladů, Průvodce labyrintem algoritmů + mapa kapitol |
 | [PROS](01_semestr_1/PROS_proseminar/CLAUDE.md) | Matematický proseminář I | Z | 2 | CLAUDE.md, 9 materiálů Moravcové (výroky … komplexní čísla), vzorový vstupní test s řešením; souvisí s přípravným kurzem |
-| [RIZ](01_semestr_1/RIZ_financni_rizika/_info.md) | Prakt. aspekty měření a řízení fin. rizik | Zk | 3 | sylabus |
+| [RIZ](01_semestr_1/RIZ_financni_rizika/CLAUDE.md) | Prakt. aspekty měření a řízení fin. rizik | Zk | 3 | CLAUDE.md, plán 10 kapitol, slidy kap. 1–2 (VaR, ES, backtesting, stres), skript na stahování slidů z arm.cz, úkoly (skupinová analýza výkazů 23. 11., individuální práce 31. 12.) |
 
 Aktuální stav (co mám splněné) je v [`01_semestr_1/_prehled.md`](01_semestr_1/_prehled.md).
 

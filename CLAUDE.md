@@ -12,7 +12,7 @@
 - Piš neformální češtinou, stručně a k věci.
 - **Každý předmět v `01_semestr_1/` je samostatný podprojekt.** Když má vlastní `CLAUDE.md`, je pro daný předmět
   nadřazený tomuto souboru i obecným znalostem (hierarchie: skripta > web kurzu > `CLAUDE.md` předmětu > `_info.md`).
-  Vždy ho přečti, než v předmětu něco děláš. Zatím ho má: LA1, MA1, PRG1, UCE, PROS (RIZ po první přednášce).
+  Vždy ho přečti, než v předmětu něco děláš. Mají ho všechny předměty ZS: LA1, MA1, PRG1, UCE, PROS, RIZ.
 - U příkladů mě **veď**: nejdřív nápověda nebo otázka, celé řešení až když o něj požádám nebo se zaseknu. Když řeknu „ukaž řešení“, ukaž ho celé.
 - Při kontrole mého řešení najdi **první chybu**, vysvětli proč je to chyba a nech mě pokračovat.
 - Když narazíme na pojem nebo větu, která se objevuje i jinde (jiný předmět, finance), zmiň to a zapiš do `80_mapa_matematiky/`.
@@ -57,7 +57,7 @@ Pevné hranice:
 Mff/
 ├── CLAUDE.md, README.md, .gitignore
 ├── requirements.txt           pillow, pillow-heif
-├── scripts/optimize_images.py zmenšení a převod obrázků
+├── scripts/                    optimize_images.py (obrázky), ma1_pripominky_ics.py (kalendář MA1), riz_stahni_materialy.py (slidy RIZ, heslo v gitignored .riz_credentials)
 ├── tools/                     čtení videa a zvuku (bin/media) — viz tools/README.md
 ├── media/<slug>/              vytěžené přednášky mimo konkrétní předmět
 ├── .claude/commands/          /roztrid /uklid /kontrola /zkouska /novy-predmet
@@ -71,7 +71,7 @@ Mff/
 │   ├── _prehled.md            předměty, podmínky, stav, kredity
 │   └── <ZKR>_<nazev>/         LA1_algebra, MA1_analyza, UCE_ucetnictvi,
 │       │                      PRG1_programovani, PROS_proseminar, RIZ_financni_rizika
-│       ├── CLAUDE.md          pravidla a plán předmětu z webu kurzu — nadřazené (LA1, MA1, PRG1, UCE, PROS)
+│       ├── CLAUDE.md          pravidla a plán předmětu z webu kurzu — nadřazené (všech 6 předmětů)
 │       ├── _info.md           vyučující, požadavky, literatura, styl písemek
 │       ├── prednasky/         p01.md …  + img/
 │       ├── cviceni/           cv01.md …  + img/

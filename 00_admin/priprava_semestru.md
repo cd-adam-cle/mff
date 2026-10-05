@@ -4,7 +4,7 @@ Postup, kterým jsme připravili ZS 2026/27 (vzor: LA1, 29. 9. 2026). Použít z
 semestrem, ať nevymýšlíme znovu, co má být hotové. Spouští se příkazem `/pripravit-predmet <ZKR> <url webu kurzu>`
 pro každý předmět; kroky 1 a 5 jsou pro celý semestr.
 
-Stav ZS 2026/27: LA1 ✅ · MA1 ✅ (3. 10.) · UCE ✅ (4. 10.; materiály ze SISu průběžně) · PRG1 ✅ (4. 10.; web Šejnohy kam.mff.cuni.cz/~aston) · PROS ✅ (4. 10.) · RIZ ⬜ (1. přednáška po 5. 10.) (⬜ = jen `_info.md`, chybí kroky 2–4)
+Stav ZS 2026/27: LA1 ✅ · MA1 ✅ (3. 10.) · UCE ✅ (4. 10.; materiály ze SISu průběžně) · PRG1 ✅ (4. 10.; web Šejnohy kam.mff.cuni.cz/~aston) · PROS ✅ (4. 10.) · RIZ ✅ (5. 10.) (⬜ = jen `_info.md`, chybí kroky 2–4)
 
 ## 1. Před semestrem (celý semestr najednou)
 
@@ -59,3 +59,5 @@ Vstup od Adíka: **odkaz na web kurzu** + co řekl vyučující na první předn
   + sloupec „Probráno“ a týdenní kontrola jeho logu. Kalendář generovat skriptem (`scripts/ma1_pripominky_ics.py`), ne ručně — odhad se bude měnit.
 - Text z PDF: `pdftotext` v systému není; funguje `uv run --with pypdf python -c …` (outline i text), varování pypdf jde do stderr → `2>/dev/null`.
 - Materiály od starších byly z části totožné s webem kurzu (md5), z části starší verze stejných sbírek → totožné `git mv` do `kurz/`, starší verze do `od_starsich/` a označit jako kandidáty na smazání.
+- RIZ (5. 10.): materiály jsou za přihlášením na firemním webu přednášejících (Nette formulář) → skript `scripts/riz_stahni_materialy.py` s údaji v gitignored
+  `scripts/.riz_credentials`; **heslo nikdy do repa ani do CLAUDE.md** (repo je veřejné). Přímé URL PDF jsou mimochodem dostupné i bez přihlášení.

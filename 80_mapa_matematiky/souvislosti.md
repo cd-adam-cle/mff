@@ -33,3 +33,12 @@ Co z čeho plyne a kde se co použije — mezi předměty a směrem k financím
 | Elementární funkce, grafy, goniometrie | PROS 05–07 | MA1 kap. 3–4, 6.3; průběh funkce | goniometrické vzorce se v MA1 nezkouší, ale „každý je musí znát“ |
 | Komplexní čísla | PROS 09 | LA1 kap. 1 (tělesa), později FFT (Průvodce kap. 17) | |
 | Rozvaha, cash flow, dluhopisy, akcie, úvěr | UCE kap. 2–3, cv01 | RIZ, finanční matematika (NMFM207), finance obecně | účetní pohled na stejné instrumenty, které se v FM oceňují |
+
+## RIZ ↔ ostatní (5. 10. 2026)
+
+| Pojem | RIZ | Kde ještě | Poznámka |
+|---|---|---|---|
+| Finanční výkazy (rozvaha, výsledovka, cash flow) | skupinový úkol: analýza výkazů firmy (23. 11.) | UCE kap. 2–3, cv02, cv04 | stejné výkazy, v UCE se sestavují, v RIZ čtou a hodnotí |
+| Rozdělení ztrát, VaR, Expected Shortfall, kvantily | kap. 2.2 | pravděpodobnost a statistika (později), MA1 (limity, integrál v LS) | $\mathrm{ES}$ pro normální rozdělení má uzavřený vzorec (slide 48) |
+| Backtesting VaR — počet překročení ~ binomické rozdělení | kap. 2.2 | statistika: testování hypotéz | Kupiecův test |
+| Diverzifikace, portfolio, koncentrace | kap. 1, 8 | LA1 (vektory, později kovarianční matice) | subaditivita koherentní míry rizika (příloha kap. 2) |

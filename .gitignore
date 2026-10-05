@@ -46,3 +46,6 @@ _kontext/konverzace/.vyradit
 
 # --- vygenerované audio skript (1 MB/min, znovu vytvořitelné z text/) ----
 media/*/audio/
+
+# --- přihlašovací údaje k materiálům RIZ (arm.cz/mff) — jen lokálně, repo je veřejné ---
+scripts/.riz_credentials

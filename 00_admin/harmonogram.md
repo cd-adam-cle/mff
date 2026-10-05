@@ -17,11 +17,14 @@ MA1 nemá průběžné odevzdávání; zápočtové písemky oznámí cvičící
 | ? (ohlásí ≥ 14 dní předem) | PROS | zápočtový test | ≥ 60 %, SŠ úroveň; 1 řádný + 2 opravné |
 | 2026-11 (2. půlka)? | MA1 | **1. zápočtová písemka**? | odhad podle 2021/22 (limity posloupností); oznámí Borji ≥ 2 týdny předem |
 | 2026-11-17 | — | státní svátek | |
+| 2026-11-23 15:40 | RIZ | **prezentace skupinového úkolu** | analýza finančních výkazů firmy, K1 |
 | 2026-11-18 12:20 | LA1 | **1. midterm** | místo přednášky, 90 min, kap. 2–4 (+1 bez důkazů) |
 | 2026-12-16 12:20 | LA1 | **2. midterm** | místo přednášky, 90 min, kap. 2–5 (+1 bez důkazů) |
 | 2026-11/12? | UCE | **2. zápočtový test**? | 10 pojmů (náklady/výnosy, výsledkové operace), nutno 8 |
 | 2026-12 / 2027-01? | MA1 | **2. zápočtová písemka**? | odhad (limita funkce, derivace, řady); 2022 byla 6. 1. |
+| 2026-12-31 | RIZ | **odevzdání individuální práce** | téma doplnit; diskutuje se u ústní zkoušky |
 | 2027-01-11 9:00 | LA1 | opravný zápočtový test | K2, jen kdo nemá 70 b; přihlášení v SISu |
 | zkouškové | LA1 | zkouška NMAG113 | písemná 2,5 h, termíny v SISu |
 | zkouškové | UCE | zkouška NMFM101 | písemná 1 h, teorie + praktické příklady; kalkulačka a účtový rozvrh povoleny |
+| zkouškové | RIZ | ústní zkouška NMFP463 | diskuse individuální práce + látka 10 kapitol |
 | zkouškové | MA1 | zkouška NMTM101 | písemná: početní → teoretická (≈ 90 + 70 min), termíny v SISu; k teorii jen po úspěšné početní |
