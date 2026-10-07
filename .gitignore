@@ -49,3 +49,11 @@ media/*/audio/
 
 # --- přihlašovací údaje k materiálům RIZ (arm.cz/mff) — jen lokálně, repo je veřejné ---
 scripts/.riz_credentials
+
+# --- Obsidian ------------------------------------------------------------
+# Nastavení vaultu (.obsidian/*.json) se verzuje, ať ho mobil stáhne přes
+# Working Copy. Rozložení oken ne: mění se při každém kliknutí, Mac píše
+# workspace.json, mobil workspace-mobile.json → jen konflikty.
+.obsidian/workspace*.json
+# lokální koš Obsidianu („smazat do koše vaultu")
+.trash/
