@@ -1,0 +1,223 @@
+{
+  "main": {
+    "id": "e8e510e5f55710f3",
+    "type": "split",
+    "children": [
+      {
+        "id": "a40e42bcb8dd8ab9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b9e89cc7cbdcc7e7",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "01_semestr_1/LA1_algebra/ukoly/kurz/LA1_du01_zadani.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "LA1_du01_zadani"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "536941c55db373a4",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "19515d8e30b6444c",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {
+            "sortOrder": "alphabetical",
+            "autoReveal": false,
+            "showSearch": false,
+            "searchQuery": ""
+          },
+          "icon": "lucide-folder-closed",
+          "title": "Průzkumník souborů"
+        }
+      },
+      {
+        "id": "1dbed84143f285be",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          },
+          "icon": "lucide-search",
+          "title": "Hledat"
+        }
+      },
+      {
+        "id": "f073746d4fdc7a3a",
+        "type": "leaf",
+        "state": {
+          "type": "tag",
+          "state": {
+            "sortOrder": "frequency",
+            "useHierarchy": true,
+            "showSearch": false,
+            "searchQuery": ""
+          },
+          "icon": "lucide-tags",
+          "title": "Štítky"
+        }
+      },
+      {
+        "id": "e800fe69104577df",
+        "type": "leaf",
+        "state": {
+          "type": "all-properties",
+          "state": {
+            "sortOrder": "frequency",
+            "showSearch": false,
+            "searchQuery": ""
+          },
+          "icon": "lucide-archive",
+          "title": "Všechny vlastnosti"
+        }
+      },
+      {
+        "id": "e115d5ce54ed9085",
+        "type": "leaf",
+        "state": {
+          "type": "bookmarks",
+          "state": {
+            "showSearch": false,
+            "searchQuery": ""
+          },
+          "icon": "lucide-bookmark",
+          "title": "Záložky"
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "right": {
+    "id": "eaf0c9a81461eb7e",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "e41672939817e6b5",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "01_semestr_1/LA1_algebra/ukoly/kurz/LA1_du01_zadani.pdf",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          },
+          "icon": "links-coming-in",
+          "title": "Zpětné odkazy"
+        }
+      },
+      {
+        "id": "667602ff3a0cebb7",
+        "type": "leaf",
+        "state": {
+          "type": "outgoing-link",
+          "state": {
+            "file": "01_semestr_1/LA1_algebra/ukoly/kurz/LA1_du01_zadani.pdf",
+            "linksCollapsed": false,
+            "unlinkedCollapsed": true
+          },
+          "icon": "links-going-out",
+          "title": "Odchozí odkazy"
+        }
+      },
+      {
+        "id": "0fb4260c364ea5ab",
+        "type": "leaf",
+        "state": {
+          "type": "outline",
+          "state": {
+            "file": "01_semestr_1/LA1_algebra/ukoly/kurz/LA1_du01_zadani.pdf",
+            "followCursor": false,
+            "showSearch": false,
+            "searchQuery": ""
+          },
+          "icon": "lucide-list",
+          "title": "Přehled"
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Otevřít rychlé přepínání": false,
+      "graph:Otevřít graf": false,
+      "canvas:Vytvořit nový canvas": false,
+      "daily-notes:Otevřít dnešní poznámku": false,
+      "templates:Vložit šablonu": false,
+      "command-palette:Otevřít paletu příkazů": false,
+      "bases:Vytvořit novou základnu": false
+    }
+  },
+  "active": "b9e89cc7cbdcc7e7",
+  "lastOpenFiles": [
+    "01_semestr_1/LA1_algebra/ukoly/du01.md",
+    "01_semestr_1/LA1_algebra/ukoly/kurz/LA1_du01_zadani.pdf",
+    "media/test-cz/grid/sheet_01.jpg",
+    "media/test-cz/frames/004_00-01-16.jpg",
+    "media/test-cz/frames/003_00-00-51.jpg",
+    "media/test-cz/frames/002_00-00-25.jpg",
+    "media/test-cz/frames/014_00-05-33.jpg",
+    "media/test-cz/frames/001_00-00-00.jpg",
+    "media/test-cz/frames/007_00-02-33.jpg",
+    "media/test-cz/frames/006_00-02-08.jpg",
+    "media/test-cz/frames/008_00-02-59.jpg",
+    "media/test-cz/frames/005_00-01-42.jpg",
+    "media/la1-skripta-audio/text/1.1.txt",
+    "media/test-cz/grid",
+    "media/test-cz/transcript.json",
+    "media/test-cz/ytdlp.json",
+    "media/test-cz/frames",
+    "media/test-cz/transcript.txt",
+    "media/la1-skripta-audio/text",
+    "media/sheets/tabule",
+    "media/README.md",
+    "media/test-cz",
+    "CLAUDE.md",
+    "80_mapa_matematiky/pojmy.md",
+    "80_mapa_matematiky/chyby.md",
+    "80_mapa_matematiky/souvislosti.md",
+    "README.md",
+    "00_pripravny_kurz/videa/README.md",
+    "01_semestr_1/RIZ_financni_rizika/zkouska/pisemky.md",
+    "01_semestr_1/RIZ_financni_rizika/zkouska/tahak.md",
+    "01_semestr_1/RIZ_financni_rizika/zkouska/otazky.md",
+    "01_semestr_1/UCE_ucetnictvi/zkouska/pisemky.md",
+    "01_semestr_1/UCE_ucetnictvi/zkouska/tahak.md",
+    "01_semestr_1/UCE_ucetnictvi/zkouska/otazky.md",
+    "01_semestr_1/MA1_analyza/zkouska/pisemky.md",
+    "01_semestr_1/MA1_analyza/zkouska/tahak.md",
+    "01_semestr_1/MA1_analyza/zkouska/caste_chyby.md",
+    "01_semestr_1/MA1_analyza/zkouska/otazky.md",
+    "01_semestr_1/MA1_analyza/cviceni/cv02.md",
+    "01_semestr_1/MA1_analyza/cviceni/sady.md",
+    "01_semestr_1/MA1_analyza/cviceni/cv01.md",
+    "01_semestr_1/MA1_analyza/zdroje/skripta_obsah.md",
+    "01_semestr_1/PRG1_programovani/zkouska/pisemky.md",
+    "01_semestr_1/PRG1_programovani/zkouska/tahak.md",
+    "01_semestr_1/PRG1_programovani/zkouska/otazky.md",
+    "01_semestr_1/LA1_algebra/kvizy/kvizy.md"
+  ]
+}
