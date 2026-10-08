@@ -4,7 +4,9 @@ description: Roztřídí nové soubory z _inbox/ do předmětů (zmenšení, př
 Roztřiď všechno, co je v `_inbox/`, podle workflow „Třídění `_inbox/`“ v CLAUDE.md. `_inbox/_nejasne/` ani `.gitkeep` neber.
 
 Postup:
-1. `ls -la _inbox/`. Když je prázdný, řekni to a skonči.
+1. `ls -la _inbox/`. Fotky z mobilu chodí přes Obsidian git rovnou na `origin/main` (`_inbox/Fotky z mobilu/`),
+   takže vždy taky `git fetch` a `git ls-tree -r --name-only origin/main -- _inbox`. Co je jen na `origin/main`,
+   dostaneš do pracovní větve merge `origin/main`. Když je prázdné obojí, řekni to a skonči.
 2. Obrázky nejdřív zmenši: `uv run scripts/optimize_images.py _inbox/`.
    Originály skončí v `_inbox/_raw/` (je v .gitignore). Po úspěšném roztřídění je smaž.
    Fotky **tabule z přednášky** zmenšuj přes `tools/bin/media photos _inbox/` (3200 px), ne na 1600.
