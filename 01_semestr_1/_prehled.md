@@ -18,3 +18,6 @@ Zápočtové písemky, testy a zkouškové termíny: [`00_admin/harmonogram.md`]
 - Předměty s vlastním `CLAUDE.md` (pravidla kurzu, plán, body): všech 6 předmětů (RIZ od 5. 10.).
 - MA1 ⚠️: termíny zápočtových písemek oznámí cvičící ≥ 2 týdny předem; formát zkoušky 2026/27 ověřit u Halase (SIS říká jen „početní → teoretická“); Borjiho web s materiály zatím neexistuje.
 - Doporučení z LA1 (Šťovíček): zapsat si Programování 2 kvůli algoritmickému uvažování.
+- Studijní plán N, Finanční matematika ([Karolinka 2026/27](../00_admin/MFF_karolinka_2026-27.pdf), str. 38–41): 1. rok ZS =
+  LA1 **NMAG113**, MA1, PRG1, UCE, TV I (NTVY014) + **Anglický jazyk** (1 kr, 0/2 Z), který v tabulce nahoře chybí ⚠️ — ověřit zápis v SISu.
+  PROS (NMTM161) je doporučený volitelný, RIZ (NMFP463) doporučený volitelný pro 3. rok. Pro postup do LS je potřeba min. 15 kreditů.
