@@ -434,31 +434,37 @@ cmd_photos(){
   dir="$(cd "$dir" && pwd)"
   local raw="$dir/_raw"; mkdir -p "$raw"
 
-  local n=0 saved_before=0 saved_after=0 img base out
-  for img in "$dir"/*.[pPjJhH][nNpPeE][gGiI]* ; do
+  local n=0 saved_before=0 saved_after=0 img base ext out
+  for img in "$dir"/* ; do
     [ -f "$img" ] || continue
     base="$(basename "$img")"
-    case "$base" in *.jpg|*.jpeg) # already optimised? only redo if oversized
+    ext="$(printf '%s' "${base##*.}" | tr '[:upper:]' '[:lower:]')"
+    case "$ext" in
+      png|heic|heif) ;;
+      jpg|jpeg) # already optimised? only redo if oversized
         [ "$(find "$img" -size +3M | head -1)" ] || continue;;
+      *) continue;;
     esac
     out="$dir/${base%.*}.jpg"
     saved_before=$((saved_before + $(stat -f%z "$img")))
 
     # HEIC needs macOS sips; ffmpeg handles png/jpg
-    case "$base" in
-      *.heic|*.HEIC|*.heif|*.HEIF)
+    case "$ext" in
+      heic|heif)
         sips -s format jpeg -Z "$maxpx" "$img" --out "$out.tmp.jpg" >/dev/null 2>&1 \
-          && mv "$out.tmp.jpg" "$out" || { echo "media: sips failed on $base" >&2; continue; };;
+          || { echo "media: sips failed on $base" >&2; continue; };;
       *)
         ffmpeg -hide_banner -loglevel error -nostdin -i "$img" \
           -vf "scale=$maxpx:$maxpx:force_original_aspect_ratio=decrease" \
           -q:v "$q" -y "$out.tmp.jpg" \
-          && mv "$out.tmp.jpg" "$out" || { echo "media: convert failed on $base" >&2; continue; };;
+          || { echo "media: convert failed on $base" >&2; continue; };;
     esac
+    # set the original aside only once the replacement exists, and before it
+    # lands: out may be the same file (IMG.jpg) or differ only in case (IMG.JPG)
+    [ "$keep" -eq 1 ] && mv "$img" "$raw/" || rm -f "$img"
+    mv "$out.tmp.jpg" "$out"
     saved_after=$((saved_after + $(stat -f%z "$out")))
     n=$((n+1))
-    # only move the original once the replacement exists
-    [ "$img" != "$out" ] && { [ "$keep" -eq 1 ] && mv "$img" "$raw/" || rm -f "$img"; }
   done
 
   [ "$n" -gt 0 ] || { echo "media: no images converted in $dir"; return 0; }
