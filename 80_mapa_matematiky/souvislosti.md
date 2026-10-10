@@ -42,3 +42,13 @@ Co z čeho plyne a kde se co použije — mezi předměty a směrem k financím
 | Rozdělení ztrát, VaR, Expected Shortfall, kvantily | kap. 2.2 | pravděpodobnost a statistika (později), MA1 (limity, integrál v LS) | $\mathrm{ES}$ pro normální rozdělení má uzavřený vzorec (slide 48) |
 | Backtesting VaR — počet překročení ~ binomické rozdělení | kap. 2.2 | statistika: testování hypotéz | Kupiecův test |
 | Diverzifikace, portfolio, koncentrace | kap. 1, 8 | LA1 (vektory, později kovarianční matice) | subaditivita koherentní míry rizika (příloha kap. 2) |
+
+## LA1 kap. 2 Soustavy ↔ ostatní (6. 10. 2026)
+
+| Pojem | LA1 | Kde ještě | Poznámka |
+|---|---|---|---|
+| Sloupcový pohled: $A\mathbf x=\mathbf b$ řešitelná ⇔ $\mathbf b$ je lineární kombinace sloupců | Def. 2.21, 2.5.2 | finance: replikace a oceňování bez arbitráže, úplný trh | sloupce = výplaty aktiv ve stavech světa, $\mathbf x$ = replikační portfolio; trh je úplný ⇔ řešitelné pro každé $\mathbf b$ |
+| Důkaz Věty 2.16 indukcí podle počtu řádků | 2.4 | PRG1 rekurze, MA1 indukce | „jeden krok + menší instance“ |
+| Lineární a kvadratické programování | 2.1.2, 2.1.3 (drobně) | finance: optimální portfolio (Markowitz = kvadratické programování s lineárními omezeními) | |
+| Gaussova eliminace nad jiným tělesem | kap. 2 nad $\mathbb R$ | LA1 kap. 3 (tělesa $\mathbb Z_p$, $\mathbb C$) | algoritmus potřebuje jen sčítat, násobit a dělit nenulovým → funguje v každém tělese |
+| Složitost eliminace $\approx \tfrac23 n^3$ operací | 2.6 (drobně) | PRG1 složitost $O(n^3)$ | |
