@@ -130,19 +130,21 @@ termíny sem a do `00_admin/harmonogram.md`.** Kvíz 1: <https://forms.gle/yVMth
   Oficiální doporučení UK: <https://www.ai.cuni.cz/AI-81.html>.
 - **Kvízy**: podle pravidel kurzu samostatně, jen s materiály. Claude do kvízů nezasahuje; po odevzdání
   klidně rozebereme, co jsem nevěděl (`kvizy/kvizy.md`).
-- **Domácí úkoly**: web kurzu výslovně: *„Pro tento předmět je zakázáno používat AI na domácí úkoly!“*
-  (+ bez ukazování sepsaných řešení spolužákům; nápadně podobné chyby či formulace = odebrání bodů oběma).
-  Hranice je **odevzdání**, ne to, jestli je úkol hotový:
-  - **Před odevzdáním** (otevřený DÚ): Claude konkrétní úlohu nekontroluje, neopravuje, neučesává zápis
-    a nenabízí jiné postupy. I kontrola hotového řešení by změnila to, co se odevzdá. Smí jen obecně
-    vysvětlit pojem nebo větu ze skript. Neodmítá jednou větou: krátce řekne proč a nabídne, co jde
-    (body níž).
-  - **Po odevzdání** (finální verze je v Sovičce a už ji nepřeodevzdávám) nebo po termínu: **plný režim**.
-    Kontrola, první chyba, mouchy v zápisu, jak by to formuloval matematik, alternativní řešení, iterace
-    nad mými nápady, rozbor hodnocení od cvičícího. Zápis do `ukoly/duNN.md` (Moje řešení → Poznámky / chyby).
-  - **Styl matematického zápisu** se trénuje kdykoli na **sadách ke cvičením** (`cviceni/`), tam AI vítaná:
-    Claude zápis důkladně učeše, ukáže, co je navíc a co chybí, jak psát důkaz (předpoklady, kvantifikátory,
-    celé věty, vysvětlené značení). Do DÚ to pak přenesu sám.
+- **Domácí úkoly**: web kurzu říká *„zakázáno používat AI na domácí úkoly“* a trestá nápadně podobné
+  formulace u spolužáků. Jak s tím naložím, je **moje rozhodnutí a moje zodpovědnost** (rozhodnuto 10. 10. 2026);
+  Claude mi to nepřipomíná a neodmítá. Hranice není odevzdání, ale **to, kdo úlohu vyřešil**:
+  - **Úlohu, kterou jsem ještě nevyřešil, Claude neřeší** — žádné řešení, žádné vedení krok za krokem,
+    žádné „zkus tenhle postup“. Když se zaseknu, dostanu jen obecné vysvětlení pojmu/věty ze skript nebo
+    obdobnou úlohu ze sady, na které si to zkusím.
+  - **Jakmile mám vlastní kompletní řešení** (text nebo fotka v `ukoly/duNN.md` nebo v chatu), platí
+    **plný režim jako u cvičení**: kontrola (první chyba, proč), mouchy v zápisu, jak by to formuloval
+    matematik (předpoklady, kvantifikátory, celé věty, značení), jestli argument opravdu dokazuje, co má,
+    alternativní řešení k porovnání, iterace nad mými nápady. Přepsat to musím vždy já vlastními slovy;
+    Claude nedodává hotový „čistopis“ k opsání.
+  - **Obecné matematické otázky jsou vždy v pořádku**, i když vzniknou u DÚ (součtové vzorce, proč platí
+    identita, co znamená pojem). Není to pomoc s úlohou, je to učení.
+  - Po opravě: rozbor hodnocení od cvičícího do `ukoly/duNN.md` (Poznámky / chyby) a opakované chyby do
+    `80_mapa_matematiky/chyby.md`.
 - **Midtermy a zkouška**: trénovat formát — definice a věty celou větou, jednoduché důkazy, ano/ne
   s protipříkladem. `/zkouska LA1` vychází ze `zkouska/` a z tohoto souboru.
 - Cíl práce s Claudem: nadhled nad celou LA, propojování kapitol (a s MA1, financemi →
