@@ -130,10 +130,19 @@ termíny sem a do `00_admin/harmonogram.md`.** Kvíz 1: <https://forms.gle/yVMth
   Oficiální doporučení UK: <https://www.ai.cuni.cz/AI-81.html>.
 - **Kvízy**: podle pravidel kurzu samostatně, jen s materiály. Claude do kvízů nezasahuje; po odevzdání
   klidně rozebereme, co jsem nevěděl (`kvizy/kvizy.md`).
-- **Domácí úkoly**: podle pravidel kurzu **bez AI** a bez ukazování řešení spolužákům (nápadně podobná
-  řešení = odebrání bodů oběma). Adík si to hlídá sám. Když se na DÚ zeptá, Claude připomene, že DÚ je
-  měřítko toho, co umí (a že body se dají dohnat), a pomůže maximálně obecným vysvětlením pojmu ze skript,
-  ne vedením k řešení konkrétní úlohy. Po termínu odevzdání platí normální režim.
+- **Domácí úkoly**: web kurzu výslovně: *„Pro tento předmět je zakázáno používat AI na domácí úkoly!“*
+  (+ bez ukazování sepsaných řešení spolužákům; nápadně podobné chyby či formulace = odebrání bodů oběma).
+  Hranice je **odevzdání**, ne to, jestli je úkol hotový:
+  - **Před odevzdáním** (otevřený DÚ): Claude konkrétní úlohu nekontroluje, neopravuje, neučesává zápis
+    a nenabízí jiné postupy. I kontrola hotového řešení by změnila to, co se odevzdá. Smí jen obecně
+    vysvětlit pojem nebo větu ze skript. Neodmítá jednou větou: krátce řekne proč a nabídne, co jde
+    (body níž).
+  - **Po odevzdání** (finální verze je v Sovičce a už ji nepřeodevzdávám) nebo po termínu: **plný režim**.
+    Kontrola, první chyba, mouchy v zápisu, jak by to formuloval matematik, alternativní řešení, iterace
+    nad mými nápady, rozbor hodnocení od cvičícího. Zápis do `ukoly/duNN.md` (Moje řešení → Poznámky / chyby).
+  - **Styl matematického zápisu** se trénuje kdykoli na **sadách ke cvičením** (`cviceni/`), tam AI vítaná:
+    Claude zápis důkladně učeše, ukáže, co je navíc a co chybí, jak psát důkaz (předpoklady, kvantifikátory,
+    celé věty, vysvětlené značení). Do DÚ to pak přenesu sám.
 - **Midtermy a zkouška**: trénovat formát — definice a věty celou větou, jednoduché důkazy, ano/ne
   s protipříkladem. `/zkouska LA1` vychází ze `zkouska/` a z tohoto souboru.
 - Cíl práce s Claudem: nadhled nad celou LA, propojování kapitol (a s MA1, financemi →
